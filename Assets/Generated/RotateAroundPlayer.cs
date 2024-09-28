@@ -23,11 +23,22 @@ public class RotateAroundPlayer : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Collided");
-        if (collision.CompareTag("Player"))
+        if (!isAttached && collision.CompareTag("Player"))
         {
             targetPlayer = collision.transform;
             isAttached = true;
+        }
+
+        if (isAttached && collision.CompareTag("Enemy"))
+        {
+            //Need to check if the gameobject has a enemy component
+            //TODO: Implement component that indicates the gameobject as enemy, and make the sword damage enemy
+            //ENEMYCOMPONENTNAME isEnemy = collision.gameObject.GetComponent<ENEMYCOMPONENTNAME>();
+
+            //if (isEnemy)
+            //{
+            //    ENEMYCOMPONENTNAME.damage(SWORDDAMAGEVALUE);
+            //}
         }
     }
 }
