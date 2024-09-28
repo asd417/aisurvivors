@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5201934212449482624}
   - component: {fileID: 6212208476881210123}
   - component: {fileID: 6921761456108609129}
+  - component: {fileID: -3519919832516804048}
   m_Layer: 0
   m_Name: Circle (1)
   m_TagString: Untagged
@@ -171,3 +172,16 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &-3519919832516804048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 601162999262384718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc9313706d262405491c63ba30dade79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthPoints: 3
