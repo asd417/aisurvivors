@@ -16,7 +16,7 @@ public class SpriteMove : MonoBehaviour
     public int numberOfSprites = 2;
 
     // List to hold the instantiated sprite objects
-    private List<GameObject> sprites = new List<GameObject>();
+    private List<GameObject> agents = new List<GameObject>();
 
     // List to keep track of the NavMeshAgents for each sprite
     private List<NavMeshAgent> navMeshAgents = new List<NavMeshAgent>();
@@ -48,7 +48,7 @@ public class SpriteMove : MonoBehaviour
                 
                 // Instantiate the sprite prefab at a valid position on the 2D NavMesh
                 GameObject newSprite = Instantiate(spritePrefab, initialPosition, Quaternion.identity);
-                sprites.Add(newSprite);
+                agents.Add(newSprite);
 
                 // Ensure each sprite has a NavMeshAgent component
                 NavMeshAgent agent = newSprite.GetComponent<NavMeshAgent>();
@@ -66,9 +66,9 @@ public class SpriteMove : MonoBehaviour
             }
 
             // Select the first sprite if there are any sprites in the list
-            if (sprites.Count > 0)
+            if (agents.Count > 0)
             {
-                selectedSprite = sprites[currentSpriteIndex];
+                selectedSprite = agents[currentSpriteIndex];
                 HighlightSprite(selectedSprite, true);
             }
         }
@@ -80,10 +80,13 @@ public class SpriteMove : MonoBehaviour
 
     void Update()
     {
+        // Switch between sprites using QWE
+        SwitchNextAgent();
+
         // Toggle between sprites using the Tab key, if there are any sprites
-        if (Input.GetKeyDown(keyTab) && sprites.Count > 0)
+        if (Input.GetKeyDown(keyTab) && agents.Count > 0)
         {
-            ToggleNextSprite();
+            //ToggleNextSprite();
         }
 
         // Set the target position for the currently selected sprite on mouse click
@@ -92,11 +95,52 @@ public class SpriteMove : MonoBehaviour
             SetDestinationForSelectedSprite();
         }
     }
+    // Instead of tab, use QWE
+    private void SwitchNextAgent()
+    {
+        
+        if (Input.GetKeyDown(KeyCode.Q) && agents.Count > 0)
+        {
+            if (selectedSprite != null)
+            {
+                HighlightSprite(selectedSprite, false);
+            }
+            // Do something when the spacebar is pressed
+            Debug.Log("Agent 1 was selected");
+            currentSpriteIndex = 0;
+            selectedSprite = agents[0];
+            HighlightSprite(selectedSprite, true);
+        }
+        if (Input.GetKeyDown(KeyCode.W) && agents.Count > 1)
+        {
+            if (selectedSprite != null)
+            {
+                HighlightSprite(selectedSprite, false);
+            }
+            // Do something when the spacebar is pressed
+            Debug.Log("Agent 2 was selected");
+            currentSpriteIndex = 1;
+            selectedSprite = agents[1];
+            HighlightSprite(selectedSprite, true);
+        }
+        if (Input.GetKeyDown(KeyCode.E) && agents.Count > 2)
+        {
+            if (selectedSprite != null)
+            {
+                HighlightSprite(selectedSprite, false);
+            }
+            // Do something when the spacebar is pressed
+            Debug.Log("Agent 3 was selected");
+            currentSpriteIndex = 2;
+            selectedSprite = agents[2];
+            HighlightSprite(selectedSprite, true);
+        }
+    }
 
     // Method to toggle between sprites
     private void ToggleNextSprite()
     {
-        if (sprites == null || sprites.Count == 0)
+        if (agents == null || agents.Count == 0)
             return;
 
         if (selectedSprite != null)
@@ -104,8 +148,8 @@ public class SpriteMove : MonoBehaviour
             HighlightSprite(selectedSprite, false);
         }
 
-        currentSpriteIndex = (currentSpriteIndex + 1) % sprites.Count;
-        selectedSprite = sprites[currentSpriteIndex];
+        currentSpriteIndex = (currentSpriteIndex + 1) % agents.Count;
+        selectedSprite = agents[currentSpriteIndex];
 
         HighlightSprite(selectedSprite, true);
     }
