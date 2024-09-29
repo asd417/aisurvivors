@@ -13,7 +13,7 @@ public class SpriteMove : MonoBehaviour
     public GameObject spritePrefab;
 
     // Number of sprites to instantiate
-    public int numberOfSprites = 2;
+    public int numberOfSprites;
 
     // List to hold the instantiated sprite objects
     private List<GameObject> agents = new List<GameObject>();
