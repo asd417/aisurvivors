@@ -90,8 +90,9 @@ public class SpriteMove : MonoBehaviour
         }
 
         // Set the target position for the currently selected sprite on mouse click
-        if (Input.GetMouseButtonDown(0) && selectedSprite != null)
+        if (Input.GetMouseButton(0) && selectedSprite != null)
         {
+            Debug.Log("Mouse button down");
             SetDestinationForSelectedSprite();
         }
     }
