@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] Transform target;  // closest player that enemy will target/track
     NavMeshAgent agent;                 // NavMeshAgent for pathfinding
     [SerializeField] float speed = 3.0f;  // Movement speed
-    public int health = 1;
+    public int health = 2;
 
     private void Start()
     {
@@ -48,6 +48,8 @@ public class Enemy : MonoBehaviour
         {
             // enemy-player interactions here can be implemented here
             health--;
+            Debug.Log($"Enemy health: {health}");
+
             if(health <= 0){
                 Destroy(gameObject);
             }
