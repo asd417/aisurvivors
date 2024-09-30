@@ -83,15 +83,10 @@ public class SpriteMove : MonoBehaviour
         // Switch between sprites using QWE
         SwitchNextAgent();
 
-        // Toggle between sprites using the Tab key, if there are any sprites
-        if (Input.GetKeyDown(keyTab) && agents.Count > 0)
-        {
-            //ToggleNextSprite();
-        }
-
         // Set the target position for the currently selected sprite on mouse click
-        if (Input.GetMouseButtonDown(0) && selectedSprite != null)
+        if (Input.GetMouseButton(0) && selectedSprite != null)
         {
+            Debug.Log("Mouse button down");
             SetDestinationForSelectedSprite();
         }
     }

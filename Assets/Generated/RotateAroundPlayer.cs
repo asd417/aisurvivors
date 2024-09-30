@@ -4,12 +4,12 @@ using UnityEngine.UIElements;
 public class RotateAroundPlayer : MonoBehaviour
 {
     [Tooltip("Speed at which the sprite rotates around the player.")]
-    private float rotationSpeed = 1f;
+    private float rotationSpeed = .6f;
 
     private Transform targetPlayer;
     private bool isAttached = false;
     private float angle_euler = 0;
-    private int dist = 2;
+    private int dist = 1;
 
     void Update()
     {
