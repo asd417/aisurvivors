@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class RotateAroundPlayer : MonoBehaviour
+public class Weapon : MonoBehaviour
 {
     [Tooltip("Speed at which the sprite rotates around the player.")]
     private float rotationSpeed = .6f;
@@ -33,12 +33,12 @@ public class RotateAroundPlayer : MonoBehaviour
         {
             //Need to check if the gameobject has a enemy component
             //TODO: Implement component that indicates the gameobject as enemy, and make the sword damage enemy
-            //ENEMYCOMPONENTNAME isEnemy = collision.gameObject.GetComponent<ENEMYCOMPONENTNAME>();
+            Enemy enemy = collision.gameObject.GetComponent<Enemy>();
 
-            //if (isEnemy)
-            //{
-            //    ENEMYCOMPONENTNAME.damage(SWORDDAMAGEVALUE);
-            //}
+            if (enemy)
+            {
+                enemy.TakeDamage(1);
+            }
         }
     }
 }

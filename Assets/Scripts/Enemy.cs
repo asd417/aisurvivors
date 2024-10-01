@@ -38,22 +38,16 @@ public class Enemy : MonoBehaviour
 
     // Handle what happens when enemy reaches player/collides with something
     private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            // enemy-player interactions here can be implemented here
-            Debug.Log("Enemy collided with Player!");
-        }
-        if (collision.gameObject.CompareTag("Weapon"))
-        {
-            // enemy-player interactions here can be implemented here
-            health--;
-            Debug.Log($"Enemy health: {health}");
+    {   
+    }
 
-            if(health <= 0){
-                Destroy(gameObject);
-            }
-            Debug.Log("Enemy collided with Weapon!");
+    public void TakeDamage(int dmg)
+    {
+        health--;
+        Debug.Log($"Enemy health: {health}");
+        if (health <= 0)
+        {
+            Destroy(gameObject);
         }
     }
 

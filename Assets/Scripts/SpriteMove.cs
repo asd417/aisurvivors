@@ -86,14 +86,13 @@ public class SpriteMove : MonoBehaviour
         // Set the target position for the currently selected sprite on mouse click
         if (Input.GetMouseButton(0) && selectedSprite != null)
         {
-            Debug.Log("Mouse button down");
+            //Debug.Log("Mouse button down");
             SetDestinationForSelectedSprite();
         }
     }
     // Instead of tab, use QWE
     private void SwitchNextAgent()
     {
-        
         if (Input.GetKeyDown(KeyCode.Q) && agents.Count > 0)
         {
             if (selectedSprite != null)
