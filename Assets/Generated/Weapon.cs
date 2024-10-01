@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.UIElements;
+using System.Collections;
+
 
 public class Weapon : MonoBehaviour
 {
@@ -10,6 +12,13 @@ public class Weapon : MonoBehaviour
     private bool isAttached = false;
     private float angle_euler = 0;
     private int dist = 1;
+
+    [SerializeField, Tooltip("Damage dealt to the player")]
+    int damage = 1;
+
+    [SerializeField, Tooltip("Invincibility buffer in seconds between damage intervals")]
+    float invincibilityBuffer = 1.0f;
+    private bool canDealDamage = true;  
 
     void Update()
     {
@@ -29,16 +38,24 @@ public class Weapon : MonoBehaviour
             isAttached = true;
         }
 
-        if (isAttached && collision.CompareTag("Enemy"))
+        if (isAttached && collision.CompareTag("Enemy") && canDealDamage)
         {
             //Need to check if the gameobject has a enemy component
             //TODO: Implement component that indicates the gameobject as enemy, and make the sword damage enemy
             Enemy enemy = collision.gameObject.GetComponent<Enemy>();
 
-            if (enemy)
+            if (enemy != null)
             {
-                enemy.TakeDamage(1);
+                enemy.TakeDamage(damage);
+                StartCoroutine(DamageCooldown()); //  timer for damage buffer/cooldown between damage intervals
             }
         }
+    }
+
+    private IEnumerator DamageCooldown()
+    {
+        canDealDamage = false;
+        yield return new WaitForSeconds(invincibilityBuffer);
+        canDealDamage = true;
     }
 }

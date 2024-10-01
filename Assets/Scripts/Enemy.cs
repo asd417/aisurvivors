@@ -43,7 +43,7 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(int dmg)
     {
-        health--;
+        health -= dmg;
         Debug.Log($"Enemy health: {health}");
         if (health <= 0)
         {
@@ -82,3 +82,4 @@ public class Enemy : MonoBehaviour
         target = closestPlayer.transform;
     }
 }
+
