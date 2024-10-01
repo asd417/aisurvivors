@@ -6,11 +6,15 @@ public class SpriteMove : MonoBehaviour
 {
     public static SpriteMove instance;
 
-    public string keyTab = "tab";
     public float stoppingDistance = 0.1f; // Distance within which the agent stops
 
     // Prefab of the sprite to instantiate (must have a NavMeshAgent component)
-    public GameObject spritePrefab;
+    public GameObject spritePrefab1;
+    public GameObject spritePrefab2;
+    public GameObject spritePrefab3;
+
+    public int spotx = 0;
+    public int spoty = 0;
 
     // Number of sprites to instantiate
     public int numberOfSprites;
@@ -39,15 +43,16 @@ public class SpriteMove : MonoBehaviour
 
     void Start()
     {
-        // Instantiate a finite number of sprites and add them to the list
-        if (spritePrefab != null)
+        /*// Instantiate a finite number of sprites and add them to the list
+        if (spritePrefab1 != null)
         {
+            /*
             for (int i = 0; i < numberOfSprites; i++)
             {
                 Vector3 initialPosition = new Vector3(i * 2.0f, 0, 0); // Replace with a position on your NavMesh
                 
                 // Instantiate the sprite prefab at a valid position on the 2D NavMesh
-                GameObject newSprite = Instantiate(spritePrefab, initialPosition, Quaternion.identity);
+                GameObject newSprite = Instantiate(spritePrefab1, initialPosition, Quaternion.identity);
                 agents.Add(newSprite);
 
                 // Ensure each sprite has a NavMeshAgent component
@@ -64,7 +69,10 @@ public class SpriteMove : MonoBehaviour
 
                 navMeshAgents.Add(agent);
             }
+            
 
+            
+            
             // Select the first sprite if there are any sprites in the list
             if (agents.Count > 0)
             {
@@ -76,6 +84,10 @@ public class SpriteMove : MonoBehaviour
         {
             Debug.LogWarning("Sprite prefab is not assigned in the Inspector.");
         }
+        */
+        SpriteAssign(spritePrefab1);
+        SpriteAssign(spritePrefab2);
+        SpriteAssign(spritePrefab3);
     }
 
     void Update()
@@ -90,6 +102,30 @@ public class SpriteMove : MonoBehaviour
             SetDestinationForSelectedSprite();
         }
     }
+
+    void SpriteAssign(GameObject sprite){
+    
+        Vector3 initialPosition = new Vector3(spotx, spoty, 0); //put in position here
+        spotx += 2;
+        GameObject newSprite = Instantiate(sprite, initialPosition, Quaternion.identity);
+        agents.Add(newSprite);
+
+        // Ensure each sprite has a NavMeshAgent component
+        NavMeshAgent agent = newSprite.GetComponent<NavMeshAgent>();
+        if (agent == null)
+        {
+            agent = newSprite.AddComponent<NavMeshAgent>(); // Add component if not present
+        }
+
+        // Configure NavMeshAgent properties (optional)
+        agent.stoppingDistance = stoppingDistance;
+        agent.updateUpAxis = false; // Disable the update of the up axis to work in 2D
+        agent.updateRotation = false; // Disable rotation updates to prevent 3D rotations
+        
+
+        navMeshAgents.Add(agent);
+    }
+
     // Instead of tab, use QWE
     private void SwitchNextAgent()
     {
