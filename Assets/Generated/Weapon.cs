@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 using System.Collections;
+using Unity.VisualScripting;
 
 
 public class Weapon : MonoBehaviour
@@ -8,6 +9,7 @@ public class Weapon : MonoBehaviour
     [Tooltip("Speed at which the sprite rotates around the player.")]
     private float rotationSpeed = .6f;
 
+    public GameObject DamageTextCanvas;
     private Transform targetPlayer;
     private bool isAttached = false;
     private float angle_euler = 0;
@@ -15,6 +17,16 @@ public class Weapon : MonoBehaviour
 
     [SerializeField, Tooltip("Damage dealt to the player")]
     int damage = 1;
+
+    [SerializeField, Tooltip("Invincibility buffer in seconds between damage intervals")]
+    float invincibilityBuffer = 1.0f;
+    private bool canDealDamage = true;
+    public GameObject dmgTextPrefab;
+
+    private void Start()
+    {
+        DamageTextCanvas = GameObject.Find("DmgTextDrawer");
+    }
 
     void Update()
     {
@@ -43,6 +55,8 @@ public class Weapon : MonoBehaviour
             if (enemy != null)
             {
                 enemy.TakeDamage(damage);
+                GameObject text = Instantiate(dmgTextPrefab, DamageTextCanvas.transform);
+                text.GetComponent<DmgText>().SetDmgPos(damage, collision.transform.position);
             }
         }
     }
