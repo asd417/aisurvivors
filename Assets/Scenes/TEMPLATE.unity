@@ -270,7 +270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27884fadcc68d4124b7b2a9735861ef6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteEnemyPrefab: {fileID: 0}
+  spriteEnemyPrefab: {fileID: 601162999262384718, guid: e58e0666334194f37ae40b4fa2c8c485, type: 3}
   spawnx1: -7
   spawny1: -3
   spawnx2: 0
