@@ -16,10 +16,6 @@ public class Weapon : MonoBehaviour
     [SerializeField, Tooltip("Damage dealt to the player")]
     int damage = 1;
 
-    [SerializeField, Tooltip("Invincibility buffer in seconds between damage intervals")]
-    float invincibilityBuffer = 1.0f;
-    private bool canDealDamage = true;  
-
     void Update()
     {
         if (isAttached && targetPlayer != null)
@@ -38,7 +34,7 @@ public class Weapon : MonoBehaviour
             isAttached = true;
         }
 
-        if (isAttached && collision.CompareTag("Enemy") && canDealDamage)
+        if (isAttached && collision.CompareTag("Enemy"))
         {
             //Need to check if the gameobject has a enemy component
             //TODO: Implement component that indicates the gameobject as enemy, and make the sword damage enemy
@@ -47,15 +43,7 @@ public class Weapon : MonoBehaviour
             if (enemy != null)
             {
                 enemy.TakeDamage(damage);
-                StartCoroutine(DamageCooldown()); //  timer for damage buffer/cooldown between damage intervals
             }
         }
-    }
-
-    private IEnumerator DamageCooldown()
-    {
-        canDealDamage = false;
-        yield return new WaitForSeconds(invincibilityBuffer);
-        canDealDamage = true;
     }
 }
