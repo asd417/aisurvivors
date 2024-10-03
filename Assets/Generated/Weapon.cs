@@ -46,7 +46,7 @@ public class Weapon : MonoBehaviour
             isAttached = true;
         }
 
-        if (isAttached && collision.CompareTag("Enemy") && canDealDamage)
+        if (isAttached && collision.CompareTag("Enemy"))
         {
             //Need to check if the gameobject has a enemy component
             //TODO: Implement component that indicates the gameobject as enemy, and make the sword damage enemy
@@ -55,17 +55,9 @@ public class Weapon : MonoBehaviour
             if (enemy != null)
             {
                 enemy.TakeDamage(damage);
-                StartCoroutine(DamageCooldown()); //  timer for damage buffer/cooldown between damage intervals
                 GameObject text = Instantiate(dmgTextPrefab, DamageTextCanvas.transform);
                 text.GetComponent<DmgText>().SetDmgPos(damage, collision.transform.position);
             }
         }
-    }
-
-    private IEnumerator DamageCooldown()
-    {
-        canDealDamage = false;
-        yield return new WaitForSeconds(invincibilityBuffer);
-        canDealDamage = true;
     }
 }
