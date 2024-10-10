@@ -429,7 +429,7 @@ GameObject:
   - component: {fileID: 363315074}
   - component: {fileID: 363315073}
   m_Layer: 0
-  m_Name: HeyHut
+  m_Name: HayHut
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -947,7 +947,7 @@ GameObject:
   - component: {fileID: 1352457479}
   - component: {fileID: 1352457480}
   m_Layer: 0
-  m_Name: HeyDoor
+  m_Name: HayDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
