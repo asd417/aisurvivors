@@ -896,7 +896,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33f89ade07f3848b69d3e32a59acdcfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DamageTextCanvas: {fileID: 0}
+  DamageTextCanvas: {fileID: 1968416290}
   damage: 1
   invincibilityBuffer: 1
   dmgTextPrefab: {fileID: 4260241677709887003, guid: 0f2b16c48801b324b8dbd835099c2f48, type: 3}
@@ -1268,7 +1268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33f89ade07f3848b69d3e32a59acdcfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DamageTextCanvas: {fileID: 0}
+  DamageTextCanvas: {fileID: 1968416290}
   damage: 1
   invincibilityBuffer: 1
   dmgTextPrefab: {fileID: 4260241677709887003, guid: 0f2b16c48801b324b8dbd835099c2f48, type: 3}
@@ -1706,7 +1706,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33f89ade07f3848b69d3e32a59acdcfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DamageTextCanvas: {fileID: 0}
+  DamageTextCanvas: {fileID: 1968416290}
   damage: 1
   invincibilityBuffer: 1
   dmgTextPrefab: {fileID: 4260241677709887003, guid: 0f2b16c48801b324b8dbd835099c2f48, type: 3}
