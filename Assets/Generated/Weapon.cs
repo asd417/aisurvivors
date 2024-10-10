@@ -40,7 +40,9 @@ public class Weapon : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!isAttached && collision.CompareTag("Player"))
+        if ((!isAttached && collision.CompareTag("Player1")) || 
+        (!isAttached && collision.CompareTag("Player2")) || 
+        (!isAttached && collision.CompareTag("Player3")))
         {
             targetPlayer = collision.transform;
             isAttached = true;
