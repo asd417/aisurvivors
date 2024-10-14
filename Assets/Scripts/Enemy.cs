@@ -55,7 +55,15 @@ public class Enemy : MonoBehaviour
     private void LocateClosestTarget()
     {
         // Find all game objects tagged with "Player"
-        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        List<GameObject> playersList = new List<GameObject>();
+
+        // Add all GameObjects with different tags to the list
+        playersList.AddRange(GameObject.FindGameObjectsWithTag("Player1"));
+        playersList.AddRange(GameObject.FindGameObjectsWithTag("Player2"));
+        playersList.AddRange(GameObject.FindGameObjectsWithTag("Player3"));
+
+        // Convert the list to an array if needed
+        GameObject[] players = playersList.ToArray();
 
         if (players.Length == 0)
         {
