@@ -157,11 +157,11 @@ public class SpriteMove : MonoBehaviour
     // Method to highlight the selected sprite (optional, visual feedback)
     private void HighlightSprite(GameObject sprite, bool isSelected)
     {
-        SpriteRenderer spriteRenderer = sprite.GetComponent<SpriteRenderer>();
+        Player playerComponent = sprite.GetComponent<Player>();
 
-        if (spriteRenderer != null)
+        if (playerComponent != null)
         {
-            spriteRenderer.color = isSelected ? Color.green : Color.white;
+            playerComponent.setHighlighted(isSelected);
         }
     }
 }
