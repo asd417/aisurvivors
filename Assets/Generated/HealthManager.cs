@@ -19,7 +19,6 @@ public class HealthManager : MonoBehaviour
     private void TakeDamage()
     {
         healthPoints--;
-        Debug.Log("Player Touched with Enemy");
         if (healthPoints <= 0)
         {
             Destroy(gameObject);

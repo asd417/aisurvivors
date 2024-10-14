@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class DmgText : MonoBehaviour
 {
-    public int life = 500;
+    public int life = 1000;
     TextMeshProUGUI textComponent;
 
     public void SetDmgPos(int DmgVal, Vector3 worldPos)

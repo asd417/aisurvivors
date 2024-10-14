@@ -43,48 +43,6 @@ public class SpriteMove : MonoBehaviour
 
     void Start()
     {
-        /*// Instantiate a finite number of sprites and add them to the list
-        if (spritePrefab1 != null)
-        {
-            /*
-            for (int i = 0; i < numberOfSprites; i++)
-            {
-                Vector3 initialPosition = new Vector3(i * 2.0f, 0, 0); // Replace with a position on your NavMesh
-                
-                // Instantiate the sprite prefab at a valid position on the 2D NavMesh
-                GameObject newSprite = Instantiate(spritePrefab1, initialPosition, Quaternion.identity);
-                agents.Add(newSprite);
-
-                // Ensure each sprite has a NavMeshAgent component
-                NavMeshAgent agent = newSprite.GetComponent<NavMeshAgent>();
-                if (agent == null)
-                {
-                    agent = newSprite.AddComponent<NavMeshAgent>(); // Add component if not present
-                }
-
-                // Configure NavMeshAgent properties (optional)
-                agent.stoppingDistance = stoppingDistance;
-                agent.updateUpAxis = false; // Disable the update of the up axis to work in 2D
-                agent.updateRotation = false; // Disable rotation updates to prevent 3D rotations
-
-                navMeshAgents.Add(agent);
-            }
-            
-
-            
-            
-            // Select the first sprite if there are any sprites in the list
-            if (agents.Count > 0)
-            {
-                selectedSprite = agents[currentSpriteIndex];
-                HighlightSprite(selectedSprite, true);
-            }
-        }
-        else
-        {
-            Debug.LogWarning("Sprite prefab is not assigned in the Inspector.");
-        }
-        */
         SpriteAssign(spritePrefab1);
         SpriteAssign(spritePrefab2);
         SpriteAssign(spritePrefab3);
@@ -98,7 +56,6 @@ public class SpriteMove : MonoBehaviour
         // Set the target position for the currently selected sprite on mouse click
         if (Input.GetMouseButton(0) && selectedSprite != null)
         {
-            //Debug.Log("Mouse button down");
             SetDestinationForSelectedSprite();
         }
     }
@@ -204,7 +161,7 @@ public class SpriteMove : MonoBehaviour
 
         if (spriteRenderer != null)
         {
-            spriteRenderer.color = isSelected ? Color.yellow : Color.white;
+            spriteRenderer.color = isSelected ? Color.green : Color.white;
         }
     }
 }
