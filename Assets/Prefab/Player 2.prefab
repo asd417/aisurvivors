@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6212208476881210123}
   - component: {fileID: 6921761456108609129}
   - component: {fileID: -3519919832516804048}
+  - component: {fileID: 6757427682491548541}
   m_Layer: 0
   m_Name: Player 2
   m_TagString: Player3
@@ -185,3 +186,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthPoints: 3
+--- !u!114 &6757427682491548541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 601162999262384718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63564ef29204aea4f9ec943f00f4befd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerColor: {r: 0.40392157, g: 0.8392157, b: 0.85882354, a: 1}
+  highlightColor: {r: 0, g: 1, b: 0, a: 1}
