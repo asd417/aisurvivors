@@ -400,7 +400,7 @@ MonoBehaviour:
   spritePrefab2: {fileID: 601162999262384718, guid: 55198da480e7840839247b05d34b9d06, type: 3}
   spritePrefab3: {fileID: 601162999262384718, guid: ccd23c369d7be468481c5db5267b00af, type: 3}
   spotx: -2
-  spoty: -5
+  spoty: -4
   numberOfSprites: 3
 --- !u!4 &276460205
 Transform:
@@ -1299,6 +1299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb953f982c2994caf9374a929330c2a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scene: Level1
 --- !u!1 &1548489944
 GameObject:
   m_ObjectHideFlags: 0

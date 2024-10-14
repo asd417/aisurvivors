@@ -8,75 +8,68 @@ using UnityEngine.SceneManagement;
 
 public class ToLevel1 : MonoBehaviour
 {
-    // Start is called before the first frame update
-    /*private int count = 0;
+    public string scene; 
+    private bool player1;
+    private bool player2;
+    private bool player3;       
 
-    void Start()
-    {
-        bool player1 = false;
-        bool player2 = false;
-        bool player3 = false;
-
-        //GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-
-        if(GameObject.FindGameObjectsWithTag("Player1")){
-            count++;
-        }
-
-        if(GameObject.FindGameObjectsWithTag("Player2")){
-            count++;
-        }
-
-        if(GameObject.FindGameObjectsWithTag("Player3")){
-            count++;
-        }
-        
-        
+    void Start(){
+        player1 = false;
+        player2 = false;
+        player3 = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if(GameObject.FindGameObjectsWithTag("Player1")){
-            count++;
-        }
-
-        if(GameObject.FindGameObjectsWithTag("Player2")){
-            count++;
-        }
-
-        if(GameObject.FindGameObjectsWithTag("Player3")){
-            count++;
-        }
-
-        if (count == 0)
-        {
-            SceneManager.LoadScene("Lose");
-        }
-        
+        MoveOn();
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {  
-        if (collision.CompareTag("Player1")){
+        if (collision.collider.CompareTag("Player1")){
             player1 = true;
         }
-        if (collision.CompareTag("Player2")){
+        if (collision.collider.CompareTag("Player2")){
             player2 = true;
         }
-        if (collision.CompareTag("Player3")){
+        if (collision.collider.CompareTag("Player3")){
             player3 = true;
         }
-
-        if (count == 3 && player1 && player2 && player3){
-            Level1();
-        }
-
-        
     }
 
-    public void Leve1()
+    void Switch()
     {
-        SceneManager.LoadScene("Info"); 
-    }*/
+        SceneManager.LoadScene(scene); 
+    }
+
+    void Lose(){
+        SceneManager.LoadScene("Lose");
+    }
+
+    void MoveOn(){
+        if (GameObject.FindGameObjectsWithTag("Player1").Length == 0 && player2 && player3 && GameObject.FindGameObjectsWithTag("Enemy").Length == 0){
+            Switch();
+        }
+        if (GameObject.FindGameObjectsWithTag("Player2").Length == 0 && player1 && player3 && GameObject.FindGameObjectsWithTag("Enemy").Length == 0){
+            Switch();
+        }
+        if (GameObject.FindGameObjectsWithTag("Player3").Length == 0 && player2 && player1 && GameObject.FindGameObjectsWithTag("Enemy").Length == 0){
+            Switch();
+        }
+        if (player1 && player2 && player3 && GameObject.FindGameObjectsWithTag("Enemy").Length == 0){
+            Switch();
+        }
+        if (GameObject.FindGameObjectsWithTag("Player1").Length == 0 && GameObject.FindGameObjectsWithTag("Player2").Length == 0 && player3 && GameObject.FindGameObjectsWithTag("Enemy").Length == 0){
+            Switch();
+        }
+        if (GameObject.FindGameObjectsWithTag("Player1").Length == 0 && GameObject.FindGameObjectsWithTag("Player3").Length == 0 && player2 && GameObject.FindGameObjectsWithTag("Enemy").Length == 0){
+            Switch();
+        }
+        if (GameObject.FindGameObjectsWithTag("Player2").Length == 0 && GameObject.FindGameObjectsWithTag("Player3").Length == 0 && player1 && GameObject.FindGameObjectsWithTag("Enemy").Length == 0){
+            Switch();
+        }
+        if (GameObject.FindGameObjectsWithTag("Player1").Length == 0 && GameObject.FindGameObjectsWithTag("Player2").Length == 0 && GameObject.FindGameObjectsWithTag("Player3").Length == 0 && GameObject.FindGameObjectsWithTag("Enemy").Length == 0){
+                Lose();
+            }
+    }
 }
