@@ -499,7 +499,7 @@ Transform:
   m_GameObject: {fileID: 1142411719}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.42, y: 3.03, z: 0}
+  m_LocalPosition: {x: 2.56, y: 2.91, z: 0}
   m_LocalScale: {x: 0.17, y: 0.17, z: 0.17}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -927,7 +927,7 @@ MonoBehaviour:
   spawny1: -3
   spawnx2: 8
   spawny2: -3
-  numberEnemy: 10
+  numberEnemy: 15
 --- !u!4 &1235837690
 Transform:
   m_ObjectHideFlags: 0
@@ -1428,8 +1428,8 @@ Transform:
   m_GameObject: {fileID: 1548489944}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.43, y: -3.27, z: 0}
-  m_LocalScale: {x: -0.31, y: -0.31, z: -0.31}
+  m_LocalPosition: {x: -8.33, y: -3.32, z: 0}
+  m_LocalScale: {x: 0.31, y: 0.31, z: 0.31}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -1717,8 +1717,8 @@ Transform:
   m_GameObject: {fileID: 1802514874}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.28, y: -2.45, z: 0}
-  m_LocalScale: {x: -0.31, y: 0.31, z: 0.31}
+  m_LocalPosition: {x: 6.96, y: -0.68, z: 0}
+  m_LocalScale: {x: 0.31, y: 0.31, z: 0.31}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
