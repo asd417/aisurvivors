@@ -1,13 +1,17 @@
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.AI; // Add this namespace for NavMesh
 
 public class SpriteMove : MonoBehaviour
 {
     public static SpriteMove instance;
+    public Camera camera;
+    public float camZoomMultiplier = 0.5f;
+    public float maxCamZoom;
+    private float minCamZoom = 5;
 
     public float stoppingDistance = 0.1f; // Distance within which the agent stops
-
     // Prefab of the sprite to instantiate (must have a NavMeshAgent component)
     public GameObject spritePrefab1;
     public GameObject spritePrefab2;
@@ -27,6 +31,7 @@ public class SpriteMove : MonoBehaviour
 
     private GameObject selectedSprite;
     private int currentSpriteIndex = 0;
+
 
     private void Awake()
     {
@@ -50,6 +55,7 @@ public class SpriteMove : MonoBehaviour
 
     void Update()
     {
+
         // Switch between sprites using QWE
         SwitchNextAgent();
 
@@ -58,6 +64,55 @@ public class SpriteMove : MonoBehaviour
         {
             SetDestinationForSelectedSprite();
         }
+        float maxDist = 0;
+        Vector3 averagePos = Vector3.zero;
+        for (int i = 0; i < agents.Count; i++)
+        {
+            averagePos = averagePos + agents[i].transform.position / agents.Count;
+            for (int j = 0; j < agents.Count; j++)
+            {
+                float dst = (agents[i].transform.position - agents[j].transform.position).magnitude;
+                maxDist = maxDist < dst ? dst : maxDist;
+            }
+        }
+
+        float zoom = maxDist * camZoomMultiplier * (1 + CheckAlignment());
+        camera.orthographicSize = Mathf.Clamp(zoom, maxCamZoom, minCamZoom);
+        //camera.transform.position = new Vector3(Mathf.Clamp(averagePos.x,-(10 - 2 * zoom), (10 - 2 * zoom)), Mathf.Clamp(averagePos.y, -(10 - 2 * zoom*camera.aspect), (10 - 2 * zoom)), -10);
+        camera.transform.position = new Vector3(averagePos.x, averagePos.y, -10);
+    }
+
+    public float CheckAlignment()
+    {
+        // Average the angles to determine overall alignment
+        float averageAngle = 0;
+        for (int i = 0; i < agents.Count - 1; i++)
+        {
+            for (int j = i+1; j < agents.Count; j++)
+            {
+                Vector2 p1 = new Vector2(agents[i].transform.position.x, agents[i].transform.position.y);
+                Vector2 p2 = new Vector2(agents[j].transform.position.x, agents[j].transform.position.y);
+                averageAngle += Mathf.Abs(GetAngleFromHorizontal(p1, p2)) / agents.Count;
+            }
+        }
+        float normalizedAngle = Mathf.Clamp((averageAngle - 20f) / 25f, 0f, 1f);
+        // Apply sine-like function to map to the range [0, 1]
+        float verticalStrength = Mathf.Sin(normalizedAngle * Mathf.PI / 2);
+        Debug.Log("Alignment: " + verticalStrength);
+        return verticalStrength;
+    }
+
+    private float GetAngleFromHorizontal(Vector3 p1, Vector3 p2)
+    {
+        // Calculate the difference in the x and y coordinates
+        float dx = p2.x - p1.x;
+        float dy = p2.y - p1.y;
+
+        // Calculate the angle in degrees from the horizontal
+        float angle = Mathf.Atan2(dy, dx) * Mathf.Rad2Deg;
+
+        // Return the absolute value of the angle to compare with 0¡Æ and 90¡Æ
+        return Mathf.Abs(angle);
     }
 
     void SpriteAssign(GameObject sprite){
