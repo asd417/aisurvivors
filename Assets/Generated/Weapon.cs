@@ -51,7 +51,6 @@ public class Weapon : MonoBehaviour
         if (isAttached && collision.CompareTag("Enemy"))
         {
             //Need to check if the gameobject has a enemy component
-            //TODO: Implement component that indicates the gameobject as enemy, and make the sword damage enemy
             Enemy enemy = collision.gameObject.GetComponent<Enemy>();
 
             if (enemy != null)

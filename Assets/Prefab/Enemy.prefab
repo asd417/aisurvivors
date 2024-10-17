@@ -186,5 +186,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetUpdateInterval: 0.5
   target: {fileID: 2716341946938862543, guid: 109805773db30400e9b99af82661d82f, type: 3}
-  speed: 0.5
+  speed: 0.75
   health: 2

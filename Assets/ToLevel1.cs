@@ -68,7 +68,7 @@ public class ToLevel1 : MonoBehaviour
         if (GameObject.FindGameObjectsWithTag("Player2").Length == 0 && GameObject.FindGameObjectsWithTag("Player3").Length == 0 && player1 && GameObject.FindGameObjectsWithTag("Enemy").Length == 0){
             Switch();
         }
-        if (GameObject.FindGameObjectsWithTag("Player1").Length == 0 && GameObject.FindGameObjectsWithTag("Player2").Length == 0 && GameObject.FindGameObjectsWithTag("Player3").Length == 0 && GameObject.FindGameObjectsWithTag("Enemy").Length == 0){
+        if (GameObject.FindGameObjectsWithTag("Player1").Length == 0 && GameObject.FindGameObjectsWithTag("Player2").Length == 0 && GameObject.FindGameObjectsWithTag("Player3").Length == 0){
                 Lose();
             }
     }
