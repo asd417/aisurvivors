@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Security.Cryptography;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI; // Add this namespace for NavMesh
 
@@ -66,12 +67,17 @@ public class SpriteMove : MonoBehaviour
         }
         float maxDist = 0;
         Vector3 averagePos = Vector3.zero;
+        int agentCount = 0;
+        for (int i = 0; i < agents.Count; i++)
+        {
+            if (agents[i]) agentCount++;
+        }
         for (int i = 0; i < agents.Count; i++)
         {
             // Check if the agent has been destroyed or is null
             if (agents[i] == null) continue; // if null skip
-
-            averagePos = averagePos + agents[i].transform.position / agents.Count;
+            Debug.Log("agents.count: " + agentCount);
+            averagePos = averagePos + agents[i].transform.position / agentCount;
             for (int j = 0; j < agents.Count; j++)
             {
                 if (agents[j] == null) continue;
@@ -82,9 +88,9 @@ public class SpriteMove : MonoBehaviour
         }
 
         float zoom = maxDist * camZoomMultiplier * (1 + CheckAlignment());
-        camera.orthographicSize = Mathf.Clamp(zoom, maxCamZoom, minCamZoom);
+        camera.orthographicSize = Mathf.Lerp(camera.orthographicSize, Mathf.Clamp(zoom, maxCamZoom, minCamZoom), Time.deltaTime);
         //camera.transform.position = new Vector3(Mathf.Clamp(averagePos.x,-(10 - 2 * zoom), (10 - 2 * zoom)), Mathf.Clamp(averagePos.y, -(10 - 2 * zoom*camera.aspect), (10 - 2 * zoom)), -10);
-        camera.transform.position = new Vector3(averagePos.x, averagePos.y, -10);
+        camera.transform.position = Vector3.Lerp(camera.transform.position, new Vector3(averagePos.x, averagePos.y, -10), Time.deltaTime);
     }
 
     public float CheckAlignment()
