@@ -5,7 +5,7 @@ using UnityEngine;
 public class ItemDrop : MonoBehaviour
 {
     public float animationDuration = 1.0f;
-    public Vector3 startScale = new Vector3(0.1f, 0.1f, 0.1f);
+    public Vector3 startScale = new Vector3(0.01f, 0.01f, 0.01f);
     public Vector3 endScale = Vector3.one; // Default scale
 
     private float elapsedTime = 0f;

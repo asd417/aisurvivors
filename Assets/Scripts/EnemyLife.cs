@@ -1,19 +1,19 @@
-using UnityEngine;
+// using UnityEngine;
 
-public class EnemyLife : MonoBehaviour
-{
-    public int healthPoints = 1;
+// public class EnemyLife : MonoBehaviour
+// {
+//     public int healthPoints = 1;
     
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Weapon"))
-        {
-            healthPoints--;
+//     private void OnCollisionEnter2D(Collision2D collision)
+//     {
+//         if (collision.gameObject.CompareTag("Weapon"))
+//         {
+//             healthPoints--;
 
-            if (healthPoints <= 0)
-            {
-                Destroy(gameObject);
-            }
-        }
-    }
-}
+//             if (healthPoints <= 0)
+//             {
+//                 Destroy(gameObject);
+//             }
+//         }
+//     }
+// }

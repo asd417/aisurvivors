@@ -188,3 +188,4 @@ MonoBehaviour:
   target: {fileID: 2716341946938862543, guid: 109805773db30400e9b99af82661d82f, type: 3}
   speed: 0.75
   health: 2
+  itemDropPrefab: {fileID: 7742687765758969997, guid: cad628f8fa3f049e79900cce53ae8601, type: 3}
