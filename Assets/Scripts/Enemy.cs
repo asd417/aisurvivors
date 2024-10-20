@@ -10,6 +10,9 @@ public class Enemy : MonoBehaviour
     NavMeshAgent agent;                 // NavMeshAgent for pathfinding
     [SerializeField] float speed = 3.0f;  // Movement speed
     public int health = 2;
+    public GameObject itemDropPrefab; // to be reference to `ComputerChip-ItemDrop` prefab
+
+
 
     private void Start()
     {
@@ -47,6 +50,12 @@ public class Enemy : MonoBehaviour
         Debug.Log($"Enemy health: {health}");
         if (health <= 0)
         {
+            // Instantiate the item drop at the enemy's position
+            Debug.Log("Preparing item drop!");
+
+            Instantiate(itemDropPrefab, transform.position, Quaternion.identity);
+            Debug.Log("Item drop instantiated.");
+
             Destroy(gameObject);
         }
     }

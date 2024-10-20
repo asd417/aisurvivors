@@ -68,9 +68,14 @@ public class SpriteMove : MonoBehaviour
         Vector3 averagePos = Vector3.zero;
         for (int i = 0; i < agents.Count; i++)
         {
+            // Check if the agent has been destroyed or is null
+            if (agents[i] == null) continue; // if null skip
+
             averagePos = averagePos + agents[i].transform.position / agents.Count;
             for (int j = 0; j < agents.Count; j++)
             {
+                if (agents[j] == null) continue;
+
                 float dst = (agents[i].transform.position - agents[j].transform.position).magnitude;
                 maxDist = maxDist < dst ? dst : maxDist;
             }
@@ -88,8 +93,10 @@ public class SpriteMove : MonoBehaviour
         float averageAngle = 0;
         for (int i = 0; i < agents.Count - 1; i++)
         {
+            if (agents[i] == null) continue; // Check if the agent is null and skip to the next iteration
             for (int j = i+1; j < agents.Count; j++)
             {
+                if (agents[j] == null) continue; // another null check here ^
                 Vector2 p1 = new Vector2(agents[i].transform.position.x, agents[i].transform.position.y);
                 Vector2 p2 = new Vector2(agents[j].transform.position.x, agents[j].transform.position.y);
                 averageAngle += Mathf.Abs(GetAngleFromHorizontal(p1, p2)) / agents.Count;
@@ -111,7 +118,7 @@ public class SpriteMove : MonoBehaviour
         // Calculate the angle in degrees from the horizontal
         float angle = Mathf.Atan2(dy, dx) * Mathf.Rad2Deg;
 
-        // Return the absolute value of the angle to compare with 0¡Æ and 90¡Æ
+        // Return the absolute value of the angle to compare with 0ï¿½ï¿½ and 90ï¿½ï¿½
         return Mathf.Abs(angle);
     }
 
