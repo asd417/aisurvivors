@@ -76,7 +76,7 @@ public class SpriteMove : MonoBehaviour
         {
             // Check if the agent has been destroyed or is null
             if (agents[i] == null) continue; // if null skip
-            Debug.Log("agents.count: " + agentCount);
+            // Debug.Log("agents.count: " + agentCount);
             averagePos = averagePos + agents[i].transform.position / agentCount;
             for (int j = 0; j < agents.Count; j++)
             {
@@ -111,7 +111,7 @@ public class SpriteMove : MonoBehaviour
         float normalizedAngle = Mathf.Clamp((averageAngle - 20f) / 25f, 0f, 1f);
         // Apply sine-like function to map to the range [0, 1]
         float verticalStrength = Mathf.Sin(normalizedAngle * Mathf.PI / 2);
-        Debug.Log("Alignment: " + verticalStrength);
+        // Debug.Log("Alignment: " + verticalStrength);
         return verticalStrength;
     }
 

@@ -15,12 +15,9 @@ public class WeaponP1 : MonoBehaviour
     private float angle_euler = 0;
     private int dist = 1;
 
-    [SerializeField, Tooltip("Damage dealt to the player")]
+    [SerializeField, Tooltip("P1 Weapon - Damage dealt to enemy")]
     int damage = 1;
 
-    [SerializeField, Tooltip("Invincibility buffer in seconds between damage intervals")]
-    float invincibilityBuffer = 1.0f;
-    private bool canDealDamage = true;
     public GameObject dmgTextPrefab;
 
     private void Start()

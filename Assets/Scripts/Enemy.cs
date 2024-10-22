@@ -11,7 +11,11 @@ public class Enemy : MonoBehaviour
     [SerializeField] float speed = 3.0f;  // Movement speed
     public int health = 2;
     public GameObject itemDropPrefab; // to be reference to `ComputerChip-ItemDrop` prefab
+    public float itemDropChance = 1.0f; // chance for enemy to drop item
+    public float deathScalingDuration = 0.3f;  // Duration of the gradual enemy decrease in scale for death animation
+    private bool isDying = false; // Ensures that death logic is only triggered once so as to avoid multiple animations
 
+    
 
 
     private void Start()
@@ -48,16 +52,58 @@ public class Enemy : MonoBehaviour
     {
         health -= dmg;
         Debug.Log($"Enemy health: {health}");
-        if (health <= 0)
-        {
-            // Instantiate the item drop at the enemy's position
-            Debug.Log("Preparing item drop!");
-
-            Instantiate(itemDropPrefab, transform.position, Quaternion.identity);
-            Debug.Log("Item drop instantiated.");
-
-            Destroy(gameObject);
+        if (health <= 0 && !isDying) {
+            KillEnemy();
         }
+
+    }
+
+    // trigger enemy death when hp <= 0 
+    private void KillEnemy()
+    {
+        isDying = true;  // This bool ensures the death logic only triggers once
+
+        Debug.Log("-Random.value-to check if enemy drops item");
+        
+        // Randomize item drop
+        if (Random.value <= itemDropChance)
+        {
+            Instantiate(itemDropPrefab, transform.position, Quaternion.identity); // Instantiate the item drop at the enemy's position
+            Debug.Log("Item dropped (instantiated)");
+        }
+        else
+        {
+            Debug.Log("No item dropped from enemy");
+        }
+
+        // Start the enemy death animation
+        StartCoroutine(ScaleDownAndDestroy());
+    }
+
+    // used to animate enemy death (gradually scales gameobject down until it is eventually destroyed.)
+    private IEnumerator ScaleDownAndDestroy()
+    {
+        float elapsedTime = 0f;
+        Vector3 originalScale = transform.localScale;
+
+        while (elapsedTime < deathScalingDuration)
+        {
+            // Easing fn to make scaling down faster initially
+            float t = elapsedTime / deathScalingDuration;
+            t = t * t * t * t; // Quadratic "easing"
+
+            // Scale the enemy down exponentially over time
+            transform.localScale = Vector3.Lerp(originalScale, Vector3.zero, t);
+            elapsedTime += Time.deltaTime;
+            yield return null;  // Wait until the next frame
+        }
+
+        // Ensure the enemy is completely scaled down before destroying
+        transform.localScale = Vector3.zero;
+
+        // Destroy the enemy after the animation
+        Destroy(gameObject);
+        Debug.Log("Enemy destroyed after death animation");
     }
 
     // Find and update the closest player target based on the distance

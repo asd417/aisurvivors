@@ -4,24 +4,35 @@ public class HealthManager : MonoBehaviour
 {
     [Tooltip("Initial health points of the object.")]
     [SerializeField] private int healthPoints = 3;
+
+    [Tooltip("Damage that the player takes upon enemy contact")]
+    [SerializeField] public int dmg = 1;
+
     private bool EnemyIsTouching = false;
     private int damageTimer = 60;
+
 
     private void FixedUpdate()
     {
         damageTimer = (damageTimer + 1) % 60;
         if (damageTimer == 0 && EnemyIsTouching)
         {
-            TakeDamage();
+            TakeDamage(dmg);
         }
     }
 
-    private void TakeDamage()
+    private void TakeDamage(int dmg)
     {
-        healthPoints--;
+        healthPoints -= dmg;
         if (healthPoints <= 0)
         {
-            Destroy(gameObject);
+            Player p = gameObject.GetComponent<Player>(); // Get the Player component
+            if (p != null) {
+                p.KillPlayer(); // Call the KillPlayer method on the Player component
+            }
+            else {
+                Debug.LogError("Player component not found on this GameObject!");
+            }        
         }
     }
 
