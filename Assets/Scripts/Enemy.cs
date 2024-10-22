@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] float speed = 3.0f;  // Movement speed
     public int health = 2;
     public GameObject itemDropPrefab; // to be reference to `ComputerChip-ItemDrop` prefab
-    public float itemDropChance = 1.0f; // chance for enemy to drop item
+    public float itemDropChance; // float--chance for enemy to drop item
     public float deathScalingDuration = 0.3f;  // Duration of the gradual enemy decrease in scale for death animation
     private bool isDying = false; // Ensures that death logic is only triggered once so as to avoid multiple animations
 
@@ -63,21 +63,22 @@ public class Enemy : MonoBehaviour
     {
         isDying = true;  // This bool ensures the death logic only triggers once
 
-        // Debug.Log("-Random.value-to check if enemy drops item");
+        Debug.Log("-Random.value-to check if enemy drops item");
         
-        // // Randomize item drop
-        // if (Random.value <= itemDropChance)
-        // {
-        //     Instantiate(itemDropPrefab, transform.position, Quaternion.identity); // Instantiate the item drop at the enemy's position
-        //     Debug.Log("Item dropped (instantiated)");
-        // }
-        // else
-        // {
-        //     Debug.Log("No item dropped from enemy");
-        // }
+        // Randomize item drop
+        float v = Random.value;
+        if (v <= itemDropChance)
+        {
+            Instantiate(itemDropPrefab, transform.position, Quaternion.identity); // Instantiate the item drop at the enemy's position
+            Debug.Log("Item dropped (instantiated)" + v.ToString() + "  " + itemDropChance.ToString());
+        }
+        else
+        {
+            Debug.Log("No item dropped from enemy");
+        }
         
         
-        Instantiate(itemDropPrefab, transform.position, Quaternion.identity); // Instantiate the item drop at the enemy's position
+        // Instantiate(itemDropPrefab, transform.position, Quaternion.identity); // Instantiate the item drop at the enemy's position
         // Start the enemy death animation
         StartCoroutine(ScaleDownAndDestroy());
     }
