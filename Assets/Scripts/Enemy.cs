@@ -10,8 +10,8 @@ public class Enemy : MonoBehaviour
     NavMeshAgent agent;                 // NavMeshAgent for pathfinding
     [SerializeField] float speed = 3.0f;  // Movement speed
     public int health = 2;
-    public GameObject itemDropPrefab; // to be reference to `ComputerChip-ItemDrop` prefab
-    public float itemDropChance; // float--chance for enemy to drop item
+    public GameObject itemDropPrefab;
+    public float itemDropChance; // (set in `EnemySpawn`) chance for enemy to drop item
     public float deathScalingDuration = 0.3f;  // Duration of the gradual enemy decrease in scale for death animation
     private bool isDying = false; // Ensures that death logic is only triggered once so as to avoid multiple animations
 
