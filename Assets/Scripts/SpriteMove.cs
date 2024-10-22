@@ -61,7 +61,7 @@ public class SpriteMove : MonoBehaviour
         SwitchNextAgent();
 
         // Set the target position for the currently selected sprite on mouse click
-        if (Input.GetMouseButton(0) && selectedSprite != null)
+        if (Input.GetMouseButtonDown(0) && selectedSprite != null)
         {
             SetDestinationForSelectedSprite();
         }
@@ -132,7 +132,7 @@ public class SpriteMove : MonoBehaviour
     
         Vector3 initialPosition = new Vector3(spotx, spoty, 0); //put in position here
         spotx += 2;
-        GameObject newSprite = Instantiate(sprite, initialPosition, Quaternion.identity);
+        GameObject newSprite = Instantiate(sprite, initialPosition, Quaternion.Euler(0, 0, 0));
         agents.Add(newSprite);
 
         // Ensure each sprite has a NavMeshAgent component
