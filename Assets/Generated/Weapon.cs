@@ -36,6 +36,9 @@ public class Weapon : MonoBehaviour
             transform.eulerAngles = new Vector3 (0,0, angle_euler);
             transform.position = targetPlayer.position + new Vector3(Mathf.Cos(Mathf.Deg2Rad * angle_euler) * dist, Mathf.Sin(Mathf.Deg2Rad * angle_euler) * dist, 0);
         }
+        if (targetPlayer == null){
+            isAttached = false;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
