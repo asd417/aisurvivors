@@ -439,7 +439,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DamageTextCanvas: {fileID: 0}
   damage: 2
-  invincibilityBuffer: 0
   dmgTextPrefab: {fileID: 4260241677709887003, guid: 0f2b16c48801b324b8dbd835099c2f48, type: 3}
 --- !u!212 &1142411721
 SpriteRenderer:
@@ -925,7 +924,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27884fadcc68d4124b7b2a9735861ef6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteEnemyPrefab: {fileID: 601162999262384718, guid: e58e0666334194f37ae40b4fa2c8c485, type: 3}
+  spriteEnemyPrefab: {fileID: 9157305833970257044, guid: 6e9e112cb357a4ef1a86925f0e7d3336, type: 3}
   spawnx1: -8
   spawny1: -3
   spawnx2: 8
@@ -1368,7 +1367,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DamageTextCanvas: {fileID: 0}
   damage: 1
-  invincibilityBuffer: 1
   dmgTextPrefab: {fileID: 4260241677709887003, guid: 0f2b16c48801b324b8dbd835099c2f48, type: 3}
 --- !u!212 &1548489948
 SpriteRenderer:
@@ -1740,7 +1738,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DamageTextCanvas: {fileID: 0}
   damage: 1
-  invincibilityBuffer: 1
   dmgTextPrefab: {fileID: 4260241677709887003, guid: 0f2b16c48801b324b8dbd835099c2f48, type: 3}
 --- !u!50 &1802514879
 Rigidbody2D:
@@ -2077,7 +2074,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DamageTextCanvas: {fileID: 0}
   damage: 1
-  invincibilityBuffer: 1
   dmgTextPrefab: {fileID: 4260241677709887003, guid: 0f2b16c48801b324b8dbd835099c2f48, type: 3}
 --- !u!212 &1972109047
 SpriteRenderer:
