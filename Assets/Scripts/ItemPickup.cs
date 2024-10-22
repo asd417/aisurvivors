@@ -9,6 +9,10 @@ public class ItemPickup : MonoBehaviour
     public float pickupAnimationSpeed = 2f;  // Speed of the pickup animation
 
     private Transform player;
+    
+    void Start() {
+    }
+
 
     void Update()
     {
