@@ -63,19 +63,21 @@ public class Enemy : MonoBehaviour
     {
         isDying = true;  // This bool ensures the death logic only triggers once
 
-        Debug.Log("-Random.value-to check if enemy drops item");
+        // Debug.Log("-Random.value-to check if enemy drops item");
         
-        // Randomize item drop
-        if (Random.value <= itemDropChance)
-        {
-            Instantiate(itemDropPrefab, transform.position, Quaternion.identity); // Instantiate the item drop at the enemy's position
-            Debug.Log("Item dropped (instantiated)");
-        }
-        else
-        {
-            Debug.Log("No item dropped from enemy");
-        }
-
+        // // Randomize item drop
+        // if (Random.value <= itemDropChance)
+        // {
+        //     Instantiate(itemDropPrefab, transform.position, Quaternion.identity); // Instantiate the item drop at the enemy's position
+        //     Debug.Log("Item dropped (instantiated)");
+        // }
+        // else
+        // {
+        //     Debug.Log("No item dropped from enemy");
+        // }
+        
+        
+        Instantiate(itemDropPrefab, transform.position, Quaternion.identity); // Instantiate the item drop at the enemy's position
         // Start the enemy death animation
         StartCoroutine(ScaleDownAndDestroy());
     }
