@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4025304648520540374}
   - component: {fileID: 654863580358436382}
   - component: {fileID: -8228863875019968792}
+  - component: {fileID: 5238061227688140442}
   m_Layer: 0
   m_Name: ComputerChip-ItemDrop
   m_TagString: Untagged
@@ -115,3 +116,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickupRadius: 1.5
   pickupAnimationSpeed: 5
+--- !u!114 &5238061227688140442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7742687765758969997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: beb3a36bdfe424bd8b020971c74c039d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationAngle: 15
+  rotationSpeed: 2
+  bounceHeight: 0.01
+  bounceSpeed: 0.1
