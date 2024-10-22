@@ -69,7 +69,9 @@ public class EnemySpawn : MonoBehaviour
                 }
 
                 // Instantiate the sprite prefab at a valid position
-                Instantiate(spriteEnemyPrefab, initialPosition, Quaternion.identity);
+                GameObject em = Instantiate(spriteEnemyPrefab, initialPosition, Quaternion.identity);
+                // set enemy droprate
+                em.GetComponent<Enemy>().itemDropChance = 0.5f; 
             }
 
             // Wait for 0.5 seconds before spawning the next enemy
