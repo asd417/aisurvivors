@@ -24,16 +24,28 @@ public class Manager : MonoBehaviour
 
     public void Level1()
     {
-        SceneManager.LoadScene("LEVEL_NAME"); 
+        SceneManager.LoadScene("Level1"); 
     }
     public void Level2(){
-        SceneManager.LoadScene("LEVEL_NAME");
+        SceneManager.LoadScene("Level2");
     }
     public void Level3(){
-        SceneManager.LoadScene("LEVEL_NAME");
+        SceneManager.LoadScene("Level3");
     }
     public void Menu(){
         SceneManager.LoadScene("MainMenu");
+    }
+    public void Lobby()
+    {
+        SceneManager.LoadScene("Lobby"); 
+    }
+    public void Title()
+    {
+        SceneManager.LoadScene("Title"); 
+    }
+    public void Credits()
+    {
+        SceneManager.LoadScene("Credits"); 
     }
     public void QuitGame()
     {
