@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class ToInfo : MonoBehaviour
+public class ToStory : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -30,7 +30,7 @@ public class ToInfo : MonoBehaviour
         currentCollider = collision.collider;
 
         // Call the method to check the collision after 0.5 seconds
-        Invoke(nameof(CheckIfStillColliding), 1f);
+        Invoke(nameof(CheckIfStillColliding), 2f);
     }
 
     private void OnCollisionExit2D(Collision2D collision)
@@ -49,11 +49,11 @@ public class ToInfo : MonoBehaviour
         if (isColliding)
         {
             // Collision is still active after 0.5 seconds
-            Info();
+            Story();
         }
     }
-    public void Info()
+    public void Story()
     {
-        SceneManager.LoadScene("Info"); 
+        SceneManager.LoadScene("Story"); 
     }
 }

@@ -87,7 +87,7 @@ public class SpriteMove : MonoBehaviour
             }
         }
 
-        float zoom = maxDist * camZoomMultiplier * (1 + CheckAlignment());
+        float zoom = maxDist * camZoomMultiplier * (3 + CheckAlignment());
         camera.orthographicSize = Mathf.Lerp(camera.orthographicSize, Mathf.Clamp(zoom, maxCamZoom, minCamZoom), Time.deltaTime);
         //camera.transform.position = new Vector3(Mathf.Clamp(averagePos.x,-(10 - 2 * zoom), (10 - 2 * zoom)), Mathf.Clamp(averagePos.y, -(10 - 2 * zoom*camera.aspect), (10 - 2 * zoom)), -10);
         camera.transform.position = Vector3.Lerp(camera.transform.position, new Vector3(averagePos.x, averagePos.y, -10), Time.deltaTime);
