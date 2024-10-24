@@ -222,7 +222,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   camera: {fileID: 1184793091}
   camZoomMultiplier: 0.5
-  maxCamZoom: 2
+  maxCamZoom: 4
   stoppingDistance: 0.1
   spritePrefab1: {fileID: 601162999262384718, guid: 109805773db30400e9b99af82661d82f, type: 3}
   spritePrefab2: {fileID: 601162999262384718, guid: 55198da480e7840839247b05d34b9d06, type: 3}
