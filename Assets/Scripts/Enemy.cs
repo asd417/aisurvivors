@@ -15,6 +15,9 @@ public class Enemy : MonoBehaviour
     public float deathScalingDuration = 0.3f;  // Duration of the gradual enemy decrease in scale for death animation
     private bool isDying = false; // Ensures that death logic is only triggered once so as to avoid multiple animations
 
+    Animator animator;
+    Rigidbody2D rb;
+
     
 
 
@@ -22,6 +25,8 @@ public class Enemy : MonoBehaviour
     {
         
         agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
 
         // Disable rotation and up-axis updating
         agent.updateRotation = false;
@@ -36,6 +41,9 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
+        float verticalVelocity = agent.velocity.y;
+        animator.SetFloat("yVelocity", verticalVelocity);
+
         if (target != null) //if the target exists
         {
             // Move agent towards target pos
