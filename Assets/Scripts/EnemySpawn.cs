@@ -4,46 +4,29 @@ using UnityEngine;
 
 public class EnemySpawn : MonoBehaviour
 {
-    // Prefab of the enemy sprite to instantiate
-    public GameObject spriteEnemyPrefab;
+    // Prefab of the first enemy sprite to instantiate
+    [Tooltip("Prefab of the first enemy sprite to instantiate")]
+    public GameObject spriteEnemyPrefab1;
+
+    // Prefab of the second enemy sprite to instantiate
+    [Tooltip("Prefab of the second enemy sprite to instantiate")]
+    public GameObject spriteEnemyPrefab2;
+
+    [Tooltip("X coordinate for the first spawn point")]
     public int spawnx1;
+
+    [Tooltip("Y coordinate for the first spawn point")]
     public int spawny1;
+
+    [Tooltip("X coordinate for the second spawn point")]
     public int spawnx2;
+
+    [Tooltip("Y coordinate for the second spawn point")]
     public int spawny2;
+
+    [Tooltip("Number of enemies to spawn")]
     public int numberEnemy;
 
-/*
-    void Start()
-    {
-        // Instantiate a finite number of sprites and add them to the list
-        for (int i = numberEnemy; i <= numberEnemy; i++){
-            Vector3 initialPosition;
-            int spawnPoint = Random.Range(0,2);
-
-            if (spriteEnemyPrefab != null)
-            {
-                if (spawnPoint == 0){
-                    initialPosition = new Vector3(spawnx1, spawny1);
-                }
-                else if (spawnPoint == 1){
-                    initialPosition = new Vector3(spawnx2, spawny2);
-                }
-                else{
-                    initialPosition = new Vector3(0, 0);
-                }
-                
-            
-            // Instantiate the sprite prefab at a valid position on the 2D NavMesh
-                GameObject newEnemySprite = Instantiate(spriteEnemyPrefab, initialPosition, Quaternion.identity);
-            }
-        }
-    }
-
-    void Update()
-    {
-        
-    }
-    */
     void Start()
     {
         StartCoroutine(SpawnEnemiesWithDelay());
@@ -51,30 +34,28 @@ public class EnemySpawn : MonoBehaviour
 
     IEnumerator SpawnEnemiesWithDelay()
     {
-
         for (int i = 0; i < numberEnemy; i++)
         {
             Vector3 initialPosition;
             int spawnPoint = Random.Range(0, 2);
 
-            if (spriteEnemyPrefab != null)
+            if (spawnPoint == 0)
             {
-                if (spawnPoint == 0)
-                {
-                    initialPosition = new Vector3(spawnx1, spawny1);
-                }
-                else
-                {
-                    initialPosition = new Vector3(spawnx2, spawny2);
-                }
-
-                // Instantiate the sprite prefab at a valid position
-                GameObject em = Instantiate(spriteEnemyPrefab, initialPosition, Quaternion.identity);
-                // set enemy droprate
-                em.GetComponent<Enemy>().itemDropChance = 0.5f; 
+                initialPosition = new Vector3(spawnx1, spawny1);
+            }
+            else
+            {
+                initialPosition = new Vector3(spawnx2, spawny2);
             }
 
-            // Wait for 0.5 seconds before spawning the next enemy
+            GameObject selectedPrefab = Random.value < 0.666f ? spriteEnemyPrefab1 : spriteEnemyPrefab2;
+
+            if (selectedPrefab != null)
+            {
+                GameObject em = Instantiate(selectedPrefab, initialPosition, Quaternion.identity);
+                em.GetComponent<Enemy>().itemDropChance = 0.5f;
+            }
+
             yield return new WaitForSeconds(1f);
         }
     }
