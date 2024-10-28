@@ -35,7 +35,7 @@ public class SoundManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject); // Keeps SoundManager across scenes
+            DontDestroyOnLoad(gameObject); // Don't destroy this GameObject when loading a new scene
         }
         else
         {
