@@ -86,6 +86,12 @@ public class Manager : MonoBehaviour
     private IEnumerator LoadSceneWithAudio(string sceneName, params string[] audioNames)
     {
         Debug.Log($"Loading scene: {sceneName}"); // Debug log to indicate scene loading
+        // Confirm SoundManager instance
+        if (SoundManager.instance == null)
+        {
+            Debug.LogError("SoundManager instance is null! Audio playback will not work.");
+            yield break;
+        }
         SoundManager.instance.StopAllSounds(); // Stop all sounds before changing scenes
         yield return null; // Wait for a frame to allow stopping logic to complete
         
