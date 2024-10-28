@@ -8,9 +8,9 @@ using UnityEngine;
 public class Sound {
     public string name;
     public AudioClip clip;
-    [Range(0f, 1f)] // slider 0-1
-    public float volume = 0.5f;
-    public bool loop = false;
+    [Range(0f, 1f)] // slider from 0%-100% vol
+    public float volume;
+    public bool loop;
 
     [HideInInspector]
     public AudioSource source;

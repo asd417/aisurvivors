@@ -9,12 +9,27 @@ public class SceneChanger : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(ChangeSceneAfterDelay());
+        StartCoroutine(PlayIntroAnimationSFX());
+        StartCoroutine(ChangeSceneToLobbyAfterDelay());
+        
     }
 
-    private IEnumerator ChangeSceneAfterDelay()
+    private IEnumerator PlayIntroAnimationSFX()
+    {
+        // sword slashing
+        SoundManager.instance.Play("MenuPlayAnimation1");
+        yield return new WaitForSeconds(2f); // duration to wait between sounds
+
+        // crescendo
+        SoundManager.instance.Play("MenuPlayAnimation2"); // Replace with your second sound name
+    }
+    private IEnumerator ChangeSceneToLobbyAfterDelay()
     {
         yield return new WaitForSeconds(delayBeforeChange);
+
+        // trigger lobby background sfx/soundtracks, then load scene:
+        SoundManager.instance.FadeIn("LobbyAmbientWind", 1f);
+        SoundManager.instance.FadeIn("LobbyMusic", 1f);
         SceneManager.LoadScene("Lobby");
     }
 }

@@ -2,23 +2,27 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-/*Usage Guide -> can use these methods in other scripts:
+/* Usage Guide -> can use these methods in other scripts:
+
+- begin in Start() {
+    SoundManager.instance.Play("sound1"); 
+}
 
 - Adjust volume (e.g., lower music during other sfx)
-Sound soundtrack = Array.Find(SoundManager.instance.sounds, s => s.name == "sound1");
-if (soundtrack != null) soundtrack.source.volume = 0.3f;
+    Sound soundtrack = Array.Find(SoundManager.instance.sounds, s => s.name == "sound1");
+    if (soundtrack != null) soundtrack.source.volume = 0.3f;
 
 - Stop a sound effect or music
-SoundManager.instance.Stop("sound1");
+    SoundManager.instance.Stop("sound1");
 
 - Fade out sound over 2 seconds
-SoundManager.instance.FadeOut("sound1", 2f);
+    SoundManager.instance.FadeOut("sound1", 2f);
 
 - Fade in a new sound over 2 seconds
-SoundManager.instance.FadeIn("sound2", 2f);
+    SoundManager.instance.FadeIn("sound2", 2f);
 
 - Crossfade from sound1 to sound2
-SoundManager.instance.Crossfade("sound1", "sound2", 2f);
+    SoundManager.instance.Crossfade("sound1", "sound2", 2f);
 
 Note: configure `loop = true` for repeating--see Sound.cs */
 
@@ -63,7 +67,7 @@ public class SoundManager : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("Sound: " + soundName + " not found!"); // Error message if sound not found
+            Debug.LogWarning($"Sound: {soundName} not found!"); // Error message if sound not found
         }
     }
 
@@ -77,7 +81,7 @@ public class SoundManager : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("Sound: " + soundName + " not found!"); // Error message if sound not found
+            Debug.LogWarning($"Sound: {soundName} not found!"); // Error message if sound not found
         }
     }
 
@@ -104,9 +108,8 @@ public class SoundManager : MonoBehaviour
     // Method to crossfade between two sounds
     public void Crossfade(string soundOut, string soundIn, float duration)
     {
-        // Fade out the first sound while fading in the second
-        FadeOut(soundOut, duration);
-        FadeIn(soundIn, duration);
+        FadeOut(soundOut, duration); // Fade out the first sound
+        FadeIn(soundIn, duration);   // Fade in the second sound
     }
 
     // Coroutine for smoothly fading out a sound
@@ -122,7 +125,7 @@ public class SoundManager : MonoBehaviour
         }
 
         sound.source.Stop();             // Stop the sound after fade-out completes
-        sound.source.volume = startVolume; // Reset volume to original level for future use
+        sound.source.volume = 0f;        // Ensure volume is reset to 0 for future use
     }
 
     // Coroutine for smoothly fading in a sound
