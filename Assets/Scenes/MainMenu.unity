@@ -1137,9 +1137,9 @@ MonoBehaviour:
     volume: 0.2
     loop: 0
     source: {fileID: 0}
-  - name: EnemyDeath1
-    clip: {fileID: 8300000, guid: 37a3ddd77fea74c9aaaa356c33aa2d8c, type: 3}
-    volume: 0
+  - name: Player is selected
+    clip: {fileID: 8300000, guid: 835059f2d8ed84d23b8a66970041503a, type: 3}
+    volume: 0.5
     loop: 0
     source: {fileID: 0}
   - name: Ambient wind sfx for Lobby lvl
@@ -1166,6 +1166,36 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: e5e1138bc3c694183871b7c6237a9d11, type: 3}
     volume: 0.5
     loop: 0
+    source: {fileID: 0}
+  - name: Ending/Credits song
+    clip: {fileID: 8300000, guid: 1292d88cce143499fbbb528062fb5b0e, type: 3}
+    volume: 0.5
+    loop: 0
+    source: {fileID: 0}
+  - name: Lobby music
+    clip: {fileID: 8300000, guid: 73573d5c7ecc148cfb80971b6367fe19, type: 3}
+    volume: 0.5
+    loop: 1
+    source: {fileID: 0}
+  - name: Gameplay-Instrumental1
+    clip: {fileID: 8300000, guid: a0ec8aa2f7eb44fc1b88a76cbdc00cfa, type: 3}
+    volume: 0.5
+    loop: 1
+    source: {fileID: 0}
+  - name: Gameplay-Instrumental2
+    clip: {fileID: 8300000, guid: 0dd47e4911ebf4b16be0f0615994dab3, type: 3}
+    volume: 0.5
+    loop: 1
+    source: {fileID: 0}
+  - name: Gameplay-Instrumental3
+    clip: {fileID: 8300000, guid: 34bafb3d05bf64a14994a188bcd0f902, type: 3}
+    volume: 0.5
+    loop: 1
+    source: {fileID: 0}
+  - name: Main menu music
+    clip: {fileID: 8300000, guid: e9c9afc84542f475bbfa1b3c8bcb1f9b, type: 3}
+    volume: 0.5
+    loop: 1
     source: {fileID: 0}
 --- !u!4 &2126270725
 Transform:
