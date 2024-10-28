@@ -307,7 +307,6 @@ GameObject:
   m_Component:
   - component: {fileID: 295554890}
   - component: {fileID: 295554889}
-  - component: {fileID: 295554888}
   m_Layer: 0
   m_Name: Fog_cam2
   m_TagString: Untagged
@@ -315,14 +314,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &295554888
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 295554887}
-  m_Enabled: 1
 --- !u!20 &295554889
 Camera:
   m_ObjectHideFlags: 0
@@ -1092,7 +1083,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1185350297}
   - component: {fileID: 1185350296}
-  - component: {fileID: 1185350295}
   m_Layer: 0
   m_Name: Fog_cam1
   m_TagString: Untagged
@@ -1100,14 +1090,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &1185350295
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1185350294}
-  m_Enabled: 1
 --- !u!20 &1185350296
 Camera:
   m_ObjectHideFlags: 0

@@ -350,7 +350,7 @@ GameObject:
   - component: {fileID: 242262072}
   - component: {fileID: 242262071}
   m_Layer: 0
-  m_Name: Asset 18
+  m_Name: QuitButtonShadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1167,7 +1167,7 @@ MonoBehaviour:
     volume: 0.5
     loop: 0
     source: {fileID: 0}
-  - name: EndCreditsSong
+  - name: CreditsSong
     clip: {fileID: 8300000, guid: 1292d88cce143499fbbb528062fb5b0e, type: 3}
     volume: 0.5
     loop: 0

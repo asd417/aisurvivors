@@ -9,11 +9,13 @@ using UnityEngine;
 }
 
 - Adjust volume (e.g., lower music during other sfx)
-    Sound soundtrack = Array.Find(SoundManager.instance.sounds, s => s.name == "sound1");
-    if (soundtrack != null) soundtrack.source.volume = 0.3f;
+    SoundManager.instance.SetVolume("sound1", 0.3f);
 
 - Stop a sound effect or music
     SoundManager.instance.Stop("sound1");
+
+- Stop all sounds (useful for scene changes)
+    SoundManager.instance.StopAllSounds();
 
 - Fade out sound over 2 seconds
     SoundManager.instance.FadeOut("sound1", 2f);
@@ -40,10 +42,13 @@ public class SoundManager : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject); // Don't destroy this GameObject when loading a new scene
+            Debug.Log("SoundManager instance initialized.");
+
         }
         else
         {
             Destroy(gameObject); // Destroy duplicate SoundManagers
+            Debug.Log("Duplicate SoundManager detected and destroyed.");
             return;
         }
 
@@ -64,6 +69,8 @@ public class SoundManager : MonoBehaviour
         if (s != null)
         {
             s.source.Play(); // Start playing the sound
+            // If the sound should loop, ensure it's set to true
+            s.source.loop = s.loop; 
         }
         else
         {
@@ -78,6 +85,31 @@ public class SoundManager : MonoBehaviour
         if (s != null)
         {
             s.source.Stop(); // Stop playing the sound
+            // s.source.volume = 0; // Set volume to 0 for safety
+
+        }
+        else
+        {
+            Debug.LogWarning($"Sound: {soundName} not found!"); // Error message if sound not found
+        }
+    }
+
+    // Method to stop all sounds (useful for each scene change to ensure no sfx continuations)
+    public void StopAllSounds()
+    {
+        foreach (Sound s in sounds)
+        {
+            s.source.Stop(); // Stop each sound
+        }
+    }
+
+    // Method to set the volume of a sound
+    public void SetVolume(string soundName, float volume)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == soundName);
+        if (s != null)
+        {
+            s.source.volume = Mathf.Clamp(volume, 0f, 1f); // Set volume and clamp between 0 and 1
         }
         else
         {
