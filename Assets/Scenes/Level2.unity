@@ -229,6 +229,8 @@ MonoBehaviour:
   spritePrefab3: {fileID: 601162999262384718, guid: ccd23c369d7be468481c5db5267b00af, type: 3}
   spotx: 4
   spoty: -2
+  selected: {fileID: 8300000, guid: 835059f2d8ed84d23b8a66970041503a, type: 3}
+  error: {fileID: 8300000, guid: 8bc30804d96794550b5628751f0633eb, type: 3}
   numberOfSprites: 3
   agents: []
 --- !u!4 &276460205

@@ -21,6 +21,9 @@ public class SpriteMove : MonoBehaviour
     public int spotx = 0;
     public int spoty = 0;
 
+    public AudioClip selected;
+    public AudioClip error;
+
     // Number of sprites to instantiate
     public int numberOfSprites;
 
@@ -156,9 +159,14 @@ public class SpriteMove : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q) && agents.Count > 0)
         {
+            
             if (selectedSprite != null)
             {
+                AudioSource.PlayClipAtPoint(selected, transform.position);
                 HighlightSprite(selectedSprite, false);
+            }
+            else{
+                AudioSource.PlayClipAtPoint(error, transform.position);
             }
             // Do something when the spacebar is pressed
             Debug.Log("Agent 1 was selected");
@@ -170,7 +178,11 @@ public class SpriteMove : MonoBehaviour
         {
             if (selectedSprite != null)
             {
+                AudioSource.PlayClipAtPoint(selected, transform.position);
                 HighlightSprite(selectedSprite, false);
+            }
+            else{
+                AudioSource.PlayClipAtPoint(error, transform.position);
             }
             // Do something when the spacebar is pressed
             Debug.Log("Agent 2 was selected");
@@ -182,7 +194,11 @@ public class SpriteMove : MonoBehaviour
         {
             if (selectedSprite != null)
             {
+                AudioSource.PlayClipAtPoint(selected, transform.position);
                 HighlightSprite(selectedSprite, false);
+            }
+            else{
+                AudioSource.PlayClipAtPoint(error, transform.position);
             }
             // Do something when the spacebar is pressed
             Debug.Log("Agent 3 was selected");
@@ -190,6 +206,7 @@ public class SpriteMove : MonoBehaviour
             selectedSprite = agents[2];
             HighlightSprite(selectedSprite, true);
         }
+         
     }
 
     // Method to toggle between sprites

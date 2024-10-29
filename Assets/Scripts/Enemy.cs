@@ -24,6 +24,10 @@ public class Enemy : MonoBehaviour
     Animator animator;
     Rigidbody2D rb;
 
+    public AudioClip damage;
+    public AudioClip dead;
+
+
     private void Start()
     {   
         agent = GetComponent<NavMeshAgent>();
@@ -69,6 +73,7 @@ public class Enemy : MonoBehaviour
         if (health <= 0 && !isDying) {
             KillEnemy();
         }
+        AudioSource.PlayClipAtPoint(damage, transform.position);
     }
     public void SetDmgTextInfo(GameObject dmgTextPrefab, Transform dmgTextCanvas)
     {
@@ -106,6 +111,7 @@ public class Enemy : MonoBehaviour
         
         // Instantiate(itemDropPrefab, transform.position, Quaternion.identity); // Instantiate the item drop at the enemy's position
         // Start the enemy death animation
+        AudioSource.PlayClipAtPoint(dead, transform.position); 
         StartCoroutine(ScaleDownAndDestroy());
     }
 
