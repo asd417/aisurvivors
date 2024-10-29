@@ -58,9 +58,21 @@ public class Weapon : MonoBehaviour
 
             if (enemy != null)
             {
-                enemy.TakeDamage(damage);
-                GameObject text = Instantiate(dmgTextPrefab, DamageTextCanvas.transform);
-                text.GetComponent<DmgText>().SetDmgPos(damage, collision.transform.position);
+                enemy.AddEnemyTakingDmg(damage);
+                enemy.SetDmgTextInfo(dmgTextPrefab, DamageTextCanvas.transform);
+            }
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (isAttached && collision.CompareTag("Enemy"))
+        {
+            //Need to check if the gameobject has a enemy component
+            Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+
+            if (enemy != null)
+            {
+                enemy.RemoveEnemyTakingDmg(damage);
             }
         }
     }

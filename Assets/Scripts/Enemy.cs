@@ -15,15 +15,17 @@ public class Enemy : MonoBehaviour
     public float deathScalingDuration = 0.3f;  // Duration of the gradual enemy decrease in scale for death animation
     private bool isDying = false; // Ensures that death logic is only triggered once so as to avoid multiple animations
 
+    private int takingDamage = 0;
+    private GameObject dmgTextPrefab;
+    private Transform dmgTextCanvas;
+    private int dmgTakeInterval = 30; // take dmg every 0.5 seconds
+    private int lastDmgFrame = 0;
+    private int currentFrame = 0;
     Animator animator;
     Rigidbody2D rb;
 
-    
-
-
     private void Start()
-    {
-        
+    {   
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
@@ -38,7 +40,17 @@ public class Enemy : MonoBehaviour
         // Repeatedly find the closest player at regular intervals
         InvokeRepeating(nameof(LocateClosestTarget), 0f, targetUpdateInterval);
     }
-
+    private void FixedUpdate()
+    {
+        currentFrame++;
+        if (takingDamage > 0 && currentFrame > lastDmgFrame + dmgTakeInterval)
+        {
+            lastDmgFrame = currentFrame;
+            TakeDamage(takingDamage);
+            GameObject text = Instantiate(dmgTextPrefab, dmgTextCanvas);
+            text.GetComponent<DmgText>().SetDmgPos(takingDamage, transform.position);
+        }
+    }
     private void Update()
     {
         float verticalVelocity = agent.velocity.y;
@@ -50,12 +62,6 @@ public class Enemy : MonoBehaviour
             agent.SetDestination(target.position);
         }
     }
-
-    // Handle what happens when enemy reaches player/collides with something
-    private void OnCollisionEnter2D(Collision2D collision)
-    {   
-    }
-
     public void TakeDamage(int dmg)
     {
         health -= dmg;
@@ -63,9 +69,21 @@ public class Enemy : MonoBehaviour
         if (health <= 0 && !isDying) {
             KillEnemy();
         }
-
     }
-
+    public void SetDmgTextInfo(GameObject dmgTextPrefab, Transform dmgTextCanvas)
+    {
+        this.dmgTextCanvas = dmgTextCanvas;
+        this.dmgTextPrefab = dmgTextPrefab;
+    }
+    public void AddEnemyTakingDmg(int dmg)
+    {
+        takingDamage += dmg;
+    }
+    public void RemoveEnemyTakingDmg(int dmg)
+    {
+        takingDamage -= dmg;
+        takingDamage = Mathf.Max(takingDamage, 0);
+    }
     // trigger enemy death when hp <= 0 
     private void KillEnemy()
     {
