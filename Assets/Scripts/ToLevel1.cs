@@ -18,7 +18,7 @@ public class ToLevel1 : MonoBehaviour
         {
             playersAtDoor++;
         }
-        if(playersAtDoor == spriteMove.agents.Count)
+        if(playersAtDoor == spriteMove.GetAgentCount())
         {
             MoveOn();
         }
@@ -30,9 +30,18 @@ public class ToLevel1 : MonoBehaviour
             playersAtDoor--;
         }
     }
+    private void Update()
+    {
+        if (spriteMove.GetAgentCount() == 0)
+        {
+            Lose();
+        }
+    }
 
     void Switch()
     {
+        //Scene targetScene = SceneManager.GetSceneByName(scene); // Target scene
+        //spriteMove.TransferAgentsToNewScene(targetScene);
         SceneManager.LoadScene(scene); 
     }
 
@@ -41,13 +50,11 @@ public class ToLevel1 : MonoBehaviour
     }
 
     void MoveOn(){
-        if (spriteMove.agents.Count != 0 && GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
+        int spriteCount = spriteMove.GetAgentCount();
+        if (spriteCount != 0 && GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
         {
             Switch();
         }
-        if (spriteMove.agents.Count == 0)
-        {
-            Lose();
-        }
+        
     }
 }

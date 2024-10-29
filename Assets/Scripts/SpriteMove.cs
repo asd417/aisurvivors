@@ -1,8 +1,10 @@
+using NavMeshPlus.Extensions;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI; // Add this namespace for NavMesh
+using UnityEngine.SceneManagement;
 
 public class SpriteMove : MonoBehaviour
 {
@@ -25,10 +27,11 @@ public class SpriteMove : MonoBehaviour
     public AudioClip error;
 
     // Number of sprites to instantiate
-    public int numberOfSprites;
+    public int agentCount = 0;
 
     // List to hold the instantiated sprite objects
-    public List<GameObject> agents = new List<GameObject>();
+    private List<GameObject> agents = new List<GameObject>();
+    private List<GameObject> serializedAgents = new List<GameObject>();
 
     // List to keep track of the NavMeshAgents for each sprite
     private List<NavMeshAgent> navMeshAgents = new List<NavMeshAgent>();
@@ -56,10 +59,8 @@ public class SpriteMove : MonoBehaviour
         SpriteAssign(spritePrefab2);
         SpriteAssign(spritePrefab3);
     }
-
     void Update()
     {
-
         // Switch between sprites using QWE
         SwitchNextAgent();
 
@@ -70,7 +71,7 @@ public class SpriteMove : MonoBehaviour
         }
         float maxDist = 0;
         Vector3 averagePos = Vector3.zero;
-        int agentCount = 0;
+        agentCount = 0;
         for (int i = 0; i < agents.Count; i++)
         {
             if (agents[i]) agentCount++;
@@ -78,8 +79,7 @@ public class SpriteMove : MonoBehaviour
         for (int i = 0; i < agents.Count; i++)
         {
             // Check if the agent has been destroyed or is null
-            if (agents[i] == null) continue; // if null skip
-            // Debug.Log("agents.count: " + agentCount);
+            if (agents[i] == null) continue;
             averagePos = averagePos + agents[i].transform.position / agentCount;
             for (int j = 0; j < agents.Count; j++)
             {
@@ -95,7 +95,19 @@ public class SpriteMove : MonoBehaviour
         //camera.transform.position = new Vector3(Mathf.Clamp(averagePos.x,-(10 - 2 * zoom), (10 - 2 * zoom)), Mathf.Clamp(averagePos.y, -(10 - 2 * zoom*camera.aspect), (10 - 2 * zoom)), -10);
         camera.transform.position = Vector3.Lerp(camera.transform.position, new Vector3(averagePos.x, averagePos.y, -10), Time.deltaTime);
     }
-
+    public int GetAgentCount()
+    {
+        return agentCount;
+    }
+    public void TransferAgentsToNewScene(Scene newScene)
+    {
+        foreach (GameObject agent in agents) 
+        {
+            DontDestroyOnLoad(agent);
+            //GameObject clone = Instantiate(agent); // Create a clone
+            //SceneManager.MoveGameObjectToScene(clone, newScene); // Move clone to target scene
+        }
+    }
     public float CheckAlignment()
     {
         // Average the angles to determine overall alignment
