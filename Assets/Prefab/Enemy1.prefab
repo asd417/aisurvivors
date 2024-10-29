@@ -264,6 +264,8 @@ MonoBehaviour:
   itemDropPrefab: {fileID: 5126136344101472342, guid: 7a52482f579a348358bd133040b6a3be, type: 3}
   itemDropChance: 1
   deathScalingDuration: 0.3
+  damage: {fileID: 8300000, guid: c0e4468f2eb6c4f45ad0160c51f8a2c1, type: 3}
+  dead: {fileID: 8300000, guid: 76f57b4579aa84e8b95f2e7370e36997, type: 3}
 --- !u!95 &6322721523135915025
 Animator:
   serializedVersion: 5

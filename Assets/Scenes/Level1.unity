@@ -229,6 +229,8 @@ MonoBehaviour:
   spritePrefab3: {fileID: 601162999262384718, guid: ccd23c369d7be468481c5db5267b00af, type: 3}
   spotx: -2
   spoty: -5
+  selected: {fileID: 8300000, guid: 835059f2d8ed84d23b8a66970041503a, type: 3}
+  error: {fileID: 8300000, guid: 8bc30804d96794550b5628751f0633eb, type: 3}
   numberOfSprites: 3
 --- !u!4 &276460205
 Transform:
@@ -2289,7 +2291,7 @@ SpriteRenderer:
   m_Size: {x: 170.64, y: 133.64578}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1953123917
