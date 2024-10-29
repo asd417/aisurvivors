@@ -28,7 +28,7 @@ public class SpriteMove : MonoBehaviour
     public int numberOfSprites;
 
     // List to hold the instantiated sprite objects
-    private List<GameObject> agents = new List<GameObject>();
+    public List<GameObject> agents = new List<GameObject>();
 
     // List to keep track of the NavMeshAgents for each sprite
     private List<NavMeshAgent> navMeshAgents = new List<NavMeshAgent>();

@@ -8,32 +8,26 @@ using UnityEngine.SceneManagement;
 
 public class ToLevel1 : MonoBehaviour
 {
+    public SpriteMove spriteMove;
     public string scene; 
-    private bool player1;
-    private bool player2;
-    private bool player3;       
+    private int playersAtDoor = 0;
 
-    void Start(){
-        player1 = false;
-        player2 = false;
-        player3 = false;
-    }
-
-    void Update()
-    {
-        MoveOn();
-    }
-
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D collider)
     {  
-        if (collision.collider.CompareTag("Player1")){
-            player1 = true;
+        if (collider.CompareTag("Player1") || collider.CompareTag("Player2") || collider.CompareTag("Player3"))
+        {
+            playersAtDoor++;
         }
-        if (collision.collider.CompareTag("Player2")){
-            player2 = true;
+        if(playersAtDoor == spriteMove.agents.Count)
+        {
+            MoveOn();
         }
-        if (collision.collider.CompareTag("Player3")){
-            player3 = true;
+    }
+    private void OnTriggerExit2D(Collider2D collider)
+    {
+        if (collider.CompareTag("Player1") || collider.CompareTag("Player2") || collider.CompareTag("Player3"))
+        {
+            playersAtDoor--;
         }
     }
 
@@ -47,29 +41,13 @@ public class ToLevel1 : MonoBehaviour
     }
 
     void MoveOn(){
-        if (GameObject.FindGameObjectsWithTag("Player1").Length == 0 && player2 && player3 && GameObject.FindGameObjectsWithTag("Enemy").Length == 0){
+        if (spriteMove.agents.Count != 0 && GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
+        {
             Switch();
         }
-        if (GameObject.FindGameObjectsWithTag("Player2").Length == 0 && player1 && player3 && GameObject.FindGameObjectsWithTag("Enemy").Length == 0){
-            Switch();
+        if (spriteMove.agents.Count == 0)
+        {
+            Lose();
         }
-        if (GameObject.FindGameObjectsWithTag("Player3").Length == 0 && player2 && player1 && GameObject.FindGameObjectsWithTag("Enemy").Length == 0){
-            Switch();
-        }
-        if (player1 && player2 && player3 && GameObject.FindGameObjectsWithTag("Enemy").Length == 0){
-            Switch();
-        }
-        if (GameObject.FindGameObjectsWithTag("Player1").Length == 0 && GameObject.FindGameObjectsWithTag("Player2").Length == 0 && player3 && GameObject.FindGameObjectsWithTag("Enemy").Length == 0){
-            Switch();
-        }
-        if (GameObject.FindGameObjectsWithTag("Player1").Length == 0 && GameObject.FindGameObjectsWithTag("Player3").Length == 0 && player2 && GameObject.FindGameObjectsWithTag("Enemy").Length == 0){
-            Switch();
-        }
-        if (GameObject.FindGameObjectsWithTag("Player2").Length == 0 && GameObject.FindGameObjectsWithTag("Player3").Length == 0 && player1 && GameObject.FindGameObjectsWithTag("Enemy").Length == 0){
-            Switch();
-        }
-        if (GameObject.FindGameObjectsWithTag("Player1").Length == 0 && GameObject.FindGameObjectsWithTag("Player2").Length == 0 && GameObject.FindGameObjectsWithTag("Player3").Length == 0){
-                Lose();
-            }
     }
 }
