@@ -1211,7 +1211,7 @@ MonoBehaviour:
   spawny1: -5
   spawnx2: 5
   spawny2: -5
-  numberEnemy: 15
+  numberEnemy: 1
 --- !u!4 &1235837690
 Transform:
   m_ObjectHideFlags: 0
