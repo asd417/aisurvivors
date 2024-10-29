@@ -230,6 +230,7 @@ MonoBehaviour:
   spotx: -2
   spoty: -5
   numberOfSprites: 3
+  agents: []
 --- !u!4 &276460205
 Transform:
   m_ObjectHideFlags: 0
@@ -1427,8 +1428,8 @@ Transform:
   m_GameObject: {fileID: 1440534657}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.29, y: 4.28, z: 0}
-  m_LocalScale: {x: 0.54720086, y: 3.403944, z: 1}
+  m_LocalPosition: {x: -8.5694, y: 4.28, z: 0}
+  m_LocalScale: {x: 1.9884032, y: 3.403944, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1462,7 +1463,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -1490,6 +1491,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb953f982c2994caf9374a929330c2a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteMove: {fileID: 276460204}
   scene: Level2
 --- !u!1 &1548489944
 GameObject:
@@ -2289,7 +2291,7 @@ SpriteRenderer:
   m_Size: {x: 170.64, y: 133.64578}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1953123917
