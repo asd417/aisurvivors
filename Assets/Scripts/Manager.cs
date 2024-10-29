@@ -23,7 +23,7 @@ public class Manager : MonoBehaviour
     }
 
     // private void Start() {
-    //     SoundManager.instance.Play("MainMenuMusic");
+    //     SoundManager.instance.FadeIn("MainMenuMusic", 3f);
     // }
 
     public void Level1()
@@ -53,7 +53,7 @@ public class Manager : MonoBehaviour
 
     public void Title()
     {
-        StartCoroutine(PlayIntroAnimationSounds());
+        StartCoroutine(PlayIntroAnimationSounds()); // playing sounds differently here because there is a designated sequence of sounds to be played
         StartCoroutine(LoadSceneWithAudio("Title"));
     }
 
@@ -83,48 +83,48 @@ public class Manager : MonoBehaviour
 
 
 
-    private IEnumerator LoadSceneWithAudio(string sceneName, params string[] audioNames)
-    {
-        Debug.Log($"Loading scene: {sceneName}"); // Debug log to indicate scene loading
+    private IEnumerator LoadSceneWithAudio(string sceneName, params string[] audioNames) {
+        // Debug.Log($"Loading scene: {sceneName}");
+        
         // Confirm SoundManager instance
         if (SoundManager.instance == null)
         {
-            Debug.LogError("SoundManager instance is null! Audio playback will not work.");
+            // Debug.LogError("SoundManager instance is null! Audio playback will not work.");
             yield break;
         }
+        
         SoundManager.instance.StopAllSounds(); // Stop all sounds before changing scenes
         yield return null; // Wait for a frame to allow stopping logic to complete
         
         SceneManager.LoadScene(sceneName);
         yield return new WaitForSeconds(0.5f); // Wait a moment for the scene to load
 
-        foreach (var audioName in audioNames) // Iterate through each audio name
+        // Iterate through each audio name
+        foreach (var audioName in audioNames)
         {
-            Debug.Log($"Attempting to play audio: {audioName}"); // Debug log before playing audio
+            // Debug.Log($"Attempting to play audio: {audioName}");
             SoundManager.instance.FadeIn(audioName, 3f); // Play the music for the new scene
         }
+
         // Check if each audio source is playing
-            foreach (var audioName in audioNames)
+        foreach (var audioName in audioNames)
+        {
+            Sound sound = Array.Find(SoundManager.instance.sounds, s => s.name == audioName);
+            if (sound != null && sound.source != null)
             {
-                Sound sound = Array.Find(SoundManager.instance.sounds, s => s.name == audioName);
-                if (sound != null && sound.source != null)
+                // Debug.Log($"{audioName} source is valid.");
+                if (!sound.source.isPlaying)
                 {
-                    Debug.Log($"{audioName} source is valid.");
-                    if (sound.source.isPlaying)
-                    {
-                        Debug.Log($"{audioName} is playing.");
-                    }
-                    else
-                    {
-                        Debug.LogWarning($"{audioName} is NOT playing!");
-                    }
-                }
-                else
-                {
-                    Debug.LogError($"Sound {audioName} not found or audio source is null!");
+                    // Debug.LogWarning($"{audioName} is NOT playing!");
                 }
             }
+            else
+            {
+                // Debug.LogError($"Sound {audioName} not found or audio source is null!");
+            }
         }
+    }
+
 
 
     private IEnumerator PlayIntroAnimationSounds() // used for Title scene change (intro animation)
