@@ -22,44 +22,53 @@ public class Manager : MonoBehaviour
         }
     }
 
-    // private void Start() {
-    //     SoundManager.instance.FadeIn("MainMenuMusic", 3f);
-    // }
-
     public void Level1()
     {
-        StartCoroutine(LoadSceneWithAudio("Level1", "Gameplay-Instrumental1"));
+        Debug.Log("Trigger Level1 scene");
+        SceneManager.LoadScene("Level1");
+        // StartCoroutine(LoadSceneWithAudio("Level1", "Gameplay-Instrumental1"));
     }
 
     public void Level2()
     {
-        StartCoroutine(LoadSceneWithAudio("Level2", "Gameplay-Instrumental2"));
+        Debug.Log("Trigger Level2 scene");
+        SceneManager.LoadScene("Level2");
+        // StartCoroutine(LoadSceneWithAudio("Level2", "Gameplay-Instrumental2"));
     }
 
     public void Level3()
     {
-        StartCoroutine(LoadSceneWithAudio("Level3", "Gameplay-Instrumental3"));
+        Debug.Log("Trigger Level3 scene");
+        SceneManager.LoadScene("Level3");
+        // StartCoroutine(LoadSceneWithAudio("Level3", "Gameplay-Instrumental3"));
     }
 
     public void Menu()
     {
-        StartCoroutine(LoadSceneWithAudio("MainMenu", "MainMenuMusic"));
+        Debug.Log("Trigger Menu scene");
+        SceneManager.LoadScene("MainMenu");
+        // StartCoroutine(LoadSceneWithAudio("MainMenu", "MainMenuMusic"));
     }
 
     public void Lobby()
     {
-        StartCoroutine(LoadSceneWithAudio("Lobby", "LobbyMusic"));
+        Debug.Log("Trigger Lobby scene");
+        SceneManager.LoadScene("Lobby");
+        // StartCoroutine(LoadSceneWithAudio("Lobby", "LobbyMusic"));
     }
 
     public void Title()
     {
-        StartCoroutine(PlayIntroAnimationSounds()); // playing sounds differently here because there is a designated sequence of sounds to be played
-        StartCoroutine(LoadSceneWithAudio("Title"));
+        Debug.Log("Trigger Title scene");
+        // StartCoroutine(PlayIntroAnimationSounds()); // playing sounds differently here because there is a designated sequence of sounds to be played
+        SceneManager.LoadScene("Title");    
     }
 
     public void Credits()
     {
-        StartCoroutine(LoadSceneWithAudio("Credits", "CreditsSong"));
+        Debug.Log("Trigger Credits scene");
+        SceneManager.LoadScene("Credits");
+        // StartCoroutine(LoadSceneWithAudio("Credits", "CreditsSong"));
     }
 
     public void QuitGame()
@@ -70,13 +79,14 @@ public class Manager : MonoBehaviour
 
     public void Win()
     {
-        StartCoroutine(LoadSceneWithAudio("Win")); // will add music param later
+        Debug.Log("Trigger Win scene");
+        SceneManager.LoadScene("Win");
     }
 
     public void PlayerLost(string currentLevel)
     {
         PlayerPrefs.SetString("LastLevel", currentLevel);
-        StartCoroutine(LoadSceneWithAudio("GameLost")); // will add music param later
+        SceneManager.LoadScene("GameLost");
     }
 
 
@@ -123,18 +133,6 @@ public class Manager : MonoBehaviour
                 // Debug.LogError($"Sound {audioName} not found or audio source is null!");
             }
         }
-    }
-
-
-
-    private IEnumerator PlayIntroAnimationSounds() // used for Title scene change (intro animation)
-    {
-        // slashes sfx
-        SoundManager.instance.Play("MenuPlayAnimation1");
-        yield return new WaitForSeconds(2f); // duration to wait between sounds
-
-        // crescendo
-        SoundManager.instance.Play("MenuPlayAnimation2"); // Replace with your second sound name
     }
 }
 

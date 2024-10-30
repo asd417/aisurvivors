@@ -184,7 +184,9 @@ public class SpriteMove : MonoBehaviour
             Debug.Log("Agent 1 was selected");
             currentSpriteIndex = 0;
             selectedSprite = agents[0];
-            HighlightSprite(selectedSprite, true);
+            if (selectedSprite != null) {
+                HighlightSprite(selectedSprite, true);
+            }
         }
         if (Input.GetKeyDown(KeyCode.W) && agents.Count > 1)
         {
@@ -200,7 +202,9 @@ public class SpriteMove : MonoBehaviour
             Debug.Log("Agent 2 was selected");
             currentSpriteIndex = 1;
             selectedSprite = agents[1];
-            HighlightSprite(selectedSprite, true);
+            if (selectedSprite != null) {
+                HighlightSprite(selectedSprite, true);
+            }
         }
         if (Input.GetKeyDown(KeyCode.E) && agents.Count > 2)
         {
@@ -216,7 +220,9 @@ public class SpriteMove : MonoBehaviour
             Debug.Log("Agent 3 was selected");
             currentSpriteIndex = 2;
             selectedSprite = agents[2];
-            HighlightSprite(selectedSprite, true);
+            if (selectedSprite != null) {
+                HighlightSprite(selectedSprite, true);
+            }
         }
          
     }

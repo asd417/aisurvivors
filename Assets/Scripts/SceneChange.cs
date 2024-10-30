@@ -9,6 +9,8 @@ public class SceneChanger : MonoBehaviour
 
     private void Start()
     {
+        SoundManager.instance.StopAllSounds();
+        StartCoroutine(PlayIntroAnimationSounds());
         StartCoroutine(ChangeSceneToLobbyAfterDelay());   
     }
 
@@ -16,5 +18,19 @@ public class SceneChanger : MonoBehaviour
     {
         yield return new WaitForSeconds(delayBeforeChange);
         SceneManager.LoadScene("Lobby");
+
+    }
+
+
+
+
+    private IEnumerator PlayIntroAnimationSounds() // used for Title scene change (intro animation)
+    {
+        // slashes sfx
+        SoundManager.instance.Play("MenuPlayAnimation1");
+        yield return new WaitForSeconds(2f); // duration to wait between sounds
+
+        // crescendo
+        SoundManager.instance.Play("MenuPlayAnimation2"); // Replace with your second sound name
     }
 }

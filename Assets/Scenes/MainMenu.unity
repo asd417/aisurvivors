@@ -416,12 +416,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 242262070}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.18, y: -4.35, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -559.4399, y: -469.79993, z: -9719.999}
+  m_LocalScale: {x: 54, y: 54, z: 54}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1227582713}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &308187209
 GameObject:
@@ -434,8 +434,9 @@ GameObject:
   - component: {fileID: 308187210}
   - component: {fileID: 308187212}
   - component: {fileID: 308187211}
+  - component: {fileID: 308187213}
   m_Layer: 5
-  m_Name: Image
+  m_Name: BackgroundImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -498,6 +499,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 308187209}
   m_CullTransparentMesh: 1
+--- !u!114 &308187213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 308187209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92579a1b1b5dc4646a527e0a1ef121eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &733466796
 GameObject:
   m_ObjectHideFlags: 0
@@ -986,6 +999,7 @@ RectTransform:
   - {fileID: 733466797}
   - {fileID: 787988546}
   - {fileID: 94517909}
+  - {fileID: 242262072}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1104,42 +1118,42 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: MenuButtonHover1
     clip: {fileID: 8300000, guid: 2c40f073aa85643788949088d0dcf1f9, type: 3}
-    volume: 0.5
+    volume: 0.3
     loop: 0
     source: {fileID: 0}
   - name: MenuButtonHover2
     clip: {fileID: 8300000, guid: 75a5ad754481943c5b200114b0f489bf, type: 3}
-    volume: 0.5
+    volume: 0.3
     loop: 0
     source: {fileID: 0}
   - name: MenuPlayAnimation1
     clip: {fileID: 8300000, guid: cb8f7a0de77fd4aafaa2ff2c92c26d8c, type: 3}
-    volume: 0.5
+    volume: 0.6
     loop: 0
     source: {fileID: 0}
   - name: MenuPlayAnimation2
     clip: {fileID: 8300000, guid: 6fcaa850a08d645359590a85a5f1157d, type: 3}
-    volume: 0.5
+    volume: 0.7
     loop: 0
     source: {fileID: 0}
   - name: PlayerHitEnemy1
     clip: {fileID: 8300000, guid: 87bd894d86ec04e3488e5d411992d7a7, type: 3}
-    volume: 0.2
+    volume: 0.1
     loop: 0
     source: {fileID: 0}
   - name: PlayerHitEnemy2
     clip: {fileID: 8300000, guid: 584a3182922354937a126fbe976b9191, type: 3}
-    volume: 0.2
+    volume: 0.1
     loop: 0
     source: {fileID: 0}
   - name: PlayerHitEnemy3
     clip: {fileID: 8300000, guid: 8cbd08f054c4c4ddaa73b8c1c33c3809, type: 3}
-    volume: 0.2
+    volume: 0.1
     loop: 0
     source: {fileID: 0}
   - name: PlayerSelect1
     clip: {fileID: 8300000, guid: 835059f2d8ed84d23b8a66970041503a, type: 3}
-    volume: 0.5
+    volume: 0.1
     loop: 0
     source: {fileID: 0}
   - name: LobbyAmbientWind
@@ -1149,7 +1163,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: PlayerSelectError
     clip: {fileID: 8300000, guid: 8bc30804d96794550b5628751f0633eb, type: 3}
-    volume: 0.5
+    volume: 0.1
     loop: 0
     source: {fileID: 0}
   - name: Projectile
@@ -1159,17 +1173,17 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: ErrorSound
     clip: {fileID: 8300000, guid: 5c67d964ddf3d4aabb0319708a648a9c, type: 3}
-    volume: 0.5
+    volume: 0.2
     loop: 0
     source: {fileID: 0}
   - name: ButtonClickedOn
     clip: {fileID: 8300000, guid: e5e1138bc3c694183871b7c6237a9d11, type: 3}
-    volume: 0.5
+    volume: 0.15
     loop: 0
     source: {fileID: 0}
   - name: CreditsSong
     clip: {fileID: 8300000, guid: 1292d88cce143499fbbb528062fb5b0e, type: 3}
-    volume: 0.5
+    volume: 0.3
     loop: 0
     source: {fileID: 0}
   - name: LobbyMusic
@@ -1179,22 +1193,22 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Gameplay-Instrumental1
     clip: {fileID: 8300000, guid: a0ec8aa2f7eb44fc1b88a76cbdc00cfa, type: 3}
-    volume: 0.5
+    volume: 0.3
     loop: 1
     source: {fileID: 0}
   - name: Gameplay-Instrumental2
     clip: {fileID: 8300000, guid: 0dd47e4911ebf4b16be0f0615994dab3, type: 3}
-    volume: 0.5
+    volume: 0.3
     loop: 1
     source: {fileID: 0}
   - name: Gameplay-Instrumental3
     clip: {fileID: 8300000, guid: 34bafb3d05bf64a14994a188bcd0f902, type: 3}
-    volume: 0.5
+    volume: 0.3
     loop: 1
     source: {fileID: 0}
   - name: MainMenuMusic
     clip: {fileID: 8300000, guid: e9c9afc84542f475bbfa1b3c8bcb1f9b, type: 3}
-    volume: 0.5
+    volume: 0.4
     loop: 1
     source: {fileID: 0}
 --- !u!4 &2126270725
@@ -1220,5 +1234,4 @@ SceneRoots:
   - {fileID: 1227582713}
   - {fileID: 118966067}
   - {fileID: 1296321223}
-  - {fileID: 242262072}
   - {fileID: 2126270725}
