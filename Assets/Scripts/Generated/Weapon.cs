@@ -14,6 +14,10 @@ public class Weapon : MonoBehaviour
     private bool isAttached = false;
     private float angle_euler = 0;
     private int dist = 1;
+    public bool player1CanPickUp = true;
+    public bool player2CanPickUp = true;
+    public bool player3CanPickUp = true;
+    public bool weaponPersistsThroughScene = true;
 
     [SerializeField, Tooltip("Weapon - Damage dealt to enemy")]
     int damage = 1;
@@ -36,19 +40,28 @@ public class Weapon : MonoBehaviour
             transform.eulerAngles = new Vector3 (0,0, angle_euler);
             transform.position = targetPlayer.position + new Vector3(Mathf.Cos(Mathf.Deg2Rad * angle_euler) * dist, Mathf.Sin(Mathf.Deg2Rad * angle_euler) * dist, 0);
         }
-        if (targetPlayer == null){
-            isAttached = false;
-        }
+    }
+
+    /// <summary>
+    /// Function used to detach this weapon from player
+    /// </summary>
+    public void Detach()
+    {
+        targetPlayer = null;
+        isAttached = false;
+        transform.SetParent(null);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if ((!isAttached && collision.CompareTag("Player1")) || 
-        (!isAttached && collision.CompareTag("Player2")) || 
-        (!isAttached && collision.CompareTag("Player3")))
+        if ((!isAttached && collision.CompareTag("Player1") && player1CanPickUp)|| 
+        (!isAttached && collision.CompareTag("Player2") && player2CanPickUp) || 
+        (!isAttached && collision.CompareTag("Player3") && player3CanPickUp))
         {
             targetPlayer = collision.transform;
             isAttached = true;
+            //Weapon needs to be a child of player so that it can follow the player into the next scene
+            if(weaponPersistsThroughScene) transform.SetParent(targetPlayer);
         }
 
         if (isAttached && collision.CompareTag("Enemy"))
