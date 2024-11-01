@@ -588,6 +588,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33f89ade07f3848b69d3e32a59acdcfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotationSpeed: 3
   DamageTextCanvas: {fileID: 1968416290}
   player1CanPickUp: 1
   player2CanPickUp: 0
@@ -1604,6 +1605,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33f89ade07f3848b69d3e32a59acdcfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotationSpeed: 4
   DamageTextCanvas: {fileID: 1968416290}
   player1CanPickUp: 1
   player2CanPickUp: 1
@@ -2107,6 +2109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33f89ade07f3848b69d3e32a59acdcfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotationSpeed: 4
   DamageTextCanvas: {fileID: 1968416290}
   player1CanPickUp: 1
   player2CanPickUp: 1
@@ -2447,6 +2450,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33f89ade07f3848b69d3e32a59acdcfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotationSpeed: 4
   DamageTextCanvas: {fileID: 667008242}
   player1CanPickUp: 1
   player2CanPickUp: 1
