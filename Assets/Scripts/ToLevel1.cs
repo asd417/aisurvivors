@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.U2D;
 
 public class ToLevel1 : MonoBehaviour
 {
@@ -32,7 +33,15 @@ public class ToLevel1 : MonoBehaviour
     }
     private void Update()
     {
-        if (spriteMove.GetAgentCount() == 0)
+        if(!spriteMove)
+        {
+            GameObject obj = GameObject.Find("SpriteManager");
+            if (obj)
+            {
+                spriteMove = obj.GetComponent<SpriteMove>();
+            }
+        }
+        if (spriteMove.GetAgentCount() == 0 && spriteMove)
         {
             Lose();
         }
@@ -55,6 +64,5 @@ public class ToLevel1 : MonoBehaviour
         {
             Switch();
         }
-        
     }
 }

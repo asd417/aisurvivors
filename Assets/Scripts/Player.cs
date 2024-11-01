@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public Color playerColor = Color.white;
     public Color highlightColor = Color.green;
     public float playerDeathDuration = 0.3f;  // Duration of gradual scale decrease for death animation
+    public SpriteRenderer sr;
 
     private void Start()
     {
@@ -17,7 +18,6 @@ public class Player : MonoBehaviour
 
     public void setHighlighted(bool highlighted)
     {
-        SpriteRenderer sr = gameObject.GetComponent<SpriteRenderer>();
         if (highlighted)
         {
             sr.color = highlightColor;
@@ -30,9 +30,16 @@ public class Player : MonoBehaviour
 
     // trigger player death when hp <= 0 
     public void KillPlayer()
-    {        
+    {
         // maybe add player's weapon drop logic here: ...
-
+        foreach (Transform c in transform)
+        {
+            Weapon w = c.GetComponent<Weapon>();
+            if (w != null)
+            {
+                w.Detach();
+            }
+        }
         // Start the death animation
         StartCoroutine(PlayerScaleDownAndDestroy());
     }

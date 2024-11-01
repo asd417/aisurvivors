@@ -30,18 +30,17 @@ public class SpriteMove : MonoBehaviour
     public int agentCount = 0;
 
     // List to hold the instantiated sprite objects
-    private List<GameObject> agents = new List<GameObject>();
+    public List<GameObject> agents = new List<GameObject>();
     private List<GameObject> serializedAgents = new List<GameObject>();
-
-    // List to keep track of the NavMeshAgents for each sprite
-    private List<NavMeshAgent> navMeshAgents = new List<NavMeshAgent>();
 
     private GameObject selectedSprite;
     private int currentSpriteIndex = 0;
 
-
+    public bool shouldSpawn = true;
+    private bool ready = false;
     private void Awake()
     {
+        SceneManager.sceneLoaded += OnSceneLoaded;
         // Singleton pattern to ensure only one instance of Manager exists
         if (instance == null)
         {
@@ -52,15 +51,30 @@ public class SpriteMove : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-    void Start()
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        Debug.Log("OnSceneLoaded");
+        camera = Camera.main;
+        GameObject p1s = GameObject.Find("Player1Spawn");
+        GameObject p2s = GameObject.Find("Player2Spawn");
+        GameObject p3s = GameObject.Find("Player3Spawn");
+        if (agents[0] != null && p1s != null) agents[0].GetComponent<NavMeshAgent>().Warp(p1s.transform.position);
+        if (agents[1] != null && p2s != null) agents[1].GetComponent<NavMeshAgent>().Warp(p2s.transform.position);
+        if (agents[2] != null && p3s != null) agents[2].GetComponent<NavMeshAgent>().Warp(p3s.transform.position);
+    }
+
+    void Start() //Only fires in lobby because this gameobject is persistent
+    {
+        Debug.Log("Start");
         SpriteAssign(spritePrefab1);
         SpriteAssign(spritePrefab2);
         SpriteAssign(spritePrefab3);
+        DontDestroyOnLoad(this);
     }
     void Update()
     {
+        
+        if (!camera) return;
         // Switch between sprites using QWE
         SwitchNextAgent();
 
@@ -78,6 +92,7 @@ public class SpriteMove : MonoBehaviour
         }
         for (int i = 0; i < agents.Count; i++)
         {
+            //Debug.LogError(agents[i].GetComponent<NavMeshAgent>().updateRotation);
             // Check if the agent has been destroyed or is null
             if (agents[i] == null) continue;
             averagePos = averagePos + agents[i].transform.position / agentCount;
@@ -103,7 +118,7 @@ public class SpriteMove : MonoBehaviour
     {
         foreach (GameObject agent in agents) 
         {
-            DontDestroyOnLoad(agent);
+            
             //GameObject clone = Instantiate(agent); // Create a clone
             //SceneManager.MoveGameObjectToScene(clone, newScene); // Move clone to target scene
         }
@@ -144,26 +159,13 @@ public class SpriteMove : MonoBehaviour
     }
 
     void SpriteAssign(GameObject sprite){
-    
         Vector3 initialPosition = new Vector3(spotx, spoty, 0); //put in position here
         spotx += 2;
-        GameObject newSprite = Instantiate(sprite, initialPosition, Quaternion.Euler(0, 0, 0));
+        GameObject newSprite = Instantiate(sprite, initialPosition, Quaternion.Euler(0, 0, 0), transform);
+        newSprite.GetComponent<NavMeshAgent>().updateRotation = false;
+        Debug.LogError(newSprite.GetComponent<NavMeshAgent>().updateRotation);
+        DontDestroyOnLoad(newSprite);
         agents.Add(newSprite);
-
-        // Ensure each sprite has a NavMeshAgent component
-        NavMeshAgent agent = newSprite.GetComponent<NavMeshAgent>();
-        if (agent == null)
-        {
-            agent = newSprite.AddComponent<NavMeshAgent>(); // Add component if not present
-        }
-
-        // Configure NavMeshAgent properties (optional)
-        agent.stoppingDistance = stoppingDistance;
-        agent.updateUpAxis = false; // Disable the update of the up axis to work in 2D
-        agent.updateRotation = false; // Disable rotation updates to prevent 3D rotations
-        
-
-        navMeshAgents.Add(agent);
     }
 
     // Instead of tab, use QWE
@@ -224,7 +226,6 @@ public class SpriteMove : MonoBehaviour
                 HighlightSprite(selectedSprite, true);
             }
         }
-         
     }
 
     // Method to toggle between sprites
@@ -251,7 +252,7 @@ public class SpriteMove : MonoBehaviour
         mousePosition.z = 0; // Set z to 0 for 2D
 
         // Find the NavMeshAgent associated with the selected sprite
-        NavMeshAgent selectedAgent = navMeshAgents[currentSpriteIndex];
+        NavMeshAgent selectedAgent = agents[currentSpriteIndex].GetComponent<NavMeshAgent>();
 
         // Set the target position for the NavMeshAgent
         selectedAgent.SetDestination(mousePosition);
