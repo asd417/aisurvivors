@@ -190,7 +190,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &276460203
+--- !u!1 &293726964
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -198,109 +198,29 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 276460205}
-  - component: {fileID: 276460204}
-  - component: {fileID: 276460206}
+  - component: {fileID: 293726965}
   m_Layer: 0
-  m_Name: SpriteManager
+  m_Name: Player3Spawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &276460204
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 276460203}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f608a56678ea54e02bf481e8d961b7dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  camera: {fileID: 1184793091}
-  camZoomMultiplier: 0.5
-  maxCamZoom: 4
-  stoppingDistance: 0.1
-  spritePrefab1: {fileID: 601162999262384718, guid: 109805773db30400e9b99af82661d82f, type: 3}
-  spritePrefab2: {fileID: 601162999262384718, guid: 55198da480e7840839247b05d34b9d06, type: 3}
-  spritePrefab3: {fileID: 601162999262384718, guid: ccd23c369d7be468481c5db5267b00af, type: 3}
-  spotx: -2
-  spoty: -5
-  selected: {fileID: 8300000, guid: 835059f2d8ed84d23b8a66970041503a, type: 3}
-  error: {fileID: 8300000, guid: 8bc30804d96794550b5628751f0633eb, type: 3}
-  agentCount: 0
-  agents: []
-  shouldSpawn: 1
---- !u!4 &276460205
+--- !u!4 &293726965
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 276460203}
+  m_GameObject: {fileID: 293726964}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.14067236, y: 0.026507553, z: 0.033594448}
+  m_LocalPosition: {x: 1.23, y: -4.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &276460206
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 276460203}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!1 &295554887
 GameObject:
   m_ObjectHideFlags: 0
@@ -618,7 +538,6 @@ GameObject:
   - component: {fileID: 1142411720}
   - component: {fileID: 1142411724}
   - component: {fileID: 1142411723}
-  - component: {fileID: 1142411725}
   m_Layer: 0
   m_Name: Scythe
   m_TagString: Untagged
@@ -635,16 +554,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1142411719}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea6c4b74cb6f945a7aec1a88b4c4deb7, type: 3}
+  m_Script: {fileID: 11500000, guid: 33f89ade07f3848b69d3e32a59acdcfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 1
-  DamageTextCanvas: {fileID: 0}
-  targetPlayer: {fileID: 0}
-  isAttached: 0
-  angle_euler: 0
-  dist: 1
-  damage: 2
+  rotationSpeed: 3
+  DamageTextCanvas: {fileID: 1968416290}
+  player1CanPickUp: 1
+  player2CanPickUp: 0
+  player3CanPickUp: 0
+  weaponPersistsThroughScene: 1
+  damage: 50
   dmgTextPrefab: {fileID: 4260241677709887003, guid: 0f2b16c48801b324b8dbd835099c2f48, type: 3}
 --- !u!212 &1142411721
 SpriteRenderer:
@@ -907,25 +826,37 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &1142411725
-MonoBehaviour:
+--- !u!1 &1175191063
+GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1142411719}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33f89ade07f3848b69d3e32a59acdcfb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DamageTextCanvas: {fileID: 0}
-  player1CanPickUp: 1
-  player2CanPickUp: 0
-  player3CanPickUp: 0
-  weaponPersistsThroughScene: 1
-  damage: 1
-  dmgTextPrefab: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1175191064}
+  m_Layer: 0
+  m_Name: Player1Spawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1175191064
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1175191063}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.47, y: -4.3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1184793090
 GameObject:
   m_ObjectHideFlags: 0
@@ -1310,6 +1241,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 340ef5a886b71455b9858b41ac0c57ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1341875051
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1341875052}
+  m_Layer: 0
+  m_Name: Player2Spawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1341875052
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1341875051}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.18, y: -4.33, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1367337903
 GameObject:
   m_ObjectHideFlags: 0
@@ -1532,7 +1494,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb953f982c2994caf9374a929330c2a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteMove: {fileID: 276460204}
+  spriteMove: {fileID: 0}
   scene: Level2
 --- !u!1 &1548489944
 GameObject:
@@ -1687,12 +1649,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33f89ade07f3848b69d3e32a59acdcfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotationSpeed: 4
   DamageTextCanvas: {fileID: 1968416290}
   player1CanPickUp: 1
   player2CanPickUp: 1
   player3CanPickUp: 1
   weaponPersistsThroughScene: 1
-  damage: 1
+  damage: 30
   dmgTextPrefab: {fileID: 4260241677709887003, guid: 0f2b16c48801b324b8dbd835099c2f48, type: 3}
 --- !u!212 &1548489948
 SpriteRenderer:
@@ -1961,12 +1924,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33f89ade07f3848b69d3e32a59acdcfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotationSpeed: 4
   DamageTextCanvas: {fileID: 1968416290}
   player1CanPickUp: 1
   player2CanPickUp: 1
   player3CanPickUp: 1
   weaponPersistsThroughScene: 1
-  damage: 1
+  damage: 30
   dmgTextPrefab: {fileID: 4260241677709887003, guid: 0f2b16c48801b324b8dbd835099c2f48, type: 3}
 --- !u!50 &1802514879
 Rigidbody2D:
@@ -2583,12 +2547,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33f89ade07f3848b69d3e32a59acdcfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotationSpeed: 4
   DamageTextCanvas: {fileID: 1968416290}
   player1CanPickUp: 1
   player2CanPickUp: 1
   player3CanPickUp: 1
   weaponPersistsThroughScene: 1
-  damage: 1
+  damage: 30
   dmgTextPrefab: {fileID: 4260241677709887003, guid: 0f2b16c48801b324b8dbd835099c2f48, type: 3}
 --- !u!212 &1972109047
 SpriteRenderer:
@@ -2667,7 +2632,6 @@ SceneRoots:
   - {fileID: 1227582713}
   - {fileID: 118966067}
   - {fileID: 1296321223}
-  - {fileID: 276460205}
   - {fileID: 397404395}
   - {fileID: 1367337905}
   - {fileID: 1802514876}
@@ -2680,3 +2644,6 @@ SceneRoots:
   - {fileID: 295554890}
   - {fileID: 1953123917}
   - {fileID: 1879447531}
+  - {fileID: 1341875052}
+  - {fileID: 293726965}
+  - {fileID: 1175191064}

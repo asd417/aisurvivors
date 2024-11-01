@@ -588,12 +588,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33f89ade07f3848b69d3e32a59acdcfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotationSpeed: 3
   DamageTextCanvas: {fileID: 1968416290}
   player1CanPickUp: 1
   player2CanPickUp: 0
   player3CanPickUp: 0
   weaponPersistsThroughScene: 1
-  damage: 1
+  damage: 50
   dmgTextPrefab: {fileID: 4260241677709887003, guid: 0f2b16c48801b324b8dbd835099c2f48, type: 3}
 --- !u!212 &1142411721
 SpriteRenderer:
@@ -1604,12 +1605,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33f89ade07f3848b69d3e32a59acdcfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DamageTextCanvas: {fileID: 0}
+  rotationSpeed: 4
+  DamageTextCanvas: {fileID: 1968416290}
   player1CanPickUp: 1
   player2CanPickUp: 1
   player3CanPickUp: 1
   weaponPersistsThroughScene: 1
-  damage: 1
+  damage: 30
   dmgTextPrefab: {fileID: 4260241677709887003, guid: 0f2b16c48801b324b8dbd835099c2f48, type: 3}
 --- !u!212 &1548489948
 SpriteRenderer:
@@ -2107,12 +2109,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33f89ade07f3848b69d3e32a59acdcfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DamageTextCanvas: {fileID: 0}
+  rotationSpeed: 4
+  DamageTextCanvas: {fileID: 1968416290}
   player1CanPickUp: 1
   player2CanPickUp: 1
   player3CanPickUp: 1
   weaponPersistsThroughScene: 1
-  damage: 1
+  damage: 30
   dmgTextPrefab: {fileID: 4260241677709887003, guid: 0f2b16c48801b324b8dbd835099c2f48, type: 3}
 --- !u!50 &1802514879
 Rigidbody2D:
@@ -2447,12 +2450,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33f89ade07f3848b69d3e32a59acdcfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DamageTextCanvas: {fileID: 0}
+  rotationSpeed: 4
+  DamageTextCanvas: {fileID: 667008242}
   player1CanPickUp: 1
   player2CanPickUp: 1
   player3CanPickUp: 1
   weaponPersistsThroughScene: 1
-  damage: 1
+  damage: 30
   dmgTextPrefab: {fileID: 4260241677709887003, guid: 0f2b16c48801b324b8dbd835099c2f48, type: 3}
 --- !u!212 &1972109047
 SpriteRenderer:

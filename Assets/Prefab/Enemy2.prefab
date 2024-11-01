@@ -275,11 +275,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetUpdateInterval: 0.5
   target: {fileID: 2716341946938862543, guid: 109805773db30400e9b99af82661d82f, type: 3}
-  speed: 1.5
-  health: 5
+  speed: 1
+  health: 130
   itemDropPrefab: {fileID: 5126136344101472342, guid: 7a52482f579a348358bd133040b6a3be, type: 3}
   itemDropChance: 1
   deathScalingDuration: 0.3
+  randomDamage: 5
+  damage: {fileID: 0}
+  dead: {fileID: 0}
 --- !u!114 &5126219075836571002
 MonoBehaviour:
   m_ObjectHideFlags: 0

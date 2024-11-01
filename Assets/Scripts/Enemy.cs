@@ -21,6 +21,7 @@ public class Enemy : MonoBehaviour
     private int dmgTakeInterval = 30; // take dmg every 0.5 seconds
     private int lastDmgFrame = 0;
     private int currentFrame = 0;
+    public int randomDamage = 5;
     Animator animator;
     Rigidbody2D rb;
 
@@ -51,8 +52,7 @@ public class Enemy : MonoBehaviour
         {
             lastDmgFrame = currentFrame;
             TakeDamage(takingDamage);
-            GameObject text = Instantiate(dmgTextPrefab, dmgTextCanvas);
-            text.GetComponent<DmgText>().SetDmgPos(takingDamage, transform.position);
+            
         }
     }
     private void Update()
@@ -68,11 +68,14 @@ public class Enemy : MonoBehaviour
     }
     public void TakeDamage(int dmg)
     {
-        health -= dmg;
-        Debug.Log($"Enemy health: {health}");
+        int newDmg = dmg + Random.Range(0, randomDamage);
+        health -= newDmg;
+        //Debug.Log($"Enemy health: {health}");
         if (health <= 0 && !isDying) {
             KillEnemy();
         }
+        GameObject text = Instantiate(dmgTextPrefab, dmgTextCanvas);
+        text.GetComponent<DmgText>().SetDmgPos(newDmg, transform.position);
         AudioSource.PlayClipAtPoint(damage, transform.position);
     }
     public void SetDmgTextInfo(GameObject dmgTextPrefab, Transform dmgTextCanvas)

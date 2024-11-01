@@ -7,7 +7,7 @@ using Unity.VisualScripting;
 public class Weapon : MonoBehaviour
 {
     [Tooltip("Speed at which the sprite rotates around the player.")]
-    private float rotationSpeed = 3f;
+    public float rotationSpeed = 3f;
 
     public GameObject DamageTextCanvas;
     private Transform targetPlayer;
