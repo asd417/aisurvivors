@@ -232,6 +232,8 @@ MonoBehaviour:
   selected: {fileID: 8300000, guid: 835059f2d8ed84d23b8a66970041503a, type: 3}
   error: {fileID: 8300000, guid: 8bc30804d96794550b5628751f0633eb, type: 3}
   agentCount: 0
+  agents: []
+  shouldSpawn: 1
 --- !u!4 &276460205
 Transform:
   m_ObjectHideFlags: 0
@@ -616,6 +618,7 @@ GameObject:
   - component: {fileID: 1142411720}
   - component: {fileID: 1142411724}
   - component: {fileID: 1142411723}
+  - component: {fileID: 1142411725}
   m_Layer: 0
   m_Name: Scythe
   m_TagString: Untagged
@@ -635,7 +638,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea6c4b74cb6f945a7aec1a88b4c4deb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotationSpeed: 1
   DamageTextCanvas: {fileID: 0}
+  targetPlayer: {fileID: 0}
+  isAttached: 0
+  angle_euler: 0
+  dist: 1
   damage: 2
   dmgTextPrefab: {fileID: 4260241677709887003, guid: 0f2b16c48801b324b8dbd835099c2f48, type: 3}
 --- !u!212 &1142411721
@@ -899,6 +907,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1142411725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1142411719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33f89ade07f3848b69d3e32a59acdcfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DamageTextCanvas: {fileID: 0}
+  player1CanPickUp: 1
+  player2CanPickUp: 0
+  player3CanPickUp: 0
+  weaponPersistsThroughScene: 1
+  damage: 1
+  dmgTextPrefab: {fileID: 0}
 --- !u!1 &1184793090
 GameObject:
   m_ObjectHideFlags: 0
@@ -1661,6 +1688,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DamageTextCanvas: {fileID: 1968416290}
+  player1CanPickUp: 1
+  player2CanPickUp: 1
+  player3CanPickUp: 1
+  weaponPersistsThroughScene: 1
   damage: 1
   dmgTextPrefab: {fileID: 4260241677709887003, guid: 0f2b16c48801b324b8dbd835099c2f48, type: 3}
 --- !u!212 &1548489948
@@ -1931,6 +1962,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DamageTextCanvas: {fileID: 1968416290}
+  player1CanPickUp: 1
+  player2CanPickUp: 1
+  player3CanPickUp: 1
+  weaponPersistsThroughScene: 1
   damage: 1
   dmgTextPrefab: {fileID: 4260241677709887003, guid: 0f2b16c48801b324b8dbd835099c2f48, type: 3}
 --- !u!50 &1802514879
@@ -2549,6 +2584,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DamageTextCanvas: {fileID: 1968416290}
+  player1CanPickUp: 1
+  player2CanPickUp: 1
+  player3CanPickUp: 1
+  weaponPersistsThroughScene: 1
   damage: 1
   dmgTextPrefab: {fileID: 4260241677709887003, guid: 0f2b16c48801b324b8dbd835099c2f48, type: 3}
 --- !u!212 &1972109047
