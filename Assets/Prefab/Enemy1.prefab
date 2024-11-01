@@ -260,7 +260,7 @@ MonoBehaviour:
   targetUpdateInterval: 0.5
   target: {fileID: 2716341946938862543, guid: 109805773db30400e9b99af82661d82f, type: 3}
   speed: 0.75
-  health: 2
+  health: 100
   itemDropPrefab: {fileID: 5126136344101472342, guid: 7a52482f579a348358bd133040b6a3be, type: 3}
   itemDropChance: 1
   deathScalingDuration: 0.3

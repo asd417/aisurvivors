@@ -21,6 +21,7 @@ public class Enemy : MonoBehaviour
     private int dmgTakeInterval = 30; // take dmg every 0.5 seconds
     private int lastDmgFrame = 0;
     private int currentFrame = 0;
+    public int randomDamage = 5;
     Animator animator;
     Rigidbody2D rb;
 
@@ -68,7 +69,7 @@ public class Enemy : MonoBehaviour
     }
     public void TakeDamage(int dmg)
     {
-        health -= dmg;
+        health -= dmg + Random.Range(0,randomDamage);
         Debug.Log($"Enemy health: {health}");
         if (health <= 0 && !isDying) {
             KillEnemy();
