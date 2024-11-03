@@ -49,3 +49,6 @@ TagManager:
   - name: FogOfWar
     uniqueID: 1951643987
     locked: 0
+  - name: Bars
+    uniqueID: 484675443
+    locked: 0
