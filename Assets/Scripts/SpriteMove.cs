@@ -30,8 +30,7 @@ public class SpriteMove : MonoBehaviour
     public int agentCount = 0;
 
     // List to hold the instantiated sprite objects
-    public List<GameObject> agents = new List<GameObject>();
-    private List<GameObject> serializedAgents = new List<GameObject>();
+    public List<GameObject> agents = new List<GameObject>(3);
 
     private GameObject selectedSprite;
     private int currentSpriteIndex = 0;
@@ -41,19 +40,20 @@ public class SpriteMove : MonoBehaviour
     private void Awake()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
-        // Singleton pattern to ensure only one instance of Manager exists
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
     }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        ConnectAgentsToScene();
+        //ConnectAgentsToScene();
+    }
+
+    private void AddAgentsToSpriteManager()
+    {
+        GameObject player1 = GameObject.FindGameObjectWithTag("Player1");
+        GameObject player2 = GameObject.FindGameObjectWithTag("Player2");
+        GameObject player3 = GameObject.FindGameObjectWithTag("Player3");
+        agents.Add(player1);
+        agents.Add(player2);
+        agents.Add(player3);
     }
 
     private void ConnectAgentsToScene()
@@ -73,12 +73,19 @@ public class SpriteMove : MonoBehaviour
 
     void Start() //Only fires in lobby because this gameobject is persistent
     {
-        Debug.Log("Start");
-        SpriteAssign(spritePrefab1);
-        SpriteAssign(spritePrefab2);
-        SpriteAssign(spritePrefab3);
-        ConnectAgentsToScene();
-        DontDestroyOnLoad(this);
+        if (SceneManager.GetActiveScene().name == "Lobby")
+        {
+            Debug.Log("Start");
+            SpriteAssign(spritePrefab1);
+            SpriteAssign(spritePrefab2);
+            SpriteAssign(spritePrefab3);
+            ConnectAgentsToScene();
+        }
+        else
+        {
+            AddAgentsToSpriteManager();
+            ConnectAgentsToScene();
+        }
     }
     void Update()
     {
@@ -170,9 +177,8 @@ public class SpriteMove : MonoBehaviour
     void SpriteAssign(GameObject sprite){
         Vector3 initialPosition = new Vector3(spotx, spoty, 0); //put in position here
         spotx += 2;
-        GameObject newSprite = Instantiate(sprite, initialPosition, Quaternion.Euler(0, 0, 0), transform);
+        GameObject newSprite = Instantiate(sprite, initialPosition, Quaternion.Euler(0, 0, 0));
         newSprite.GetComponent<NavMeshAgent>().updateRotation = false;
-        Debug.LogError(newSprite.GetComponent<NavMeshAgent>().updateRotation);
         DontDestroyOnLoad(newSprite);
         agents.Add(newSprite);
     }
