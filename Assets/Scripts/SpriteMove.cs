@@ -53,6 +53,11 @@ public class SpriteMove : MonoBehaviour
     }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        ConnectAgentsToScene();
+    }
+
+    private void ConnectAgentsToScene()
+    {
         Debug.Log("OnSceneLoaded");
         camera = Camera.main;
         GameObject p1s = GameObject.Find("Player1Spawn");
@@ -61,6 +66,9 @@ public class SpriteMove : MonoBehaviour
         if (agents[0] != null && p1s != null) agents[0].GetComponent<NavMeshAgent>().Warp(p1s.transform.position);
         if (agents[1] != null && p2s != null) agents[1].GetComponent<NavMeshAgent>().Warp(p2s.transform.position);
         if (agents[2] != null && p3s != null) agents[2].GetComponent<NavMeshAgent>().Warp(p3s.transform.position);
+        agents[0].GetComponent<HealthManager>().healthBar = GameObject.Find("Healthbar_Frank").GetComponent<Healthbar>();
+        agents[1].GetComponent<HealthManager>().healthBar = GameObject.Find("Healthbar_Maz").GetComponent<Healthbar>();
+        agents[2].GetComponent<HealthManager>().healthBar = GameObject.Find("Healthbar_Orin").GetComponent<Healthbar>();
     }
 
     void Start() //Only fires in lobby because this gameobject is persistent
@@ -69,6 +77,7 @@ public class SpriteMove : MonoBehaviour
         SpriteAssign(spritePrefab1);
         SpriteAssign(spritePrefab2);
         SpriteAssign(spritePrefab3);
+        ConnectAgentsToScene();
         DontDestroyOnLoad(this);
     }
     void Update()
