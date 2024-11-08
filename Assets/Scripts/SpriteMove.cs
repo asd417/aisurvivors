@@ -51,9 +51,22 @@ public class SpriteMove : MonoBehaviour
         GameObject player1 = GameObject.FindGameObjectWithTag("Player1");
         GameObject player2 = GameObject.FindGameObjectWithTag("Player2");
         GameObject player3 = GameObject.FindGameObjectWithTag("Player3");
-        agents.Add(player1);
-        agents.Add(player2);
-        agents.Add(player3);
+        if (player1)
+        {
+            agentCount++;
+            agents.Add(player1);
+        }
+        if (player2)
+        {
+            agentCount++;
+            agents.Add(player2);
+        }
+        if (player3)
+        {
+            agentCount++;
+            agents.Add(player3);
+        }
+
     }
 
     private void ConnectAgentsToScene()
@@ -89,7 +102,6 @@ public class SpriteMove : MonoBehaviour
     }
     void Update()
     {
-        
         if (!camera) return;
         // Switch between sprites using QWE
         SwitchNextAgent();

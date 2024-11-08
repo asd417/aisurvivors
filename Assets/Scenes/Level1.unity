@@ -231,8 +231,11 @@ MonoBehaviour:
   selected: {fileID: 8300000, guid: 835059f2d8ed84d23b8a66970041503a, type: 3}
   error: {fileID: 8300000, guid: 8bc30804d96794550b5628751f0633eb, type: 3}
   agentCount: 0
-  agents: []
-  shouldSpawn: 1
+  agents:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  shouldSpawn: 0
 --- !u!4 &131930047
 Transform:
   m_ObjectHideFlags: 0
