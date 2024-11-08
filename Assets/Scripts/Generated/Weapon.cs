@@ -2,6 +2,8 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using System.Collections;
 using Unity.VisualScripting;
+using static UnityEngine.GraphicsBuffer;
+using UnityEngine.SceneManagement;
 
 
 public class Weapon : MonoBehaviour
@@ -50,6 +52,7 @@ public class Weapon : MonoBehaviour
         targetPlayer = null;
         isAttached = false;
         transform.SetParent(null);
+        SceneManager.MoveGameObjectToScene(this.gameObject, SceneManager.GetActiveScene());
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
