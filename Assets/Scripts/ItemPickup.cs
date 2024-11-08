@@ -8,24 +8,22 @@ public class ItemPickup : MonoBehaviour
     public float pickupRadius = 0.25f;  // Distance within which the player can pick up the item
     public float pickupAnimationSpeed = 2f;  // Speed of the pickup animation
 
-    private Transform player;
-    
     void Start() {
     }
 
 
     void Update()
     {
-        FindClosestPlayer();
+        Transform player = FindClosestPlayer();
 
         if (player != null && Vector2.Distance(transform.position, player.position) < pickupRadius)
         {
-            PickUpItem();
+            PickUpItem(player);
         }
     }
 
     // Finds the closest player among the three
-    void FindClosestPlayer() {
+    Transform FindClosestPlayer() {
         // Collect players with individual tags
         GameObject[] player1 = GameObject.FindGameObjectsWithTag("Player1");
         GameObject[] player2 = GameObject.FindGameObjectsWithTag("Player2");
@@ -42,13 +40,14 @@ public class ItemPickup : MonoBehaviour
             if (distance < closestDistance)
             {
                 closestDistance = distance;
-                player = p.transform;
+                return p.transform;
             }
         }
+        return null;
     }
 
     // Function to handle picking up the item
-    void PickUpItem()
+    void PickUpItem(Transform player)
     {
         // Basic animation: the item moves towards the player
         transform.position = Vector2.MoveTowards(transform.position, player.position, pickupAnimationSpeed * Time.deltaTime);

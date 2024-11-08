@@ -101,11 +101,12 @@ public class SpriteMove : MonoBehaviour
         }
         float maxDist = 0;
         Vector3 averagePos = Vector3.zero;
-        agentCount = 0;
+        int curAgentCount = 0;
         for (int i = 0; i < agents.Count; i++)
         {
-            if (agents[i]) agentCount++;
+            if (agents[i]) curAgentCount++;
         }
+        agentCount = curAgentCount;
         for (int i = 0; i < agents.Count; i++)
         {
             //Debug.LogError(agents[i].GetComponent<NavMeshAgent>().updateRotation);
@@ -129,15 +130,6 @@ public class SpriteMove : MonoBehaviour
     public int GetAgentCount()
     {
         return agentCount;
-    }
-    public void TransferAgentsToNewScene(Scene newScene)
-    {
-        foreach (GameObject agent in agents) 
-        {
-            
-            //GameObject clone = Instantiate(agent); // Create a clone
-            //SceneManager.MoveGameObjectToScene(clone, newScene); // Move clone to target scene
-        }
     }
     public float CheckAlignment()
     {
