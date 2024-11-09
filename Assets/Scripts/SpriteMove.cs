@@ -54,17 +54,17 @@ public class SpriteMove : MonoBehaviour
         if (player1)
         {
             agentCount++;
-            agents.Add(player1);
+            agents[0] = player1;
         }
         if (player2)
         {
             agentCount++;
-            agents.Add(player2);
+            agents[1] = player2;
         }
         if (player3)
         {
             agentCount++;
-            agents.Add(player3);
+            agents[2] = player3;
         }
 
     }
