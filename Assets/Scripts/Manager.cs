@@ -43,6 +43,27 @@ public class Manager : MonoBehaviour
         // StartCoroutine(LoadSceneWithAudio("Level3", "Gameplay-Instrumental3"));
     }
 
+    public void Scythes()
+    {
+        SceneManager.LoadScene("Scythes");
+    }
+    public void Pens()
+    {
+        SceneManager.LoadScene("Pens");
+    }
+    public void EnergySwords()
+    {
+        SceneManager.LoadScene("EnergySwords");
+    }
+    public void Game2()
+    {
+        SceneManager.LoadScene("Level2 1");
+    }
+    public void Info()
+    {
+        SceneManager.LoadScene("Info");
+    }
+
     public void Menu()
     {
         Debug.Log("Trigger Menu scene");

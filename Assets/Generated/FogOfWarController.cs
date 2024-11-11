@@ -11,6 +11,9 @@ public class FogOfWarController : MonoBehaviour
         {
             DisableFogOfWar();
         }
+        else{
+            fogOfWar.SetActive(true);
+        }
     }
 
     private bool AreAllEnemiesGone()
