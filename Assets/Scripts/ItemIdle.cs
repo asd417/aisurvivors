@@ -18,14 +18,14 @@ public class ItemIdle : MonoBehaviour
     }
 
     void Update()
-    {
-        // Oscillate rotation (tilt side to side)
-        float rotation = Mathf.Sin(Time.time * rotationSpeed) * rotationAngle;
-        transform.localRotation = Quaternion.Euler(0, 0, rotation);
+    {   // item idle animation currently bugged
+        // // Oscillate rotation (tilt side to side)
+        // float rotation = Mathf.Sin(Time.time * rotationSpeed) * rotationAngle;
+        // transform.localRotation = Quaternion.Euler(0, 0, rotation);
 
-        // Bounce up and down relative to the starting position
-        float bounce = Mathf.Sin(Time.time * bounceSpeed) * bounceHeight;
-        transform.position = new Vector3(startPosition.x, startPosition.y + bounce, startPosition.z);
+        // // Bounce up and down relative to the starting position
+        // float bounce = Mathf.Sin(Time.time * bounceSpeed) * bounceHeight;
+        // transform.position = new Vector3(startPosition.x, startPosition.y + bounce, startPosition.z);
     }
 }
 
