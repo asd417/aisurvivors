@@ -1,49 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
+using System.Linq; // for concat
 using UnityEngine;
 
 public class ItemPickup : MonoBehaviour
 {
-    public float pickupRange = 10.5f; // Distance at which item starts moving towards player
-    public float attractionSpeed = 10.5f; // Speed at which item moves towards the player
-    public float pickupDistance = 1.0f; // Distance at which item is considered "picked up"
+    public float pickupRadius = 0.25f;  // Distance within which the player can pick up the item
+    public float pickupAnimationSpeed = 2f;  // Speed of the pickup animation
+
+    void Start() {
+    }
+
 
     void Update()
     {
-        // Find the closest player
-        Transform closestPlayer = FindClosestPlayer();
-        if (closestPlayer != null)
+        Transform player = FindClosestPlayer();
+
+        if (player != null && Vector2.Distance(transform.position, player.position) < pickupRadius)
         {
-            // Calculate distance to closest player
-            float distanceToPlayer = Vector2.Distance(transform.position, closestPlayer.position);
-
-            // Start moving towards the player if within pickup range
-            if (distanceToPlayer <= pickupRange)
-            {
-                // Move the item towards the player
-                Vector2 direction = (closestPlayer.position - transform.position).normalized;
-                transform.position += (Vector3)direction * attractionSpeed * Time.deltaTime;
-
-                // Check if item is close enough to be picked up
-                if (distanceToPlayer <= pickupDistance)
-                {
-                    PickUp();
-                }
-            }
+            PickUpItem(player);
         }
     }
 
-    // Method to handle the pickup logic (can be expanded for adding to inventory, etc.)
-    void PickUp()
-    {
-        // Here you could add effects, update inventory, etc.
-        Destroy(gameObject); // Destroy the item to simulate pickup
-    }
-
     // Finds the closest player among the three
-    Transform FindClosestPlayer()
-    {
+    Transform FindClosestPlayer() {
         // Collect players with individual tags
         GameObject[] player1 = GameObject.FindGameObjectsWithTag("Player1");
         GameObject[] player2 = GameObject.FindGameObjectsWithTag("Player2");
@@ -51,8 +31,7 @@ public class ItemPickup : MonoBehaviour
 
         // Combine all players into one array
         GameObject[] players = player1.Concat(player2).Concat(player3).ToArray();
-
-        Transform closestPlayer = null;
+        
         float closestDistance = Mathf.Infinity;
 
         foreach (GameObject p in players)
@@ -61,9 +40,24 @@ public class ItemPickup : MonoBehaviour
             if (distance < closestDistance)
             {
                 closestDistance = distance;
-                closestPlayer = p.transform;
+                return p.transform;
             }
         }
-        return closestPlayer;
+        return null;
+    }
+
+    // Function to handle picking up the item
+    void PickUpItem(Transform player)
+    {
+        // Basic animation: the item moves towards the player
+        transform.position = Vector2.MoveTowards(transform.position, player.position, pickupAnimationSpeed * Time.deltaTime);
+
+        // Once the item reaches the player, pick it up
+        if (Vector2.Distance(transform.position, player.position) < 0.1f)
+        {
+            // Add item to the player's inventory (if you have an inventory system) or trigger any other logic here
+            Debug.Log("Item picked up by: " + player.name);
+            Destroy(gameObject);
+        }
     }
 }
