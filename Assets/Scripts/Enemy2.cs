@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Enemy : MonoBehaviour
+public class Enemy2 : MonoBehaviour
 {
     [SerializeField] float targetUpdateInterval = 0.5f; // frequency for updating the "closest" (player) target
     [SerializeField] Transform target;  // closest player that enemy will target/track
@@ -32,7 +32,6 @@ public class Enemy : MonoBehaviour
     private void Start()
     {   
         agent = GetComponent<NavMeshAgent>();
-        animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
 
         // Disable rotation and up-axis updating
@@ -57,10 +56,14 @@ public class Enemy : MonoBehaviour
     }
     private void Update()
     {
-
-        float verticalVelocity = agent.velocity.y;
-        animator.SetFloat("yVelocity", verticalVelocity);
-        
+    
+        float xVelocity = agent.velocity.x;
+        if (xVelocity < 0){
+            transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
+        }
+        else{
+            transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
+        }
 
         if (target != null) //if the target exists
         {

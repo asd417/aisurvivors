@@ -47,7 +47,7 @@ public class EnemySpawn2 : MonoBehaviour
             GameObject selectedPrefab = (Random.value < 0.666f) ? spriteEnemyPrefab1 : spriteEnemyPrefab2;
             Instantiate(selectedPrefab, initialPosition, Quaternion.identity);
             
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(.5f);
         }
     }
 
@@ -62,7 +62,7 @@ public class EnemySpawn2 : MonoBehaviour
             GameObject selectedPrefab = (Random.value < 0.666f) ? spriteEnemyPrefab1 : spriteEnemyPrefab2;
             Instantiate(selectedPrefab, initialPosition, Quaternion.identity);
             
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(.5f);
         }
     }
 }
