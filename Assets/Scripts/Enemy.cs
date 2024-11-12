@@ -25,6 +25,9 @@ public class Enemy : MonoBehaviour
     Animator animator;
     Rigidbody2D rb;
 
+    public bool Enemy1 = false;
+    public bool Enemy2 = false;
+
     public AudioClip damage;
     public AudioClip dead;
 
@@ -58,8 +61,15 @@ public class Enemy : MonoBehaviour
     private void Update()
     {
 
-        float verticalVelocity = agent.velocity.y;
-        animator.SetFloat("yVelocity", verticalVelocity);
+        if (Enemy1){
+            float verticalVelocity = agent.velocity.y;
+            animator.SetFloat("yVelocity", verticalVelocity);
+        }
+        if (Enemy2){
+            float xVelocity = agent.velocity.x;
+            animator.SetFloat("xVelocity", xVelocity);
+        }
+        
         
 
         if (target != null) //if the target exists

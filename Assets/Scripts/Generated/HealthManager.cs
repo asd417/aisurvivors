@@ -3,14 +3,14 @@ using UnityEngine;
 public class HealthManager : MonoBehaviour
 {
     [Tooltip("Initial health points of the object.")]
-    [SerializeField] private int healthPoints = 3;
+    [SerializeField] private int healthPoints = 20;
     private int currentHealth;
 
     [Tooltip("Damage that the player takes upon enemy contact")]
     [SerializeField] public int dmg = 1;
 
     private bool EnemyIsTouching = false;
-    private int damageTimer = 60;
+    private int damageTimer = 10;
     public Healthbar healthBar = null;
 
     private void Start()
