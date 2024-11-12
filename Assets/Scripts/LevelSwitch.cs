@@ -68,7 +68,7 @@ public class LevelSwitch : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collider)
     {
-        if (IsPlayer(collider))
+        if (IsPlayer(collider) && (!L1Enter || !L2Enter))
         {
             playersAtDoor--;
         }
