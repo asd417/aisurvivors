@@ -15,9 +15,14 @@ public class LevelSwitch : MonoBehaviour
     public bool wood = false;
     public bool L1Enter = false;
     public bool L2Enter = false;
+    public bool L3Enter = false;
+    public bool WorldEnter = false;
+    public bool Boss = false;
 
     public bool enemyR1 = false;
     public bool enemyR2 = false;
+    public bool enemyR3 = false;
+    public bool bossGo = false;
 
     public GameObject wallPrefab; 
     public static GameObject currentWall;
@@ -42,12 +47,15 @@ public class LevelSwitch : MonoBehaviour
         if (IsPlayer(collider))
         {
             playersAtDoor++;
+            if(Boss) bossGo = true;
             if (playersAtDoor == spriteMove.GetAgentCount())
             {
                 if (spriteCount != 0 && GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
                 {
                     enemyR1 = false;
                     enemyR2 = false;
+                    enemyR3 = false;
+                    bossGo = false;
                     if (manager != null)
                     {
                         Debug.Log("Calling Act on GameObject: " + this.gameObject.name);
@@ -59,6 +67,7 @@ public class LevelSwitch : MonoBehaviour
                     }
                     if(L1Enter) enemyR1 = true;
                     if(L2Enter) enemyR2 = true;
+                    if(L3Enter) enemyR3 = true;
                 }
             }
         }

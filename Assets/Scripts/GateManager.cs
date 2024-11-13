@@ -11,15 +11,17 @@ public class GateManager : MonoBehaviour
     private bool wallInstantiated1 = false;
     private bool wallInstantiated2 = false;
     private bool wallInstantiated3 = false;
+    private bool wallInstantiated4 = false;
 
     public GameObject hay, wood;
     public GameObject lobbyExit, l1Enter;
     public GameObject l1Exit, l2Enter;
-    public GameObject l2Exit;
+    public GameObject l2Exit, l3Enter;
+    public GameObject l3Exit, worldEnter;
 
-    public GameObject gate1, gate2, gate3;
+    public GameObject gate1, gate2, gate3, gate4;
 
-    private GameObject currentWall1, currentWall2, currentWall3;
+    private GameObject currentWall1, currentWall2, currentWall3, currentWall4;
 
     void Start()
     {
@@ -29,16 +31,13 @@ public class GateManager : MonoBehaviour
         wallInstantiated2 = true;
         currentWall3 = Instantiate(gate3, gate3.transform.position, Quaternion.identity);
         wallInstantiated3 = true;
-    }
-
-    void Update()
-    {
-        
+        currentWall4 = Instantiate(gate4, gate4.transform.position, Quaternion.identity);
+        wallInstantiated4 = true;
     }
 
     public void Act(GameObject gate){
         string name = gate.name;
-        if (name == "LobbyExit" || name == "L1Exit" || name == "L2Exit"){
+        if (name == "LobbyExit" || name == "L1Exit" || name == "L2Exit" || name == "L3Exit"){
             MoveOn(name);
         }
         else{
@@ -63,6 +62,11 @@ public class GateManager : MonoBehaviour
             Destroy(currentWall3);
             wallInstantiated3 = false;
         }
+        if (currentWall4 != null && gate == "L3Exit")
+        {
+            Destroy(currentWall4);
+            wallInstantiated4 = false;
+        }
         
     }
 
@@ -77,6 +81,16 @@ public class GateManager : MonoBehaviour
         {
             currentWall2 = Instantiate(gate2, gate2.transform.position, Quaternion.identity);
             wallInstantiated2 = true;
+        }
+        if (!wallInstantiated3 && gate3 != null && gate == "L3Enter")
+        {
+            currentWall3 = Instantiate(gate3, gate3.transform.position, Quaternion.identity);
+            wallInstantiated3 = true;
+        }
+        if (!wallInstantiated4 && gate4 != null && gate == "WorldEnter")
+        {
+            currentWall4 = Instantiate(gate4, gate4.transform.position, Quaternion.identity);
+            wallInstantiated4 = true;
         }
 
     }

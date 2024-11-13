@@ -27,6 +27,7 @@ public class Enemy : MonoBehaviour
 
     public bool Enemy1 = false;
     public bool Enemy2 = false;
+    public bool Boss = false;
 
     public AudioClip damage;
     public AudioClip dead;
@@ -68,6 +69,12 @@ public class Enemy : MonoBehaviour
         if (Enemy2){
             float xVelocity = agent.velocity.x;
             animator.SetFloat("xVelocity", xVelocity);
+        }
+        if (Boss){
+            float xVelocity = agent.velocity.x;
+            float verticalVelocity = agent.velocity.y;
+            animator.SetFloat("xV", xVelocity);
+            animator.SetFloat("yV", verticalVelocity);
         }
         
         
