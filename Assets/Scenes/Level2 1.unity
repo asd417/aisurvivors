@@ -11642,6 +11642,14 @@ PrefabInstance:
       value: SpriteManager
       objectReference: {fileID: 0}
     - target: {fileID: 6715513734128476295, guid: 639a12c0bd85644b681de84190931be1, type: 3}
+      propertyPath: spotx
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6715513734128476295, guid: 639a12c0bd85644b681de84190931be1, type: 3}
+      propertyPath: spoty
+      value: -4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6715513734128476295, guid: 639a12c0bd85644b681de84190931be1, type: 3}
       propertyPath: camera
       value: 
       objectReference: {fileID: 1184793091}
