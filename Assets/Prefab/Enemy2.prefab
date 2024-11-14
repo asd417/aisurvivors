@@ -279,11 +279,12 @@ MonoBehaviour:
   speed: 1
   health: 130
   itemDropPrefab: {fileID: 5126136344101472342, guid: 7a52482f579a348358bd133040b6a3be, type: 3}
-  itemDropChance: 0
+  itemDropChance: 1
   deathScalingDuration: 0.3
   randomDamage: 5
   Enemy1: 0
   Enemy2: 1
+  Boss: 0
   damage: {fileID: 8300000, guid: 7037336cc81274eecad63099e2ab9780, type: 3}
   dead: {fileID: 8300000, guid: 912d6f2996d89415db7d358dae6e4d82, type: 3}
 --- !u!95 &-6040297891848719178
