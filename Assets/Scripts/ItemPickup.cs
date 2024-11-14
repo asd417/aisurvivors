@@ -53,7 +53,7 @@ public class ItemPickup : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, player.position, pickupAnimationSpeed * Time.deltaTime);
 
         // Once the item reaches the player, pick it up
-        if (Vector2.Distance(transform.position, player.position) < 0.1f)
+        if (Vector2.Distance(transform.position, player.position) < 10f)
         {
             // Add item to the player's inventory (if you have an inventory system) or trigger any other logic here
             Debug.Log("Item picked up by: " + player.name);
