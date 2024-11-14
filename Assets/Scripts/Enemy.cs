@@ -118,16 +118,16 @@ public class Enemy : MonoBehaviour
         if(!Boss){
             // Randomize item drop
             float v = Random.value;
-            if (v <= .7)
+            if (v <= .75)
             {
                 Instantiate(Chip, transform.position, Quaternion.identity); // Instantiate the item drop at the enemy's position
                 Debug.Log("Item dropped (instantiated)" + v.ToString());
             }
-            if (v > .7 && v <= .9)
+            if (v > .75 && v <= .95)
             {
                 Instantiate(HealthBonus, transform.position, Quaternion.identity);
             }
-            if (v > .9)
+            if (v > .95)
             {
                 Instantiate(WeaponBonus, transform.position, Quaternion.identity);
             }
