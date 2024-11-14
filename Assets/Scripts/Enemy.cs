@@ -9,9 +9,10 @@ public class Enemy : MonoBehaviour
     [SerializeField] Transform target;  // closest player that enemy will target/track
     NavMeshAgent agent;                 // NavMeshAgent for pathfinding
     [SerializeField] float speed = 3.0f;  // Movement speed
-    public int health = 2;
-    public GameObject itemDropPrefab;
-    public float itemDropChance; // (set in `EnemySpawn`) chance for enemy to drop item
+    public int health = 2; 
+
+    public GameObject Chip, HealthBonus, WeaponBonus;
+
     public float deathScalingDuration = 0.3f;  // Duration of the gradual enemy decrease in scale for death animation
     private bool isDying = false; // Ensures that death logic is only triggered once so as to avoid multiple animations
 
@@ -76,8 +77,6 @@ public class Enemy : MonoBehaviour
             animator.SetFloat("xV", xVelocity);
             animator.SetFloat("yV", verticalVelocity);
         }
-        
-        
 
         if (target != null) //if the target exists
         {
@@ -115,20 +114,25 @@ public class Enemy : MonoBehaviour
     private void KillEnemy()
     {
         isDying = true;  // This bool ensures the death logic only triggers once
-
-        Debug.Log("-Random.value-to check if enemy drops item");
         
-        // Randomize item drop
-        float v = Random.value;
-        if (v <= itemDropChance)
-        {
-            Instantiate(itemDropPrefab, transform.position, Quaternion.identity); // Instantiate the item drop at the enemy's position
-            Debug.Log("Item dropped (instantiated)" + v.ToString() + "  " + itemDropChance.ToString());
+        if(!Boss){
+            // Randomize item drop
+            float v = Random.value;
+            if (v <= .7)
+            {
+                Instantiate(Chip, transform.position, Quaternion.identity); // Instantiate the item drop at the enemy's position
+                Debug.Log("Item dropped (instantiated)" + v.ToString());
+            }
+            if (v > .7 && v <= .9)
+            {
+                Instantiate(HealthBonus, transform.position, Quaternion.identity);
+            }
+            if (v > .9)
+            {
+                Instantiate(WeaponBonus, transform.position, Quaternion.identity);
+            }
         }
-        else
-        {
-            Debug.Log("No item dropped from enemy");
-        }
+        
         
         
         // Instantiate(itemDropPrefab, transform.position, Quaternion.identity); // Instantiate the item drop at the enemy's position

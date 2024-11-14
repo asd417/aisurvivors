@@ -53,7 +53,7 @@ public class EnemySpawn : MonoBehaviour
             if (selectedPrefab != null)
             {
                 GameObject em = Instantiate(selectedPrefab, initialPosition, Quaternion.identity);
-                em.GetComponent<Enemy>().itemDropChance = 1.0f;
+                //em.GetComponent<Enemy>().itemDropChance = 1.0f;
             }
 
             yield return new WaitForSeconds(1f);

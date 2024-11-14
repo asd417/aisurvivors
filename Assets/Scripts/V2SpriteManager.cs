@@ -14,6 +14,8 @@ public class V2SpriteManager : MonoBehaviour
     public float maxCamZoom;
     private float minCamZoom = 5;
 
+    public int chipCount = 0;
+
     public float stoppingDistance = 0.1f; // Distance within which the agent stops
     // Prefab of the sprite to instantiate (must have a NavMeshAgent component)
     public GameObject spritePrefab1;

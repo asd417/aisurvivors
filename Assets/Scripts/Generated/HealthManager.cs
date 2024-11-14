@@ -3,8 +3,8 @@ using UnityEngine;
 public class HealthManager : MonoBehaviour
 {
     [Tooltip("Initial health points of the object.")]
-    [SerializeField] private int healthPoints = 20;
-    private int currentHealth;
+    [SerializeField] public int healthPoints = 20;
+    public int currentHealth;
 
     [Tooltip("Damage that the player takes upon enemy contact")]
     [SerializeField] public int dmg = 1;

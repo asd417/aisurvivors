@@ -136,7 +136,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthPoints: 3
+  currentHealth: 0
   dmg: 1
+  healthBar: {fileID: 0}
 --- !u!114 &182464027294174738
 MonoBehaviour:
   m_ObjectHideFlags: 0

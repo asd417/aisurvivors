@@ -233,7 +233,9 @@ MonoBehaviour:
   target: {fileID: 2716341946938862543, guid: 109805773db30400e9b99af82661d82f, type: 3}
   speed: 0.5
   health: 300
-  itemDropPrefab: {fileID: 5126136344101472342, guid: 7a52482f579a348358bd133040b6a3be, type: 3}
+  Chip: {fileID: 5126136344101472342, guid: 7a52482f579a348358bd133040b6a3be, type: 3}
+  HealthBonus: {fileID: 9179292672344299889, guid: bef07c4d3b5d44de3bf02d8d019a4289, type: 3}
+  WeaponBonus: {fileID: 7964483777874391744, guid: f3db7fb3e618249bb99b3521bca1efdc, type: 3}
   itemDropChance: 1
   deathScalingDuration: 0.3
   randomDamage: 5

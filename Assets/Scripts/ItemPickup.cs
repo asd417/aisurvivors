@@ -12,45 +12,55 @@ public class ItemPickup : MonoBehaviour
     public bool health = false;
     public bool weapon = false;
 
-    private int chipCount = 0;
-
+    public V2SpriteManager cCount;
 
     void OnTriggerEnter2D(Collider2D collider){
+        
         if (IsPlayer(collider)){
             if (chip){
-                chipCount++;
+                cCount.chipCount++;
+                Destroy(gameObject);
+            }
+            if (health){
+                HealthManager hm = collider.GetComponent<HealthManager>();
+                hm.currentHealth += (int)(hm.healthPoints*.15);
+                Destroy(gameObject);
+            }
+            if (weapon){
+                //chipCount++;
+                Destroy(gameObject);
             }
         }
-    }
-
-    // Finds the closest player among the three
-    Transform FindClosestPlayer() {
-        // Collect players with individual tags
-        GameObject[] player1 = GameObject.FindGameObjectsWithTag("Player1");
-        GameObject[] player2 = GameObject.FindGameObjectsWithTag("Player2");
-        GameObject[] player3 = GameObject.FindGameObjectsWithTag("Player3");
-
-        // Combine all players into one array
-        GameObject[] players = player1.Concat(player2).Concat(player3).ToArray();
-        
-        float closestDistance = Mathf.Infinity;
-
-        foreach (GameObject p in players)
-        {
-            float distance = Vector2.Distance(transform.position, p.transform.position);
-            if (distance < closestDistance)
-            {
-                closestDistance = distance;
-                return p.transform;
-            }
-        }
-        return null;
     }
 
     private bool IsPlayer(Collider2D collider)
     {
         return collider.CompareTag("Player1") || collider.CompareTag("Player2") || collider.CompareTag("Player3");
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     // Function to handle picking up the item
     void PickUpItem(Transform player)
