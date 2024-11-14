@@ -65,6 +65,12 @@ public class EnemySpawn2 : MonoBehaviour
             GameObject selectedPrefab = (Random.value < 0.666f) ? spriteEnemyPrefab1 : spriteEnemyPrefab2;
             Instantiate(selectedPrefab, initialPosition, Quaternion.identity);
             
+            if (selectedPrefab != null)
+            {
+                GameObject em = Instantiate(selectedPrefab, initialPosition, Quaternion.identity);
+                em.GetComponent<Enemy>().itemDropChance = 1.0f;
+            }
+
             yield return new WaitForSeconds(1f);
         }
     }
