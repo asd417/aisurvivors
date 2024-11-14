@@ -8,17 +8,18 @@ public class ItemPickup : MonoBehaviour
     public float pickupRadius = 0.25f;  // Distance within which the player can pick up the item
     public float pickupAnimationSpeed = 2f;  // Speed of the pickup animation
 
-    void Start() {
-    }
+    public bool chip = false;
+    public bool health = false;
+    public bool weapon = false;
+
+    private int chipCount = 0;
 
 
-    void Update()
-    {
-        Transform player = FindClosestPlayer();
-
-        if (player != null && Vector2.Distance(transform.position, player.position) < pickupRadius)
-        {
-            PickUpItem(player);
+    void OnTriggerEnter2D(Collider2D collider){
+        if (IsPlayer(collider)){
+            if (chip){
+                chipCount++;
+            }
         }
     }
 
@@ -44,6 +45,11 @@ public class ItemPickup : MonoBehaviour
             }
         }
         return null;
+    }
+
+    private bool IsPlayer(Collider2D collider)
+    {
+        return collider.CompareTag("Player1") || collider.CompareTag("Player2") || collider.CompareTag("Player3");
     }
 
     // Function to handle picking up the item
