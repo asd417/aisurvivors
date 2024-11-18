@@ -17,7 +17,7 @@ public class SceneChanger : MonoBehaviour
     private IEnumerator ChangeSceneToLobbyAfterDelay()
     {
         yield return new WaitForSeconds(delayBeforeChange);
-        SceneManager.LoadScene("Lobby");
+        SceneManager.LoadScene("Level2 1");
 
     }
 
