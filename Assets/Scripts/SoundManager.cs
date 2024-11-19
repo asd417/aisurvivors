@@ -65,6 +65,7 @@ public class SoundManager : MonoBehaviour
     // Method to play a sound by its name
     public void Play(string soundName)
     {
+        // Debug.Log(soundName); // testing
         Sound s = Array.Find(sounds, sound => sound.name == soundName);
         if (s != null)
         {

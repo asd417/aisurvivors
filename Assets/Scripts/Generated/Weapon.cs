@@ -13,13 +13,14 @@ public class Weapon : MonoBehaviour
 
     public GameObject DamageTextCanvas;
     private Transform targetPlayer;
+    private bool isFastRotation = false;
+    private bool targetPlayerSelected = false;
     private bool isAttached = false;
     private float angle_euler = 0;
     private int dist = 1;
     public bool player1CanPickUp = true;
     public bool player2CanPickUp = true;
     public bool player3CanPickUp = true;
-    public bool weaponPersistsThroughScene = true;
 
     [SerializeField, Tooltip("Weapon - Damage dealt to enemy")]
     int damage = 1;
@@ -38,15 +39,36 @@ public class Weapon : MonoBehaviour
     {
         if (isAttached && targetPlayer != null)
         {
-            angle_euler = (angle_euler + rotationSpeed * Time.deltaTime * 60f) % 360;
-            transform.eulerAngles = new Vector3 (0,0, angle_euler);
-            transform.position = targetPlayer.position + new Vector3(Mathf.Cos(Mathf.Deg2Rad * angle_euler) * dist, Mathf.Sin(Mathf.Deg2Rad * angle_euler) * dist, 0);
+            if (Input.GetKey(KeyCode.Space))
+            {
+                RotateAroundPlayerFast();
+            }
+            else{
+                RotateAroundPlayer();
+            }
         }
     }
 
-    /// <summary>
-    /// Function used to detach this weapon from player
-    /// </summary>
+    private void RotateAroundPlayer()
+    {
+        angle_euler = (angle_euler + rotationSpeed * Time.deltaTime * 60f) % 360;
+        transform.eulerAngles = new Vector3(0, 0, angle_euler);
+        transform.position = targetPlayer.position + new Vector3(
+            Mathf.Cos(Mathf.Deg2Rad * angle_euler) * dist,
+            Mathf.Sin(Mathf.Deg2Rad * angle_euler) * dist,
+            0);
+    }
+
+    private void RotateAroundPlayerFast()
+    {
+        angle_euler = (angle_euler + rotationSpeed * 3 * Time.deltaTime * 60f) % 360;
+        transform.eulerAngles = new Vector3(0, 0, angle_euler);
+        transform.position = targetPlayer.position + new Vector3(
+            Mathf.Cos(Mathf.Deg2Rad * angle_euler) * dist,
+            Mathf.Sin(Mathf.Deg2Rad * angle_euler) * dist,
+            0);
+    }
+
     public void Detach()
     {
         targetPlayer = null;
@@ -63,11 +85,9 @@ public class Weapon : MonoBehaviour
         {
             targetPlayer = collision.transform;
             isAttached = true;
-            //Weapon needs to be a child of player so that it can follow the player into the next scene
-            if(weaponPersistsThroughScene) transform.SetParent(targetPlayer);
         }
 
-        if (isAttached && collision.CompareTag("Enemy"))
+        if (isAttached && (collision.CompareTag("Enemy") || collision.CompareTag("Boss")))
         {
             //Need to check if the gameobject has a enemy component
             Enemy enemy = collision.gameObject.GetComponent<Enemy>();
@@ -81,9 +101,8 @@ public class Weapon : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (isAttached && collision.CompareTag("Enemy"))
+        if (isAttached && (collision.CompareTag("Enemy") || collision.CompareTag("Boss")))
         {
-            //Need to check if the gameobject has a enemy component
             Enemy enemy = collision.gameObject.GetComponent<Enemy>();
 
             if (enemy != null)
