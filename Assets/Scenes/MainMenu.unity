@@ -1158,7 +1158,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: LobbyAmbientWind
     clip: {fileID: 8300000, guid: 1cec11810db384253b3a1f2d84085938, type: 3}
-    volume: 0.65
+    volume: 0.7
     loop: 1
     source: {fileID: 0}
   - name: PlayerSelectError
@@ -1188,7 +1188,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: LobbyMusic
     clip: {fileID: 8300000, guid: 73573d5c7ecc148cfb80971b6367fe19, type: 3}
-    volume: 0.2
+    volume: 0.1
     loop: 1
     source: {fileID: 0}
   - name: Gameplay-Instrumental1

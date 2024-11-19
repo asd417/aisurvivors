@@ -25,6 +25,11 @@ public class GateManager : MonoBehaviour
 
     void Start()
     {
+        // trigger background audio for lobby level
+        SoundManager.instance.FadeIn("LobbyMusic", 2f);
+        SoundManager.instance.FadeIn("LobbyAmbientWind", 2f);
+
+        // initialize wall bools
         currentWall1 = Instantiate(gate1, gate1.transform.position, Quaternion.identity);
         wallInstantiated1 = true;
         currentWall2 = Instantiate(gate2, gate2.transform.position, Quaternion.identity);
@@ -51,6 +56,8 @@ public class GateManager : MonoBehaviour
         {
             Destroy(currentWall1);
             wallInstantiated1 = false;
+            SoundManager.instance.FadeOut("LobbyMusic", 2f);
+            SoundManager.instance.FadeOut("LobbyAmbientWind", 2f);
             SoundManager.instance.FadeIn("Gameplay-Instrumental1", 2f);
 
         }
