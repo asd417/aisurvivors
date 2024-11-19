@@ -32,6 +32,7 @@ public class Enemy : MonoBehaviour
 
     public AudioClip damage;
     public AudioClip dead;
+    private string[] damageSounds = { "PlayerHitEnemy1", "PlayerHitEnemy2", "PlayerHitEnemy3" };
 
 
     private void Start()
@@ -49,6 +50,7 @@ public class Enemy : MonoBehaviour
 
         // Repeatedly find the closest player at regular intervals
         InvokeRepeating(nameof(LocateClosestTarget), 0f, targetUpdateInterval);
+        
     }
     private void FixedUpdate()
     {
@@ -94,7 +96,12 @@ public class Enemy : MonoBehaviour
         }
         GameObject text = Instantiate(dmgTextPrefab, dmgTextCanvas);
         text.GetComponent<DmgText>().SetDmgPos(newDmg, transform.position);
-        AudioSource.PlayClipAtPoint(damage, transform.position);
+        
+        // Randomize an index to select a sound
+        int randomIndex = Random.Range(0, damageSounds.Length);
+        Debug.Log($"Random Index: {randomIndex}"); // Log the index for debugging
+
+        SoundManager.instance.Play(damageSounds[randomIndex]);
     }
     public void SetDmgTextInfo(GameObject dmgTextPrefab, Transform dmgTextCanvas)
     {
