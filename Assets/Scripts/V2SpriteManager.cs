@@ -14,7 +14,7 @@ public class V2SpriteManager : MonoBehaviour
     public float maxCamZoom;
     private float minCamZoom = 5;
 
-    public Weapon weapon;
+    public Weapon weapon; 
 
     public int chipCount = 0;
 
@@ -187,7 +187,6 @@ public class V2SpriteManager : MonoBehaviour
         agents.Add(newSprite);
     }
 
-    // Instead of tab, use QWE
     private void SwitchNextAgent()
     {
         if (Input.GetKeyDown(KeyCode.Q) && agents.Count > 0)
