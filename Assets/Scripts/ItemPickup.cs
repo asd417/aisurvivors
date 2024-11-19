@@ -14,6 +14,11 @@ public class ItemPickup : MonoBehaviour
 
     public V2SpriteManager cCount;
 
+    private void Start()
+    {
+        cCount = GameObject.Find("SpriteManager").GetComponent<V2SpriteManager>();
+    }
+
     void OnTriggerEnter2D(Collider2D collider){
         
         if (IsPlayer(collider)){
