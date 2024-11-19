@@ -1,3 +1,4 @@
+using Unity.Mathematics;
 using UnityEngine;
 
 public class HealthManager : MonoBehaviour
@@ -30,7 +31,15 @@ public class HealthManager : MonoBehaviour
             healthBar.transform.position = transform.position + Vector3.up * 1;
         }
     }
-
+    /// <summary>
+    /// Percentage is between 0 and 1
+    /// </summary>
+    /// <param name="healPercentage"></param>
+    public void Heal(float healPercentage)
+    {
+        currentHealth += (int)(healthPoints * healPercentage);
+        currentHealth = math.min(currentHealth, healthPoints);
+    }
     private void TakeDamage(int dmg)
     {
         currentHealth -= dmg;

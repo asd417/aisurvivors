@@ -1,4 +1,5 @@
 using NavMeshPlus.Extensions;
+using System;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using Unity.VisualScripting;
@@ -70,7 +71,25 @@ public class V2SpriteManager : MonoBehaviour
         }
 
     }
-
+    public Transform GetClosestPlayer(Vector3 position)
+    {
+        float minDistance = float.MaxValue;
+        Transform player = null;
+        foreach (var agent in agents)
+        {
+            if (agent)
+            {
+                float ndist = (position - agent.transform.position).magnitude;
+                if (ndist < minDistance)
+                {
+                    minDistance = ndist;
+                    player = agent.transform;
+                }
+            }
+        }
+        if (player == null) throw new Exception("Player Not Found");
+        return player;
+    }
     private void ConnectAgentsToScene()
     {
         camera = Camera.main;

@@ -5,30 +5,32 @@ using UnityEngine;
 
 public class ItemPickup : MonoBehaviour
 {
-    public float pickupRadius = 0.25f;  // Distance within which the player can pick up the item
-    public float pickupAnimationSpeed = 2f;  // Speed of the pickup animation
+    private float pickupRadius = 5.0f;  // Distance within which the player can pick up the item
+    public float pickupAnimationSpeed = 2.0f;  // Speed of the pickup animation
 
     public bool chip = false;
     public bool health = false;
     public bool weapon = false;
 
-    public V2SpriteManager cCount;
+    public V2SpriteManager spriteManager;
 
     private void Start()
     {
-        cCount = GameObject.Find("SpriteManager").GetComponent<V2SpriteManager>();
+        //Debug.Log("Start ItemPickup");
+        spriteManager = GameObject.Find("SpriteManager").GetComponent<V2SpriteManager>();
+        PickUpItem();
     }
 
     void OnTriggerEnter2D(Collider2D collider){
         
         if (IsPlayer(collider)){
             if (chip){
-                cCount.chipCount++;
+                spriteManager.chipCount++;
                 Destroy(gameObject);
             }
             if (health){
                 HealthManager hm = collider.GetComponent<HealthManager>();
-                hm.currentHealth += (int)(hm.healthPoints*.15);
+                hm.Heal(0.15f);
                 Destroy(gameObject);
             }
             if (weapon){
@@ -65,20 +67,34 @@ public class ItemPickup : MonoBehaviour
 
 
 
-
+    IEnumerator moveTowardPlayerCoroutine()
+    {
+        while (true)
+        {
+            //Debug.Log("MovingTowards " + Player.name);
+            Transform Player = spriteManager.GetClosestPlayer(transform.position);
+            Debug.Log($"{Player} {transform.position} {Player.position} {(transform.position - Player.position).magnitude} {(transform.position - Player.position).magnitude < pickupRadius}");
+            if (Player != null && (transform.position-Player.position).magnitude < pickupRadius)
+            {
+                Debug.Log("Moving pickup");
+                transform.position = Vector3.Lerp(transform.position, Player.position, pickupAnimationSpeed * Time.deltaTime);
+            }
+            yield return new WaitForEndOfFrame();
+            // Once the item reaches the player, pick it up
+            if ((transform.position - Player.position).magnitude < 0.1f)
+            {
+                // Add item to the player's inventory (if you have an inventory system) or trigger any other logic here
+                Debug.Log("Item picked up by: " + Player.name);
+                Destroy(gameObject);
+                break;
+            }
+        }   
+    }
 
     // Function to handle picking up the item
-    void PickUpItem(Transform player)
+    void PickUpItem()
     {
         // Basic animation: the item moves towards the player
-        transform.position = Vector2.MoveTowards(transform.position, player.position, pickupAnimationSpeed * Time.deltaTime);
-
-        // Once the item reaches the player, pick it up
-        if (Vector2.Distance(transform.position, player.position) < 10f)
-        {
-            // Add item to the player's inventory (if you have an inventory system) or trigger any other logic here
-            Debug.Log("Item picked up by: " + player.name);
-            Destroy(gameObject);
-        }
+        StartCoroutine(moveTowardPlayerCoroutine());
     }
 }
