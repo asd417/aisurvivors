@@ -9511,7 +9511,7 @@ Transform:
   m_GameObject: {fileID: 1802514874}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.44, y: 6.83, z: 0}
+  m_LocalPosition: {x: -4.1, y: -0.9, z: 0}
   m_LocalScale: {x: 0.31, y: 0.31, z: 0.31}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11641,6 +11641,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpriteManager
       objectReference: {fileID: 0}
+    - target: {fileID: 6715513734128476295, guid: 639a12c0bd85644b681de84190931be1, type: 3}
+      propertyPath: chip
+      value: 
+      objectReference: {fileID: 5126136344101472342, guid: 7a52482f579a348358bd133040b6a3be, type: 3}
     - target: {fileID: 6715513734128476295, guid: 639a12c0bd85644b681de84190931be1, type: 3}
       propertyPath: spotx
       value: -2

@@ -10,7 +10,7 @@ public class HealthManager : MonoBehaviour
     [SerializeField] public int dmg = 1;
 
     private bool EnemyIsTouching = false;
-    private int damageTimer = 10;
+    private int damageTimer = 60;
     public Healthbar healthBar = null;
 
     private void Start()
@@ -20,7 +20,7 @@ public class HealthManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        damageTimer = (damageTimer + 1) % 60;
+        damageTimer = (damageTimer + 1) % 20;
         if (damageTimer == 0 && EnemyIsTouching)
         {
             TakeDamage(dmg);

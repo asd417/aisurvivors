@@ -14,6 +14,8 @@ public class V2SpriteManager : MonoBehaviour
     public float maxCamZoom;
     private float minCamZoom = 5;
 
+    public Weapon weapon;
+
     public int chipCount = 0;
 
     public float stoppingDistance = 0.1f; // Distance within which the agent stops
@@ -45,7 +47,7 @@ public class V2SpriteManager : MonoBehaviour
     }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        //ConnectAgentsToScene();
+        chipCount = 0;
     }
 
     private void AddAgentsToSpriteManager()
