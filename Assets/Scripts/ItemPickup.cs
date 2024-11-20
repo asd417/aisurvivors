@@ -26,15 +26,18 @@ public class ItemPickup : MonoBehaviour
         if (IsPlayer(collider)){
             if (chip){
                 spriteManager.chipCount++;
+                SoundManager.instance.Play("ItemPickup");
                 Destroy(gameObject);
             }
             if (health){
                 HealthManager hm = collider.GetComponent<HealthManager>();
                 hm.Heal(0.15f);
+                SoundManager.instance.Play("ItemPickup");
                 Destroy(gameObject);
             }
             if (weapon){
                 //chipCount++;
+                SoundManager.instance.Play("ItemPickup");
                 Destroy(gameObject);
             }
         }

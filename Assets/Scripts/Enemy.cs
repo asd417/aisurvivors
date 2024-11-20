@@ -33,7 +33,6 @@ public class Enemy : MonoBehaviour
     private string[] deathSounds = { "EnemyDeath1", "EnemyDeath2", "EnemyDeath3", "EnemyDeath4" };
     private string[] damageSounds = { "PlayerHitEnemy1", "PlayerHitEnemy2", "PlayerHitEnemy3" };
 
-
     private void Start()
     {   
         agent = GetComponent<NavMeshAgent>();

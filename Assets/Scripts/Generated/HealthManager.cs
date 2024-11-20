@@ -13,6 +13,9 @@ public class HealthManager : MonoBehaviour
     private bool EnemyIsTouching = false;
     private int damageTimer = 60;
     public Healthbar healthBar = null;
+    private string[] playerHurtSounds = { "EnemyHitPlayer1", "EnemyHitPlayer2" };
+
+
 
     private void Start()
     {
@@ -49,10 +52,15 @@ public class HealthManager : MonoBehaviour
     private void TakeDamage(int dmg)
     {
         currentHealth -= dmg;
+        // trigger randomized enemy damaging player sound
+        int randomIndex = UnityEngine.Random.Range(0, playerHurtSounds.Length);
+        SoundManager.instance.Play(playerHurtSounds[randomIndex]);
+
         if (currentHealth <= 0)
         {
             Player p = gameObject.GetComponent<Player>(); // Get the Player component
             if (p != null) {
+                SoundManager.instance.Play("PlayerDeath");
                 p.KillPlayer(); // Call the KillPlayer method on the Player component
                 if(healthBar)
                 {

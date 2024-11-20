@@ -85,6 +85,7 @@ public class Weapon : MonoBehaviour
         {
             targetPlayer = collision.transform;
             isAttached = true;
+            SoundManager.instance.Play("ItemPickup");
         }
 
         if (isAttached && (collision.CompareTag("Enemy") || collision.CompareTag("Boss")))

@@ -1097,17 +1097,17 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: EnemyHitPlayer1
     clip: {fileID: 8300000, guid: c0e4468f2eb6c4f45ad0160c51f8a2c1, type: 3}
-    volume: 0.5
+    volume: 0.65
     loop: 0
     source: {fileID: 0}
   - name: EnemyHitPlayer2
     clip: {fileID: 8300000, guid: 7037336cc81274eecad63099e2ab9780, type: 3}
-    volume: 0.5
+    volume: 0.65
     loop: 0
     source: {fileID: 0}
   - name: ItemPickup
     clip: {fileID: 8300000, guid: f93af0f6b3ae0497eab80212c69719d4, type: 3}
-    volume: 0.5
+    volume: 1
     loop: 0
     source: {fileID: 0}
   - name: MenuButtonHover1
@@ -1147,7 +1147,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: PlayerSelect1
     clip: {fileID: 8300000, guid: 835059f2d8ed84d23b8a66970041503a, type: 3}
-    volume: 0.25
+    volume: 0.3
     loop: 0
     source: {fileID: 0}
   - name: LobbyAmbientWind
@@ -1160,9 +1160,9 @@ MonoBehaviour:
     volume: 0.15
     loop: 0
     source: {fileID: 0}
-  - name: Projectile
+  - name: PlayerDeath
     clip: {fileID: 8300000, guid: 030ee533e379f4d3192f2a97fb33a89f, type: 3}
-    volume: 0.5
+    volume: 0.7
     loop: 0
     source: {fileID: 0}
   - name: ErrorSound

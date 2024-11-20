@@ -195,12 +195,12 @@ public class SpriteMove : MonoBehaviour
             
             if (selectedSprite != null)
             {
-                SoundManager.instance.Play("PlayerSelect1");
+                // SoundManager.instance.Play("PlayerSelect1"); // > Sound implemented instead in Player.cs
                 HighlightSprite(selectedSprite, false);
             }
             else
             {
-                SoundManager.instance.Play("PlayerSelectError");
+                // SoundManager.instance.Play("PlayerSelectError"); // > Sound implemented instead in Player.cs
             }
             // Do something when the spacebar is pressed
             Debug.Log("Agent 1 was selected");
