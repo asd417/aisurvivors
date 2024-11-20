@@ -1205,6 +1205,26 @@ MonoBehaviour:
     volume: 0.7
     loop: 1
     source: {fileID: 0}
+  - name: preMainMenuMusic
+    clip: {fileID: 8300000, guid: 18489a115bc374106b5b8e4051210375, type: 3}
+    volume: 0.7
+    loop: 0
+    source: {fileID: 0}
+  - name: BossAlarm
+    clip: {fileID: 8300000, guid: 5094635ac26ce45028a026941ba8b74a, type: 3}
+    volume: 0.7
+    loop: 0
+    source: {fileID: 0}
+  - name: GateOpening
+    clip: {fileID: 8300000, guid: a5a819697c7c94c8bbeb778d36365903, type: 3}
+    volume: 0.7
+    loop: 0
+    source: {fileID: 0}
+  - name: MenuPlayAnimation3
+    clip: {fileID: 8300000, guid: b953ff93357ef4ac8846490844b13584, type: 3}
+    volume: 0.75
+    loop: 0
+    source: {fileID: 0}
 --- !u!4 &2126270725
 Transform:
   m_ObjectHideFlags: 0
