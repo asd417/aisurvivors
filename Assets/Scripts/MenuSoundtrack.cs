@@ -9,7 +9,7 @@ public class MenuSoundtrack : MonoBehaviour
     {
         if (SoundManager.instance != null) {
             SoundManager.instance.StopAllSounds();
-            SoundManager.instance.FadeIn("preMainMenuMusic", 5f);
+            SoundManager.instance.FadeIn("preMainMenuMusic", 1f);
             StartCoroutine(WaitAndFadeInNext()); // this stops pre and plays primary main menu music after
         }
     }

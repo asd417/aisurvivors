@@ -26,6 +26,9 @@ public class SceneChanger : MonoBehaviour
 
     private IEnumerator PlayIntroAnimationSounds() // used for Title scene change (intro animation)
     {
+        // trigger 3rd background sfx first
+        SoundManager.instance.Play("MenuPlayAnimation3");
+
         // slashes sfx
         SoundManager.instance.Play("MenuPlayAnimation1");
         yield return new WaitForSeconds(2f); // duration to wait between sounds

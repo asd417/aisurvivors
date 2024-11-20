@@ -54,6 +54,7 @@ public class GateManager : MonoBehaviour
     {
         if (currentWall1 != null && gate == "LobbyExit")
         {
+            SoundManager.instance.Play("GateOpening");
             Destroy(currentWall1);
             wallInstantiated1 = false;
             SoundManager.instance.FadeOut("LobbyAmbientWind", 10f);
@@ -62,6 +63,7 @@ public class GateManager : MonoBehaviour
         }
         if (currentWall2 != null && gate == "L1Exit")
         {
+            SoundManager.instance.Play("GateOpening");
             Destroy(currentWall2);
             wallInstantiated2 = false;
             SoundManager.instance.Crossfade("Gameplay-Instrumental1", "Gameplay-Instrumental2", 3f);
@@ -69,6 +71,7 @@ public class GateManager : MonoBehaviour
         }
         if (currentWall3 != null && gate == "L2Exit")
         {
+            SoundManager.instance.Play("GateOpening");
             Destroy(currentWall3);
             wallInstantiated3 = false;
             SoundManager.instance.Crossfade("Gameplay-Instrumental2", "Gameplay-Instrumental3", 3f);
@@ -76,6 +79,7 @@ public class GateManager : MonoBehaviour
         }
         if (currentWall4 != null && gate == "L3Exit")
         {
+            SoundManager.instance.Play("GateOpening");
             Destroy(currentWall4);
             wallInstantiated4 = false;
             SoundManager.instance.FadeOut("Gameplay-Instrumental3", 2f);

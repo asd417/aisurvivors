@@ -1132,17 +1132,17 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: PlayerHitEnemy1
     clip: {fileID: 8300000, guid: 87bd894d86ec04e3488e5d411992d7a7, type: 3}
-    volume: 0.15
+    volume: 0.2
     loop: 0
     source: {fileID: 0}
   - name: PlayerHitEnemy2
     clip: {fileID: 8300000, guid: 584a3182922354937a126fbe976b9191, type: 3}
-    volume: 0.15
+    volume: 0.2
     loop: 0
     source: {fileID: 0}
   - name: PlayerHitEnemy3
     clip: {fileID: 8300000, guid: 8cbd08f054c4c4ddaa73b8c1c33c3809, type: 3}
-    volume: 0.15
+    volume: 0.3
     loop: 0
     source: {fileID: 0}
   - name: PlayerSelect1
@@ -1222,7 +1222,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: MenuPlayAnimation3
     clip: {fileID: 8300000, guid: b953ff93357ef4ac8846490844b13584, type: 3}
-    volume: 0.75
+    volume: 0.5
     loop: 0
     source: {fileID: 0}
 --- !u!4 &2126270725
