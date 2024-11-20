@@ -269,8 +269,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationAngle: -2
   rotationSpeed: 0.5
-  bounceHeight: 0.05
-  bounceSpeed: 1
 --- !u!1 &118966064
 GameObject:
   m_ObjectHideFlags: 0
@@ -658,8 +656,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationAngle: 3
   rotationSpeed: 0.2
-  bounceHeight: 0.1
-  bounceSpeed: 0.5
 --- !u!1 &787988545
 GameObject:
   m_ObjectHideFlags: 0
@@ -807,8 +803,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationAngle: 5
   rotationSpeed: 2
-  bounceHeight: 0
-  bounceSpeed: 1.3
 --- !u!1 &1184793090
 GameObject:
   m_ObjectHideFlags: 0
@@ -1098,7 +1092,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: EnemyDeath4
     clip: {fileID: 8300000, guid: 912d6f2996d89415db7d358dae6e4d82, type: 3}
-    volume: 0.5
+    volume: 0.65
     loop: 0
     source: {fileID: 0}
   - name: EnemyHitPlayer1
@@ -1128,42 +1122,42 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: MenuPlayAnimation1
     clip: {fileID: 8300000, guid: cb8f7a0de77fd4aafaa2ff2c92c26d8c, type: 3}
-    volume: 0.6
+    volume: 0.75
     loop: 0
     source: {fileID: 0}
   - name: MenuPlayAnimation2
     clip: {fileID: 8300000, guid: 6fcaa850a08d645359590a85a5f1157d, type: 3}
-    volume: 0.7
+    volume: 0.8
     loop: 0
     source: {fileID: 0}
   - name: PlayerHitEnemy1
     clip: {fileID: 8300000, guid: 87bd894d86ec04e3488e5d411992d7a7, type: 3}
-    volume: 0.5
+    volume: 0.15
     loop: 0
     source: {fileID: 0}
   - name: PlayerHitEnemy2
     clip: {fileID: 8300000, guid: 584a3182922354937a126fbe976b9191, type: 3}
-    volume: 0.5
+    volume: 0.15
     loop: 0
     source: {fileID: 0}
   - name: PlayerHitEnemy3
     clip: {fileID: 8300000, guid: 8cbd08f054c4c4ddaa73b8c1c33c3809, type: 3}
-    volume: 0.5
+    volume: 0.15
     loop: 0
     source: {fileID: 0}
   - name: PlayerSelect1
     clip: {fileID: 8300000, guid: 835059f2d8ed84d23b8a66970041503a, type: 3}
-    volume: 0.1
+    volume: 0.25
     loop: 0
     source: {fileID: 0}
   - name: LobbyAmbientWind
     clip: {fileID: 8300000, guid: 1cec11810db384253b3a1f2d84085938, type: 3}
-    volume: 0.8
+    volume: 0.85
     loop: 1
     source: {fileID: 0}
   - name: PlayerSelectError
     clip: {fileID: 8300000, guid: 8bc30804d96794550b5628751f0633eb, type: 3}
-    volume: 0.1
+    volume: 0.15
     loop: 0
     source: {fileID: 0}
   - name: Projectile
@@ -1188,27 +1182,27 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: LobbyMusic
     clip: {fileID: 8300000, guid: 73573d5c7ecc148cfb80971b6367fe19, type: 3}
-    volume: 0.2
+    volume: 0.3
     loop: 1
     source: {fileID: 0}
   - name: Gameplay-Instrumental1
     clip: {fileID: 8300000, guid: a0ec8aa2f7eb44fc1b88a76cbdc00cfa, type: 3}
-    volume: 0.3
+    volume: 0.5
     loop: 1
     source: {fileID: 0}
   - name: Gameplay-Instrumental2
     clip: {fileID: 8300000, guid: 0dd47e4911ebf4b16be0f0615994dab3, type: 3}
-    volume: 0.3
+    volume: 0.5
     loop: 1
     source: {fileID: 0}
   - name: Gameplay-Instrumental3
     clip: {fileID: 8300000, guid: 34bafb3d05bf64a14994a188bcd0f902, type: 3}
-    volume: 0.3
+    volume: 0.5
     loop: 1
     source: {fileID: 0}
   - name: MainMenuMusic
     clip: {fileID: 8300000, guid: e9c9afc84542f475bbfa1b3c8bcb1f9b, type: 3}
-    volume: 0.4
+    volume: 0.7
     loop: 1
     source: {fileID: 0}
 --- !u!4 &2126270725

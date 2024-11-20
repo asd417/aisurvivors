@@ -56,25 +56,22 @@ public class GateManager : MonoBehaviour
         {
             Destroy(currentWall1);
             wallInstantiated1 = false;
-            SoundManager.instance.FadeOut("LobbyMusic", 2f);
-            SoundManager.instance.FadeOut("LobbyAmbientWind", 2f);
-            SoundManager.instance.FadeIn("Gameplay-Instrumental1", 2f);
+            SoundManager.instance.FadeOut("LobbyAmbientWind", 10f);
+            SoundManager.instance.Crossfade("LobbyMusic", "Gameplay-Instrumental1", 3f); // (soundOut, soundIn, duration)
 
         }
         if (currentWall2 != null && gate == "L1Exit")
         {
             Destroy(currentWall2);
             wallInstantiated2 = false;
-            SoundManager.instance.FadeOut("Gameplay-Instrumental1", 2f);
-            SoundManager.instance.FadeIn("Gameplay-Instrumental2", 2f);
+            SoundManager.instance.Crossfade("Gameplay-Instrumental1", "Gameplay-Instrumental2", 3f);
 
         }
         if (currentWall3 != null && gate == "L2Exit")
         {
             Destroy(currentWall3);
             wallInstantiated3 = false;
-            SoundManager.instance.FadeOut("Gameplay-Instrumental2", 2f);
-            SoundManager.instance.FadeIn("Gameplay-Instrumental3", 2f);
+            SoundManager.instance.Crossfade("Gameplay-Instrumental2", "Gameplay-Instrumental3", 3f);
 
         }
         if (currentWall4 != null && gate == "L3Exit")

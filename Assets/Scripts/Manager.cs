@@ -26,21 +26,18 @@ public class Manager : MonoBehaviour
     {
         Debug.Log("Trigger Level1 scene");
         SceneManager.LoadScene("Level1");
-        // StartCoroutine(LoadSceneWithAudio("Level1", "Gameplay-Instrumental1"));
     }
 
     public void Level2()
     {
         Debug.Log("Trigger Level2 scene");
         SceneManager.LoadScene("Level2");
-        // StartCoroutine(LoadSceneWithAudio("Level2", "Gameplay-Instrumental2"));
     }
 
     public void Level3()
     {
         Debug.Log("Trigger Level3 scene");
         SceneManager.LoadScene("Level3");
-        // StartCoroutine(LoadSceneWithAudio("Level3", "Gameplay-Instrumental3"));
     }
 
     public void Scythes()
@@ -68,20 +65,17 @@ public class Manager : MonoBehaviour
     {
         Debug.Log("Trigger Menu scene");
         SceneManager.LoadScene("MainMenu");
-        // StartCoroutine(LoadSceneWithAudio("MainMenu", "MainMenuMusic"));
     }
 
     public void Lobby()
     {
         Debug.Log("Trigger Lobby scene");
         SceneManager.LoadScene("Lobby");
-        // StartCoroutine(LoadSceneWithAudio("Lobby", "LobbyMusic"));
     }
 
     public void Title()
     {
         Debug.Log("Trigger Title scene");
-        // StartCoroutine(PlayIntroAnimationSounds()); // playing sounds differently here because there is a designated sequence of sounds to be played
         SceneManager.LoadScene("Title");    
     }
 
@@ -89,7 +83,6 @@ public class Manager : MonoBehaviour
     {
         Debug.Log("Trigger Credits scene");
         SceneManager.LoadScene("Credits");
-        // StartCoroutine(LoadSceneWithAudio("Credits", "CreditsSong"));
     }
 
     public void QuitGame()

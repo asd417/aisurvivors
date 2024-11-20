@@ -30,8 +30,7 @@ public class Enemy : MonoBehaviour
     public bool Enemy2 = false;
     public bool Boss = false;
 
-    public AudioClip damage;
-    public AudioClip dead;
+    private string[] deathSounds = { "EnemyDeath1", "EnemyDeath2", "EnemyDeath3", "EnemyDeath4" };
     private string[] damageSounds = { "PlayerHitEnemy1", "PlayerHitEnemy2", "PlayerHitEnemy3" };
 
 
@@ -99,7 +98,7 @@ public class Enemy : MonoBehaviour
         
         // Randomize an index to select a sound
         int randomIndex = Random.Range(0, damageSounds.Length);
-        Debug.Log($"Random Index: {randomIndex}"); // Log the index for debugging
+        // Debug.Log($"Random Index: {randomIndex}"); // Log the index for debugging
 
         SoundManager.instance.Play(damageSounds[randomIndex]);
     }
@@ -143,8 +142,12 @@ public class Enemy : MonoBehaviour
         
         
         // Instantiate(itemDropPrefab, transform.position, Quaternion.identity); // Instantiate the item drop at the enemy's position
+        
+        // trigger randomized enemy death sound
+        int randomIndex = Random.Range(0, deathSounds.Length);
+        SoundManager.instance.Play(deathSounds[randomIndex]);
+                
         // Start the enemy death animation
-        AudioSource.PlayClipAtPoint(dead, transform.position); 
         StartCoroutine(ScaleDownAndDestroy());
     }
 

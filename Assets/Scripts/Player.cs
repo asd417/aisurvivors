@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     {
         if (highlighted)
         {
+            SoundManager.instance.Play("PlayerSelect1");
             sr.color = highlightColor;
         }
         else
@@ -67,6 +68,6 @@ public class Player : MonoBehaviour
 
         // Destroy the player after the animation
         Destroy(gameObject);
-        Debug.Log("Player destroyed after death animation");
+        // Debug.Log("Player destroyed after death animation");
     }
 }
