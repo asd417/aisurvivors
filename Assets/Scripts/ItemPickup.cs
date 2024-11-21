@@ -13,6 +13,7 @@ public class ItemPickup : MonoBehaviour
     public bool weapon = false;
 
     public V2SpriteManager spriteManager;
+    public Weapon weaponScript;
 
     private void Start()
     {
@@ -24,6 +25,17 @@ public class ItemPickup : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collider){
         
         if (IsPlayer(collider)){
+            Player player = collider.GetComponent<Player>();
+            if (player != null && weapon)
+            {
+                Weapon weaponScript = player.weapon; // Access the player's weapon
+                if (weaponScript != null)
+                {
+                    weaponScript.UpgradeWeapon(); // Upgrade the weapon
+                }
+                SoundManager.instance.Play("ItemPickup");
+                Destroy(gameObject);
+            }
             if (chip){
                 spriteManager.chipCount++;
                 SoundManager.instance.Play("ItemPickup");
@@ -32,11 +44,6 @@ public class ItemPickup : MonoBehaviour
             if (health){
                 HealthManager hm = collider.GetComponent<HealthManager>();
                 hm.Heal(0.15f);
-                SoundManager.instance.Play("ItemPickup");
-                Destroy(gameObject);
-            }
-            if (weapon){
-                //chipCount++;
                 SoundManager.instance.Play("ItemPickup");
                 Destroy(gameObject);
             }

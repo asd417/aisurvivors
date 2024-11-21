@@ -84,7 +84,7 @@ public class EnemySpawn2 : MonoBehaviour
                 ? new Vector3(spawnx3, spawny3)
                 : new Vector3(spawnx4, spawny4);
 
-            GameObject selectedPrefab = (Random.value < 0.666f) ? spriteEnemyPrefab1 : spriteEnemyPrefab2;
+            GameObject selectedPrefab = (Random.value < 0.75f) ? spriteEnemyPrefab1 : spriteEnemyPrefab2;
             Instantiate(selectedPrefab, initialPosition, Quaternion.identity);
             
             

@@ -22,6 +22,8 @@ public class Weapon : MonoBehaviour
     public bool player2CanPickUp = true;
     public bool player3CanPickUp = true;
 
+    public Sprite[] upgradeSprites;
+    private int upgradeLevel = 0; 
     [SerializeField, Tooltip("Weapon - Damage dealt to enemy")]
     int damage = 1;
 
@@ -51,22 +53,42 @@ public class Weapon : MonoBehaviour
 
     private void RotateAroundPlayer()
     {
-        angle_euler = (angle_euler + rotationSpeed * Time.deltaTime * 60f) % 360;
-        transform.eulerAngles = new Vector3(0, 0, angle_euler);
-        transform.position = targetPlayer.position + new Vector3(
-            Mathf.Cos(Mathf.Deg2Rad * angle_euler) * dist,
-            Mathf.Sin(Mathf.Deg2Rad * angle_euler) * dist,
-            0);
+        if (player1CanPickUp){
+            angle_euler = (angle_euler - rotationSpeed * Time.deltaTime * 60f) % 360;
+            transform.eulerAngles = new Vector3(0, 0, angle_euler);
+            transform.position = targetPlayer.position + new Vector3(
+                Mathf.Cos(Mathf.Deg2Rad * angle_euler) * dist,
+                Mathf.Sin(Mathf.Deg2Rad * angle_euler) * dist,
+                0);
+        }
+        else{
+            angle_euler = (angle_euler + rotationSpeed * Time.deltaTime * 60f) % 360;
+            transform.eulerAngles = new Vector3(0, 0, angle_euler);
+            transform.position = targetPlayer.position + new Vector3(
+                Mathf.Cos(Mathf.Deg2Rad * angle_euler) * dist,
+                Mathf.Sin(Mathf.Deg2Rad * angle_euler) * dist,
+                0);
+        }
     }
 
     private void RotateAroundPlayerFast()
     {
-        angle_euler = (angle_euler + rotationSpeed * 3 * Time.deltaTime * 60f) % 360;
-        transform.eulerAngles = new Vector3(0, 0, angle_euler);
-        transform.position = targetPlayer.position + new Vector3(
-            Mathf.Cos(Mathf.Deg2Rad * angle_euler) * dist,
-            Mathf.Sin(Mathf.Deg2Rad * angle_euler) * dist,
-            0);
+        if (player1CanPickUp){
+            angle_euler = (angle_euler - rotationSpeed * 3 * Time.deltaTime * 60f) % 360;
+            transform.eulerAngles = new Vector3(0, 0, angle_euler);
+            transform.position = targetPlayer.position + new Vector3(
+                Mathf.Cos(Mathf.Deg2Rad * angle_euler) * dist,
+                Mathf.Sin(Mathf.Deg2Rad * angle_euler) * dist,
+                0);
+        }
+        else{
+            angle_euler = (angle_euler + rotationSpeed * 3 * Time.deltaTime * 60f) % 360;
+            transform.eulerAngles = new Vector3(0, 0, angle_euler);
+            transform.position = targetPlayer.position + new Vector3(
+                Mathf.Cos(Mathf.Deg2Rad * angle_euler) * dist,
+                Mathf.Sin(Mathf.Deg2Rad * angle_euler) * dist,
+                0);
+        }
     }
 
     public void Detach()
@@ -83,6 +105,11 @@ public class Weapon : MonoBehaviour
         (!isAttached && collision.CompareTag("Player2") && player2CanPickUp) || 
         (!isAttached && collision.CompareTag("Player3") && player3CanPickUp))
         {
+            Player player = collision.GetComponent<Player>();
+            if (player != null)
+            {
+                player.weapon = this; // Link the weapon to the player
+            }
             targetPlayer = collision.transform;
             isAttached = true;
             SoundManager.instance.Play("ItemPickup");
@@ -110,6 +137,27 @@ public class Weapon : MonoBehaviour
             {
                 enemy.RemoveEnemyTakingDmg(damage);
             }
+        }
+    }
+
+    public void UpgradeWeapon()
+    {
+        if (upgradeLevel < upgradeSprites.Length - 1) 
+        {
+            upgradeLevel++;
+            damage += 5; // Increase damage for each upgrade
+            rotationSpeed += 2f; // Increase rotation speed for each upgrade
+
+            // Change the weapon sprite to match the new upgrade level
+            SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+            if (spriteRenderer != null && upgradeSprites[upgradeLevel] != null)
+            {
+                spriteRenderer.sprite = upgradeSprites[upgradeLevel];
+            }
+        }
+        else
+        {
+            Debug.Log("Weapon is already at max upgrade level!");
         }
     }
 }

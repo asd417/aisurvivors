@@ -11,6 +11,8 @@ public class Player : MonoBehaviour
     public float playerDeathDuration = 0.3f;  // Duration of gradual scale decrease for death animation
     public SpriteRenderer sr;
 
+    public Weapon weapon;
+
     private void Start()
     {
         setHighlighted(false);
