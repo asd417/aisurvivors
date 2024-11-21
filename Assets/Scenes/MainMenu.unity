@@ -1077,32 +1077,32 @@ MonoBehaviour:
   sounds:
   - name: EnemyDeath1
     clip: {fileID: 8300000, guid: 37a3ddd77fea74c9aaaa356c33aa2d8c, type: 3}
-    volume: 0.5
+    volume: 0.75
     loop: 0
     source: {fileID: 0}
   - name: EnemyDeath2
     clip: {fileID: 8300000, guid: fe04f237b3f9b4c69939fba346ee73e4, type: 3}
-    volume: 0.5
+    volume: 0.75
     loop: 0
     source: {fileID: 0}
   - name: EnemyDeath3
     clip: {fileID: 8300000, guid: 76f57b4579aa84e8b95f2e7370e36997, type: 3}
-    volume: 0.5
+    volume: 0.75
     loop: 0
     source: {fileID: 0}
   - name: EnemyDeath4
     clip: {fileID: 8300000, guid: 912d6f2996d89415db7d358dae6e4d82, type: 3}
-    volume: 0.65
+    volume: 1
     loop: 0
     source: {fileID: 0}
   - name: EnemyHitPlayer1
     clip: {fileID: 8300000, guid: c0e4468f2eb6c4f45ad0160c51f8a2c1, type: 3}
-    volume: 0.65
+    volume: 0.8
     loop: 0
     source: {fileID: 0}
   - name: EnemyHitPlayer2
     clip: {fileID: 8300000, guid: 7037336cc81274eecad63099e2ab9780, type: 3}
-    volume: 0.65
+    volume: 0.8
     loop: 0
     source: {fileID: 0}
   - name: ItemPickup
@@ -1112,12 +1112,12 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: MenuButtonHover1
     clip: {fileID: 8300000, guid: 2c40f073aa85643788949088d0dcf1f9, type: 3}
-    volume: 0.3
+    volume: 0.6
     loop: 0
     source: {fileID: 0}
   - name: MenuButtonHover2
     clip: {fileID: 8300000, guid: 75a5ad754481943c5b200114b0f489bf, type: 3}
-    volume: 0.3
+    volume: 0.6
     loop: 0
     source: {fileID: 0}
   - name: MenuPlayAnimation1
@@ -1132,57 +1132,57 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: PlayerHitEnemy1
     clip: {fileID: 8300000, guid: 87bd894d86ec04e3488e5d411992d7a7, type: 3}
-    volume: 0.2
+    volume: 0.4
     loop: 0
     source: {fileID: 0}
   - name: PlayerHitEnemy2
     clip: {fileID: 8300000, guid: 584a3182922354937a126fbe976b9191, type: 3}
-    volume: 0.2
+    volume: 0.4
     loop: 0
     source: {fileID: 0}
   - name: PlayerHitEnemy3
     clip: {fileID: 8300000, guid: 8cbd08f054c4c4ddaa73b8c1c33c3809, type: 3}
-    volume: 0.3
+    volume: 0.6
     loop: 0
     source: {fileID: 0}
   - name: PlayerSelect1
     clip: {fileID: 8300000, guid: 835059f2d8ed84d23b8a66970041503a, type: 3}
-    volume: 0.3
+    volume: 0.5
     loop: 0
     source: {fileID: 0}
   - name: LobbyAmbientWind
     clip: {fileID: 8300000, guid: 1cec11810db384253b3a1f2d84085938, type: 3}
-    volume: 0.85
+    volume: 1
     loop: 1
     source: {fileID: 0}
   - name: PlayerSelectError
     clip: {fileID: 8300000, guid: 8bc30804d96794550b5628751f0633eb, type: 3}
-    volume: 0.15
+    volume: 0.5
     loop: 0
     source: {fileID: 0}
   - name: PlayerDeath
     clip: {fileID: 8300000, guid: 030ee533e379f4d3192f2a97fb33a89f, type: 3}
-    volume: 0.7
+    volume: 1
     loop: 0
     source: {fileID: 0}
   - name: ErrorSound
     clip: {fileID: 8300000, guid: 5c67d964ddf3d4aabb0319708a648a9c, type: 3}
-    volume: 0.2
+    volume: 0.5
     loop: 0
     source: {fileID: 0}
   - name: ButtonClickedOn
     clip: {fileID: 8300000, guid: e5e1138bc3c694183871b7c6237a9d11, type: 3}
-    volume: 0.15
+    volume: 0.6
     loop: 0
     source: {fileID: 0}
   - name: CreditsSong
     clip: {fileID: 8300000, guid: 1292d88cce143499fbbb528062fb5b0e, type: 3}
-    volume: 0.3
+    volume: 0.5
     loop: 0
     source: {fileID: 0}
   - name: LobbyMusic
     clip: {fileID: 8300000, guid: 73573d5c7ecc148cfb80971b6367fe19, type: 3}
-    volume: 0.3
+    volume: 0.35
     loop: 1
     source: {fileID: 0}
   - name: Gameplay-Instrumental1
@@ -1202,17 +1202,17 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: MainMenuMusic
     clip: {fileID: 8300000, guid: e9c9afc84542f475bbfa1b3c8bcb1f9b, type: 3}
-    volume: 0.7
+    volume: 0.75
     loop: 1
     source: {fileID: 0}
   - name: preMainMenuMusic
     clip: {fileID: 8300000, guid: 18489a115bc374106b5b8e4051210375, type: 3}
-    volume: 0.7
+    volume: 0.75
     loop: 0
     source: {fileID: 0}
   - name: BossAlarm
     clip: {fileID: 8300000, guid: 5094635ac26ce45028a026941ba8b74a, type: 3}
-    volume: 0.7
+    volume: 0.85
     loop: 0
     source: {fileID: 0}
   - name: GateOpening
