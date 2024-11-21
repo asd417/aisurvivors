@@ -18,6 +18,7 @@ public class SceneChanger : MonoBehaviour
     {
         yield return new WaitForSeconds(delayBeforeChange);
         SceneManager.LoadScene("Level2 1");
+        SoundManager.instance.FadeOut("MenuAnimation3", 3f);
 
     }
 

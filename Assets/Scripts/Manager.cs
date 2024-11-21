@@ -54,6 +54,13 @@ public class Manager : MonoBehaviour
     }
     public void Game2()
     {
+        Debug.Log("Trigger Game");
+
+        // Stop all sounds
+        if (SoundManager.instance != null)
+        {
+            SoundManager.instance.StopAllSounds();
+        }
         SceneManager.LoadScene("Level2 1");
     }
     public void Info()
@@ -63,12 +70,18 @@ public class Manager : MonoBehaviour
 
     public void Menu()
     {
+        // Stop all sounds
+        if (SoundManager.instance != null)
+        {
+            SoundManager.instance.StopAllSounds();
+        }
         Debug.Log("Trigger Menu scene");
         SceneManager.LoadScene("MainMenu");
     }
 
     public void Lobby()
     {
+
         Debug.Log("Trigger Lobby scene");
         SceneManager.LoadScene("Lobby");
     }
@@ -101,6 +114,7 @@ public class Manager : MonoBehaviour
     {
         PlayerPrefs.SetString("LastLevel", currentLevel);
         SceneManager.LoadScene("GameLost");
+
     }
 
 

@@ -47,7 +47,10 @@ public class LevelSwitch : MonoBehaviour
         if (IsPlayer(collider))
         {
             playersAtDoor++;
-            if(Boss) bossGo = true;
+            if(Boss) {
+                bossGo = true;
+                SoundManager.instance.Play("BossAlarm"); // need to test
+            }
             if (playersAtDoor == spriteMove.GetAgentCount())
             {
                 if (spriteCount != 0 && GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
@@ -100,6 +103,9 @@ public class LevelSwitch : MonoBehaviour
     void Lose()
     {
         SceneManager.LoadScene("Lose");
+        SoundManager.instance.StopAllSounds();
+        SoundManager.instance.FadeIn("MenuPlayAnimation3", 1f);
+        SoundManager.instance.FadeIn("LightBuzz", 10f);
     }
 
     private bool IsPlayer(Collider2D collider)

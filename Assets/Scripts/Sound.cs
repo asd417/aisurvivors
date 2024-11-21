@@ -12,5 +12,5 @@ public class Sound {
     public float volume;
     public bool loop;
 
-    public AudioSource source;
+    [HideInInspector] public AudioSource source;
 }
