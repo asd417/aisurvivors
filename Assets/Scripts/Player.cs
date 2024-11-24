@@ -6,8 +6,8 @@ public class Player : MonoBehaviour
 {
     //Player class to control different aspects of player prefab with script
     [SerializeField]
-    public Color playerColor = Color.white;
-    public Color highlightColor = Color.green;
+    private Color playerColor = Color.white;
+    private Color highlightColor = Color.white;
     public float playerDeathDuration = 0.3f;  // Duration of gradual scale decrease for death animation
     public SpriteRenderer sr;
 
