@@ -229,10 +229,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a14afc17293924d2086d4a3820eb4770, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetUpdateInterval: 0.5
+  targetUpdateInterval: 1.5
   target: {fileID: 2716341946938862543, guid: 109805773db30400e9b99af82661d82f, type: 3}
   speed: 0.5
-  health: 600
+  health: 1000
   Chip: {fileID: 5126136344101472342, guid: 7a52482f579a348358bd133040b6a3be, type: 3}
   HealthBonus: {fileID: 9179292672344299889, guid: bef07c4d3b5d44de3bf02d8d019a4289, type: 3}
   WeaponBonus: {fileID: 7964483777874391744, guid: f3db7fb3e618249bb99b3521bca1efdc, type: 3}
@@ -241,8 +241,6 @@ MonoBehaviour:
   Enemy1: 0
   Enemy2: 0
   Boss: 1
-  damage: {fileID: 8300000, guid: c0e4468f2eb6c4f45ad0160c51f8a2c1, type: 3}
-  dead: {fileID: 8300000, guid: 76f57b4579aa84e8b95f2e7370e36997, type: 3}
 --- !u!111 &3035388986899679179
 Animation:
   m_ObjectHideFlags: 0

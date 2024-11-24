@@ -153,7 +153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetUpdateInterval: 0.5
   target: {fileID: 2716341946938862543, guid: 109805773db30400e9b99af82661d82f, type: 3}
-  speed: 1
+  speed: 1.5
   health: 130
   Chip: {fileID: 5126136344101472342, guid: 7a52482f579a348358bd133040b6a3be, type: 3}
   HealthBonus: {fileID: 9179292672344299889, guid: bef07c4d3b5d44de3bf02d8d019a4289, type: 3}
@@ -163,8 +163,6 @@ MonoBehaviour:
   Enemy1: 0
   Enemy2: 1
   Boss: 0
-  damage: {fileID: 8300000, guid: 7037336cc81274eecad63099e2ab9780, type: 3}
-  dead: {fileID: 8300000, guid: 912d6f2996d89415db7d358dae6e4d82, type: 3}
 --- !u!95 &-6040297891848719178
 Animator:
   serializedVersion: 5

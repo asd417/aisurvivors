@@ -142,7 +142,7 @@ public class Weapon : MonoBehaviour
 
     public void UpgradeWeapon()
     {
-        if (upgradeLevel < upgradeSprites.Length - 1) 
+        if (upgradeLevel < upgradeSprites.Length) 
         {
             upgradeLevel++;
             damage += 5; // Increase damage for each upgrade
@@ -150,9 +150,9 @@ public class Weapon : MonoBehaviour
 
             // Change the weapon sprite to match the new upgrade level
             SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-            if (spriteRenderer != null && upgradeSprites[upgradeLevel] != null)
+            if (spriteRenderer != null && upgradeSprites[upgradeLevel-1] != null)
             {
-                spriteRenderer.sprite = upgradeSprites[upgradeLevel];
+                spriteRenderer.sprite = upgradeSprites[upgradeLevel-1];
             }
         }
         else
