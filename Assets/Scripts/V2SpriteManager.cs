@@ -210,7 +210,6 @@ public class V2SpriteManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q) && agents.Count > 0)
         {
-            
             if (selectedSprite != null)
             {
                 AudioSource.PlayClipAtPoint(selected, transform.position);
@@ -263,6 +262,10 @@ public class V2SpriteManager : MonoBehaviour
                 HighlightSprite(selectedSprite, true);
             }
         }
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            ToggleNextSprite();
+        }
     }
 
     // Method to toggle between sprites
@@ -278,8 +281,11 @@ public class V2SpriteManager : MonoBehaviour
 
         currentSpriteIndex = (currentSpriteIndex + 1) % agents.Count;
         selectedSprite = agents[currentSpriteIndex];
-
-        HighlightSprite(selectedSprite, true);
+        Debug.Log(selectedSprite);
+        if (selectedSprite != null)
+        {
+            HighlightSprite(selectedSprite, true);
+        }
     }
 
     // Method to set the target position for the currently selected sprite

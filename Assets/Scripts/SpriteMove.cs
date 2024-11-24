@@ -246,6 +246,10 @@ public class SpriteMove : MonoBehaviour
                 HighlightSprite(selectedSprite, true);
             }
         }
+        if(Input.GetKeyDown(KeyCode.Tab))
+        {
+            ToggleNextSprite();
+        }
     }
 
     // Method to toggle between sprites
@@ -253,16 +257,16 @@ public class SpriteMove : MonoBehaviour
     {
         if (agents == null || agents.Count == 0)
             return;
-
         if (selectedSprite != null)
         {
             HighlightSprite(selectedSprite, false);
         }
-
         currentSpriteIndex = (currentSpriteIndex + 1) % agents.Count;
         selectedSprite = agents[currentSpriteIndex];
-
-        HighlightSprite(selectedSprite, true);
+        if (selectedSprite != null)
+        {
+            HighlightSprite(selectedSprite, true);
+        }
     }
 
     // Method to set the target position for the currently selected sprite
