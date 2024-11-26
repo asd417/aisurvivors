@@ -46,6 +46,18 @@ public class V2SpriteManager : MonoBehaviour
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
+
+    public int GetPlayerIndex(GameObject go)
+    {
+        for(int i = 0; i < agents.Count; i++)
+        {
+            if (agents[i] == go)
+            {
+               return i;
+            }
+        }
+        return -1;
+    }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         chipCount = 0;
