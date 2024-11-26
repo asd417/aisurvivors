@@ -25,10 +25,6 @@ public class GateManager : MonoBehaviour
 
     void Start()
     {
-        // trigger background audio for lobby level
-        SoundManager.instance.FadeIn("LobbyMusic", 2f);
-        SoundManager.instance.FadeIn("LobbyAmbientWind", 2f);
-
         // initialize wall bools
         currentWall1 = Instantiate(gate1, gate1.transform.position, Quaternion.identity);
         wallInstantiated1 = true;
@@ -38,6 +34,9 @@ public class GateManager : MonoBehaviour
         wallInstantiated3 = true;
         currentWall4 = Instantiate(gate4, gate4.transform.position, Quaternion.identity);
         wallInstantiated4 = true;
+        // trigger background audio for lobby level
+        SoundManager.instance.FadeIn("LobbyMusic", 2f);
+        SoundManager.instance.FadeIn("LobbyAmbientWind", 2f);
     }
 
     public void Act(GameObject gate){
@@ -54,38 +53,49 @@ public class GateManager : MonoBehaviour
     {
         if (currentWall1 != null && gate == "LobbyExit")
         {
-            SoundManager.instance.Play("GateOpening");
+            try
+            {
+                SoundManager.instance.Play("GateOpening");
+                SoundManager.instance.FadeOut("LobbyAmbientWind", 10f);
+                SoundManager.instance.Crossfade("LobbyMusic", "Gameplay-Instrumental1", 3f); // (soundOut, soundIn, duration)
+            }
+            catch (Exception e) { }
             Destroy(currentWall1);
             wallInstantiated1 = false;
-            SoundManager.instance.FadeOut("LobbyAmbientWind", 10f);
-            SoundManager.instance.Crossfade("LobbyMusic", "Gameplay-Instrumental1", 3f); // (soundOut, soundIn, duration)
-
         }
         if (currentWall2 != null && gate == "L1Exit")
         {
-            SoundManager.instance.Play("GateOpening");
+            try
+            {
+                SoundManager.instance.Play("GateOpening");
+                SoundManager.instance.Crossfade("Gameplay-Instrumental1", "Gameplay-Instrumental2", 3f);
+            }
+            catch(Exception e) { }
             Destroy(currentWall2);
             wallInstantiated2 = false;
-            SoundManager.instance.Crossfade("Gameplay-Instrumental1", "Gameplay-Instrumental2", 3f);
-
         }
         if (currentWall3 != null && gate == "L2Exit")
         {
-            SoundManager.instance.Play("GateOpening");
+            try
+            {
+                SoundManager.instance.Play("GateOpening");
+                SoundManager.instance.Crossfade("Gameplay-Instrumental2", "Gameplay-Instrumental3", 3f);
+            }
+            catch (Exception e) { }
             Destroy(currentWall3);
             wallInstantiated3 = false;
-            SoundManager.instance.Crossfade("Gameplay-Instrumental2", "Gameplay-Instrumental3", 3f);
-
         }
         if (currentWall4 != null && gate == "L3Exit")
         {
-            SoundManager.instance.Play("GateOpening");
+            try
+            {
+                SoundManager.instance.Play("GateOpening");
+                SoundManager.instance.FadeOut("Gameplay-Instrumental3", 2f);
+            }
+            catch (Exception e) { }
             Destroy(currentWall4);
             wallInstantiated4 = false;
-            SoundManager.instance.FadeOut("Gameplay-Instrumental3", 2f);
-            //
         }
-        
     }
 
     void Wall(string gate)
