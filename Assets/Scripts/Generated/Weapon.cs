@@ -31,6 +31,9 @@ public class Weapon : MonoBehaviour
     // float invincibilityBuffer = 1.0f;
     // private bool canDealDamage = true;
     public GameObject dmgTextPrefab;
+    private string[] upgradeSounds = { "WeaponPowerUp1", "WeaponPowerUp2" };
+
+
 
     private void Start()
     {
@@ -152,7 +155,9 @@ public class Weapon : MonoBehaviour
             SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
             if (spriteRenderer != null && upgradeSprites[upgradeLevel-1] != null)
             {
-                // > > > [play weapon upgrade sfx here] < < <
+                int randomIndex = Random.Range(0, upgradeSounds.Length); // randomize upgrade sfx
+                SoundManager.instance.Play(upgradeSounds[randomIndex]);
+
                 spriteRenderer.sprite = upgradeSprites[upgradeLevel-1];
             }
         }
