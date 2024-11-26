@@ -43,6 +43,7 @@ public class Player : MonoBehaviour
                 w.Detach();
             }
         }
+        if(weapon != null) weapon.Detach();
         // Start the death animation
         StartCoroutine(PlayerScaleDownAndDestroy());
     }
