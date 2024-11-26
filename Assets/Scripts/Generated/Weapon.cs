@@ -52,6 +52,10 @@ public class Weapon : MonoBehaviour
                 RotateAroundPlayer();
             }
         }
+        if(targetPlayer == null)
+        {
+            isAttached = false;
+        }
     }
 
     private void RotateAroundPlayer()

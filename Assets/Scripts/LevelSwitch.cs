@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.U2D;
+using System.Xml;
 
 public class LevelSwitch : MonoBehaviour
 {
@@ -31,7 +32,7 @@ public class LevelSwitch : MonoBehaviour
 
     int spriteCount;
 
-    
+    Dictionary<int,int> uniquePlayerAtDoor = new Dictionary<int,int>();
 
     void Start()
     {
@@ -40,13 +41,30 @@ public class LevelSwitch : MonoBehaviour
             manager = FindObjectOfType<GateManager>();  // Find the GateManager in the scene
         }
     }
-
+    private void RecalculatePlayersAtGate()
+    {
+        playersAtDoor = 0;
+        foreach (KeyValuePair<int, int> entry in uniquePlayerAtDoor)
+        {
+            playersAtDoor += entry.Value;
+            Debug.Log($"{gameObject.name}: {entry.Key} {entry.Value}");
+        }
+    }
     void OnTriggerEnter2D(Collider2D collider)
-    { 
+    {
         spriteCount = spriteMove.GetAgentCount();
         if (IsPlayer(collider))
         {
-            playersAtDoor++;
+            int index = spriteMove.GetPlayerIndex(collider.gameObject);
+            if (uniquePlayerAtDoor.ContainsKey(index))
+            {
+                uniquePlayerAtDoor[index] = 1;
+            }
+            else
+            {
+                uniquePlayerAtDoor.Add(index, 1);
+            }
+            RecalculatePlayersAtGate();
             if(Boss) {
                 bossGo = true;
                 SoundManager.instance.Play("BossAlarm"); // need to test
@@ -80,10 +98,18 @@ public class LevelSwitch : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collider)
     {
-        
-        if (IsPlayer(collider) && (!L1Enter && !L2Enter && !L3Enter))
+        if (IsPlayer(collider))
         {
-            playersAtDoor--;
+            int index = spriteMove.GetPlayerIndex(collider.gameObject);
+            if (uniquePlayerAtDoor.ContainsKey(index))
+            {
+                uniquePlayerAtDoor[index] = 0;
+            }
+            else
+            {
+                uniquePlayerAtDoor.Add(index, 0);
+            }
+            RecalculatePlayersAtGate();
         }
     }
 
