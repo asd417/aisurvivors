@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Player : MonoBehaviour
 {
@@ -12,6 +13,33 @@ public class Player : MonoBehaviour
     public SpriteRenderer sr;
 
     public Weapon weapon;
+    public GameObject fogSprite1;
+    //public GameObject fogSprite2;
+    public float fogScale = 2.5f;
+    private float targetFogScale = 2.5f;
+    private float fogScaleTime = 0.0f;
+    public void SetFogScale(float scale)
+    {
+        fogSprite1.transform.localScale = new Vector3(scale, scale, scale);
+        //fogSprite2.transform.localScale = new Vector3(scale, scale, scale);
+    }
+    public void ResetFogScale()
+    {
+        fogSprite1.transform.localScale = new Vector3(fogScale, fogScale, fogScale);
+        //fogSprite2.transform.localScale = new Vector3(fogScale, fogScale, fogScale);
+    }
+
+    public void InterpolateFogScale(float _fogScale, float timeMultiplier)
+    {
+        targetFogScale = _fogScale;
+        fogScaleTime = timeMultiplier;
+    }
+
+    private void Update()
+    {
+        fogScale = Mathf.Lerp(fogScale, targetFogScale, fogScaleTime);
+        SetFogScale(fogScale);
+    }
 
     private void Start()
     {
