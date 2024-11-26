@@ -156,6 +156,7 @@ public class Weapon : MonoBehaviour
             SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
             if (spriteRenderer != null && upgradeSprites[upgradeLevel-1] != null)
             {
+                // > > > [play weapon upgrade sfx here] < < <
                 spriteRenderer.sprite = upgradeSprites[upgradeLevel-1];
             }
         }
