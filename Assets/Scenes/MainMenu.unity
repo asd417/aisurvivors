@@ -1230,6 +1230,16 @@ MonoBehaviour:
     volume: 1
     loop: 1
     source: {fileID: 0}
+  - name: WeaponPowerUp1
+    clip: {fileID: 8300000, guid: ed17d238269254e94a8c18d6c3e14e38, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: WeaponPowerUp2
+    clip: {fileID: 8300000, guid: 827928e5e752b4af196386cc33ab5634, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
 --- !u!4 &2126270725
 Transform:
   m_ObjectHideFlags: 0
