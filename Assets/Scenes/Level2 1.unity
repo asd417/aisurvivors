@@ -8019,7 +8019,7 @@ PrefabInstance:
     - target: {fileID: 478320765225316706, guid: 52c095d3d02bcd3478a8760552123750, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 62dd71486d00b4e048cecb415b33a62b, type: 3}
+      objectReference: {fileID: 21300000, guid: 644095240b4724ea9a497af6a9fe7349, type: 3}
     - target: {fileID: 1231292693453352528, guid: 52c095d3d02bcd3478a8760552123750, type: 3}
       propertyPath: m_Name
       value: Healthbar_Maz
@@ -11955,6 +11955,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 478320765225316706, guid: 52c095d3d02bcd3478a8760552123750, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 62dd71486d00b4e048cecb415b33a62b, type: 3}
     - target: {fileID: 1231292693453352528, guid: 52c095d3d02bcd3478a8760552123750, type: 3}
       propertyPath: m_Name
       value: Healthbar_Orin
