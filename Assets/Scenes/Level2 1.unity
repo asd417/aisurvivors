@@ -1572,6 +1572,9 @@ Transform:
   - {fileID: 1753423807}
   - {fileID: 1250142933}
   - {fileID: 567981139}
+  - {fileID: 1026558696}
+  - {fileID: 662933284}
+  - {fileID: 986162440}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &402064653
@@ -2610,7 +2613,7 @@ GameObject:
   - component: {fileID: 568114434}
   - component: {fileID: 568114436}
   m_Layer: 0
-  m_Name: Controls
+  m_Name: QWE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3333,11 +3336,11 @@ Transform:
   m_GameObject: {fileID: 662933281}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.7114861, w: -0.70270026}
-  m_LocalPosition: {x: -56.7, y: 30.8, z: 0}
-  m_LocalScale: {x: 5.27289, y: -6.25128, z: 1}
+  m_LocalPosition: {x: -38.890686, y: 14.6234665, z: -0.033594448}
+  m_LocalScale: {x: 5.27289, y: -6.2512803, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 397404395}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90.712}
 --- !u!1 &667008242
 GameObject:
@@ -4073,7 +4076,7 @@ GameObject:
   - component: {fileID: 764026843}
   - component: {fileID: 764026842}
   m_Layer: 0
-  m_Name: Asset 86
+  m_Name: Arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5471,11 +5474,11 @@ Transform:
   m_GameObject: {fileID: 986162437}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.44392228, w: 0.8960653}
-  m_LocalPosition: {x: -68.6, y: 37.4, z: 0}
-  m_LocalScale: {x: 3.878738, y: -4.8516183, z: 1}
+  m_LocalPosition: {x: -50.790684, y: 21.223469, z: -0.033594448}
+  m_LocalScale: {x: 3.8787377, y: -4.851618, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 397404395}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 52.709}
 --- !u!1 &990422914
 GameObject:
@@ -5678,11 +5681,11 @@ Transform:
   m_GameObject: {fileID: 1026558693}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.4656537, w: -0.8849671}
-  m_LocalPosition: {x: 5.9, y: 23.5, z: 0}
-  m_LocalScale: {x: 5.27289, y: -6.25128, z: 1}
+  m_LocalPosition: {x: 23.709314, y: 7.3234673, z: -0.033594448}
+  m_LocalScale: {x: 5.2728896, y: -6.25128, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 397404395}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 55.505}
 --- !u!1 &1108495697
 GameObject:
@@ -8247,7 +8250,7 @@ GameObject:
   - component: {fileID: 1459745266}
   - component: {fileID: 1459745265}
   m_Layer: 0
-  m_Name: Asset 87
+  m_Name: Click
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9945,7 +9948,7 @@ GameObject:
   - component: {fileID: 1802514879}
   - component: {fileID: 1802514880}
   m_Layer: 0
-  m_Name: TempRedWeapon
+  m_Name: RedWeapon
   m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10428,7 +10431,7 @@ GameObject:
   - component: {fileID: 1865734014}
   - component: {fileID: 1865734013}
   m_Layer: 0
-  m_Name: Asset 85
+  m_Name: WinText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12654,9 +12657,6 @@ SceneRoots:
   - {fileID: 856689298}
   - {fileID: 667008246}
   - {fileID: 1968416292}
-  - {fileID: 1026558696}
-  - {fileID: 662933284}
-  - {fileID: 986162440}
   - {fileID: 1227582713}
   - {fileID: 1115289524}
   - {fileID: 568114435}
