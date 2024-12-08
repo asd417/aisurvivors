@@ -158,6 +158,7 @@ MonoBehaviour:
   Chip: {fileID: 5126136344101472342, guid: 7a52482f579a348358bd133040b6a3be, type: 3}
   HealthBonus: {fileID: 9179292672344299889, guid: bef07c4d3b5d44de3bf02d8d019a4289, type: 3}
   WeaponBonus: {fileID: 7964483777874391744, guid: f3db7fb3e618249bb99b3521bca1efdc, type: 3}
+  sm: {fileID: 1686859821458194211, guid: e77ab35f662354d7d986cc21f26a8e92, type: 3}
   deathScalingDuration: 0.3
   randomDamage: 10
   Enemy1: 0

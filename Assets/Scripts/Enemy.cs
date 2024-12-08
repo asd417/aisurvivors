@@ -12,6 +12,8 @@ public class Enemy : MonoBehaviour
     public int health = 2; 
 
     public GameObject Chip, HealthBonus, WeaponBonus;
+    public V2SpriteManager sm;
+    private int chipCountStart = 0;
 
     public float deathScalingDuration = 0.3f;  // Duration of the gradual enemy decrease in scale for death animation
     private bool isDying = false; // Ensures that death logic is only triggered once so as to avoid multiple animations
@@ -62,7 +64,6 @@ public class Enemy : MonoBehaviour
     }
     private void Update()
     {
-
         if (Enemy1){
             float verticalVelocity = agent.velocity.y;
             animator.SetFloat("yVelocity", verticalVelocity);
@@ -72,12 +73,15 @@ public class Enemy : MonoBehaviour
             animator.SetFloat("xVelocity", xVelocity);
         }
         if (Boss){
+            if (chipCountStart < sm.chipCount){
+                health = health - (sm.chipCount - chipCountStart);
+            }
             float xVelocity = agent.velocity.x;
             float verticalVelocity = agent.velocity.y;
             animator.SetFloat("xV", xVelocity);
             animator.SetFloat("yV", verticalVelocity);
         }
-
+        chipCountStart = sm.chipCount;
         if (target != null) //if the target exists
         {
             // Move agent towards target pos

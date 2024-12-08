@@ -8,7 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: c1fc0a306790b476fae0d8fc325a4ea6
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Win.unity
     guid: 40d8e7127bdab4f5b8c10d9029e15127
   - enabled: 1
@@ -17,19 +17,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Title.unity
     guid: 9fd930feb7955401096eec661cc7ca50
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Old Levels/Level1.unity
     guid: 00d91b39e6964495f83ff8c914c8a746
   - enabled: 1
     path: Assets/Scenes/Level2 1.unity
     guid: 3007bb300ca7f48fc9cb6cc7efd2a320
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Old Levels/Level2.unity
     guid: e6318fbaf032442909dab52bd110abc2
   - enabled: 1
     path: Assets/Scenes/EnergySwords.unity
     guid: 321aeaa22f23f49a29f25f20667c8aa7
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Old Levels/Lobby.unity
     guid: 7bb77e1b935464780b185f42e0d060de
   - enabled: 1

@@ -156,7 +156,6 @@ MonoBehaviour:
   sr: {fileID: 3888268453806146011}
   weapon: {fileID: 0}
   fogSprite1: {fileID: 7020466657823440256}
-  fogSprite2: {fileID: 6054603588255572127}
   fogScale: 2.5
 --- !u!1 &5005892216827161240
 GameObject:
