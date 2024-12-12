@@ -28,18 +28,25 @@ public class FogOfWarController : MonoBehaviour
     }
     private void DisableFogOfWar()
     {
+        Debug.Log("Disabling fog");
         foreach (GameObject o in v2SpriteManager.agents)
         {
-            Player agent = o.GetComponent<Player>();
-            agent.InterpolateFogScale(100.0f, 0.1f);
+            if (o != null)
+            {
+                Player agent = o.GetComponent<Player>();
+                agent.InterpolateFogScale(100.0f, 0.1f);
+            }
         }
     }
     private void EnableFogOfWar()
     {
         foreach (GameObject o in v2SpriteManager.agents)
         {
-            Player agent = o.GetComponent<Player>();
-            agent.InterpolateFogScale(2.5f, 0.1f);
+            if (o != null)
+            {
+                Player agent = o.GetComponent<Player>();
+                agent.InterpolateFogScale(2.5f, 0.1f);
+            }
         }
     }
 }
