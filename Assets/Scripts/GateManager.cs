@@ -91,6 +91,7 @@ public class GateManager : MonoBehaviour
             {
                 SoundManager.instance.Play("GateOpening");
                 SoundManager.instance.FadeOut("Gameplay-Instrumental3", 2f);
+                SoundManager.instance.FadeIn("Serene-Atmosphere", 1.3f);
             }
             catch (Exception e) { }
             Destroy(currentWall4);
