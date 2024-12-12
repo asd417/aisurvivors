@@ -1240,6 +1240,11 @@ MonoBehaviour:
     volume: 1
     loop: 0
     source: {fileID: 0}
+  - name: Serene-Atmosphere
+    clip: {fileID: 8300000, guid: 33d07cbc9bcf54de5bd75783be56644b, type: 3}
+    volume: 1
+    loop: 1
+    source: {fileID: 0}
 --- !u!4 &2126270725
 Transform:
   m_ObjectHideFlags: 0
