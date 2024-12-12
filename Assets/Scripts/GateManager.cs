@@ -37,6 +37,7 @@ public class GateManager : MonoBehaviour
         // trigger background audio for lobby level
         SoundManager.instance.FadeIn("LobbyMusic", 2f);
         SoundManager.instance.FadeIn("LobbyAmbientWind", 2f);
+
     }
 
     public void Act(GameObject gate){
@@ -91,7 +92,7 @@ public class GateManager : MonoBehaviour
             {
                 SoundManager.instance.Play("GateOpening");
                 SoundManager.instance.FadeOut("Gameplay-Instrumental3", 2f);
-                SoundManager.instance.FadeIn("Serene-Atmosphere", 1.3f);
+                SoundManager.instance.FadeIn("Serene-Atmosphere", 1.5f);
             }
             catch (Exception e) { }
             Destroy(currentWall4);
